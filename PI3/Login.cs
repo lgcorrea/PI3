@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace PI3
 {
-    public partial class Form1 : Form
+    public partial class Tela_Login : Form
     {
-        public Form1()
+        public Tela_Login()
         {
             InitializeComponent();
-            this.WindowState = FormWindowState.Maximized;
+            
         }
 
         private void bt2_Click(object sender, EventArgs e)
@@ -26,9 +26,9 @@ namespace PI3
         private void bt1_Click(object sender, EventArgs e)
         {
             
-            Form2 tlDep = new Form2();
+            Menu tlDep = new Menu();
             tlDep.Show();
-           
+                      
 
         }
 

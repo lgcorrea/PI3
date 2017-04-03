@@ -1,6 +1,6 @@
 ﻿namespace PI3
 {
-    partial class Form1
+    partial class Tela_Login
     {
         /// <summary>
         /// Required designer variable.
@@ -95,7 +95,7 @@
             this.label2.TabIndex = 5;
             this.label2.Text = "Senha";
             // 
-            // Form1
+            // Tela_Login
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -107,7 +107,7 @@
             this.Controls.Add(this.tb1);
             this.Controls.Add(this.bt2);
             this.Controls.Add(this.bt1);
-            this.Name = "Form1";
+            this.Name = "Tela_Login";
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Show;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
