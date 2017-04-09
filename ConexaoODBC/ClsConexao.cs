@@ -8,24 +8,8 @@ using System.Threading.Tasks;
 
 namespace ConexaoODBC
 {
-    class Conexao
+    class ClsConexao
     {
-        static void Main(string[] args)
-        {
-        }
-        // public static SqlConnection Conectar()
-        /* {
-
-             string stringDeConexao = @"driver={SQL Server}; server=.\SQLEXPRESS;
-                                        uid=sa;
-                                        pwd=sa;
-                                         database=Kanino ";
-             OdbcConnection Conexao = new OdbcConnection(stringDeConexao);
-
-             Conexao.Open();
-             return Conexao;
-         }*/
-
         public static SqlConnection Conectar()
         {
             SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
@@ -36,6 +20,8 @@ namespace ConexaoODBC
 
             SqlConnection cn = new SqlConnection(sb.ConnectionString);
             cn.Open();
+
+
             return cn;
         }
 

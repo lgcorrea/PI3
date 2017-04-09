@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -48,7 +49,7 @@ namespace PI3
             textSenha.PasswordChar = '*';
             string senha = textSenha.Text;
         }
-
+        
         //PERMITE LOGAR APERTANDO TECLA ENTER
         private void Tela_Login_KeyPress(object sender, KeyPressEventArgs e)
         {
@@ -59,7 +60,8 @@ namespace PI3
 
             }
 
-        }
+        }       
+
         //botao Entrar
         private void bt_entrar_Click(object sender, EventArgs e)
         {
