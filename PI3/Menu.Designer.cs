@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Menu));
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -43,26 +41,14 @@
             this.pedidosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.historicoDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controleDeEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.toolStripButton2 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton4 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton5 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.bt_Clientes = new System.Windows.Forms.Button();
+            this.bt_config = new System.Windows.Forms.Button();
+            this.bt_Estoque = new System.Windows.Forms.Button();
+            this.bt_Vendas = new System.Windows.Forms.Button();
+            this.bt_Produtos = new System.Windows.Forms.Button();
+            this.bt_sair = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
-            this.toolStrip1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // button1
-            // 
-            this.button1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
-            this.button1.Location = new System.Drawing.Point(29, 33);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(87, 23);
-            this.button1.TabIndex = 0;
-            this.button1.Text = "Clientes";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // menuStrip1
             // 
@@ -72,7 +58,7 @@
             this.pedidosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(688, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -142,7 +128,7 @@
             this.historicoDePedidosToolStripMenuItem,
             this.controleDeEstoqueToolStripMenuItem});
             this.pedidosToolStripMenuItem.Name = "pedidosToolStripMenuItem";
-            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(56, 20);
+            this.pedidosToolStripMenuItem.Size = new System.Drawing.Size(57, 20);
             this.pedidosToolStripMenuItem.Text = "Vendas";
             // 
             // pedidosToolStripMenuItem1
@@ -164,95 +150,120 @@
             this.controleDeEstoqueToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.controleDeEstoqueToolStripMenuItem.Text = "Controle de Estoque";
             // 
-            // toolStrip1
+            // bt_Clientes
             // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(32, 32);
-            this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripButton2,
-            this.toolStripButton1,
-            this.toolStripButton4,
-            this.toolStripButton5,
-            this.toolStripButton3});
-            this.toolStrip1.Location = new System.Drawing.Point(0, 24);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(688, 39);
-            this.toolStrip1.TabIndex = 7;
-            this.toolStrip1.Text = "toolStrip1";
+            this.bt_Clientes.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Clientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_Clientes.FlatAppearance.BorderSize = 2;
+            this.bt_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Clientes.ForeColor = System.Drawing.Color.White;
+            this.bt_Clientes.Location = new System.Drawing.Point(12, 49);
+            this.bt_Clientes.Name = "bt_Clientes";
+            this.bt_Clientes.Size = new System.Drawing.Size(152, 96);
+            this.bt_Clientes.TabIndex = 8;
+            this.bt_Clientes.Text = "Clientes";
+            this.bt_Clientes.UseVisualStyleBackColor = false;
+            this.bt_Clientes.Click += new System.EventHandler(this.bt_Clientes_Click);
             // 
-            // toolStripButton2
+            // bt_config
             // 
-            this.toolStripButton2.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton2.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton2.Image")));
-            this.toolStripButton2.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton2.Name = "toolStripButton2";
-            this.toolStripButton2.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton2.Text = "Cadastro Cliente";
-            this.toolStripButton2.Click += new System.EventHandler(this.toolStripButton2_Click);
+            this.bt_config.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_config.FlatAppearance.BorderSize = 2;
+            this.bt_config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_config.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_config.ForeColor = System.Drawing.Color.White;
+            this.bt_config.Location = new System.Drawing.Point(12, 305);
+            this.bt_config.Name = "bt_config";
+            this.bt_config.Size = new System.Drawing.Size(152, 96);
+            this.bt_config.TabIndex = 9;
+            this.bt_config.Text = "Config.";
+            this.bt_config.UseVisualStyleBackColor = false;
+            this.bt_config.Click += new System.EventHandler(this.button2_Click);
             // 
-            // toolStripButton1
+            // bt_Estoque
             // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton1.Text = "Cadastro de Usuário";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
+            this.bt_Estoque.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Estoque.FlatAppearance.BorderSize = 2;
+            this.bt_Estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Estoque.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Estoque.ForeColor = System.Drawing.Color.White;
+            this.bt_Estoque.Location = new System.Drawing.Point(203, 186);
+            this.bt_Estoque.Name = "bt_Estoque";
+            this.bt_Estoque.Size = new System.Drawing.Size(152, 96);
+            this.bt_Estoque.TabIndex = 10;
+            this.bt_Estoque.Text = "Estoque";
+            this.bt_Estoque.UseVisualStyleBackColor = false;
             // 
-            // toolStripButton4
+            // bt_Vendas
             // 
-            this.toolStripButton4.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton4.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton4.Image")));
-            this.toolStripButton4.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton4.Name = "toolStripButton4";
-            this.toolStripButton4.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton4.Text = "Cadstro Produtos";
+            this.bt_Vendas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Vendas.FlatAppearance.BorderSize = 2;
+            this.bt_Vendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Vendas.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Vendas.ForeColor = System.Drawing.Color.White;
+            this.bt_Vendas.Location = new System.Drawing.Point(203, 49);
+            this.bt_Vendas.Name = "bt_Vendas";
+            this.bt_Vendas.Size = new System.Drawing.Size(152, 96);
+            this.bt_Vendas.TabIndex = 11;
+            this.bt_Vendas.Text = "Vendas";
+            this.bt_Vendas.UseVisualStyleBackColor = false;
             // 
-            // toolStripButton5
+            // bt_Produtos
             // 
-            this.toolStripButton5.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton5.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton5.Image")));
-            this.toolStripButton5.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton5.Name = "toolStripButton5";
-            this.toolStripButton5.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton5.Text = "Controle de Estoque";
+            this.bt_Produtos.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Produtos.FlatAppearance.BorderSize = 2;
+            this.bt_Produtos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Produtos.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Produtos.ForeColor = System.Drawing.Color.White;
+            this.bt_Produtos.Location = new System.Drawing.Point(12, 186);
+            this.bt_Produtos.Name = "bt_Produtos";
+            this.bt_Produtos.Size = new System.Drawing.Size(152, 96);
+            this.bt_Produtos.TabIndex = 12;
+            this.bt_Produtos.Text = "Produtos";
+            this.bt_Produtos.UseVisualStyleBackColor = false;
             // 
-            // toolStripButton3
+            // bt_sair
             // 
-            this.toolStripButton3.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton3.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton3.Image")));
-            this.toolStripButton3.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton3.Name = "toolStripButton3";
-            this.toolStripButton3.Size = new System.Drawing.Size(36, 36);
-            this.toolStripButton3.Text = "Sair";
-            this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
+            this.bt_sair.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_sair.FlatAppearance.BorderSize = 2;
+            this.bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_sair.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_sair.ForeColor = System.Drawing.Color.White;
+            this.bt_sair.Location = new System.Drawing.Point(671, 305);
+            this.bt_sair.Name = "bt_sair";
+            this.bt_sair.Size = new System.Drawing.Size(152, 96);
+            this.bt_sair.TabIndex = 13;
+            this.bt_sair.Text = "Config.";
+            this.bt_sair.UseVisualStyleBackColor = false;
             // 
-            // Form2
+            // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(688, 413);
-            this.Controls.Add(this.toolStrip1);
-            this.Controls.Add(this.button1);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(842, 431);
+            this.Controls.Add(this.bt_sair);
+            this.Controls.Add(this.bt_Produtos);
+            this.Controls.Add(this.bt_Vendas);
+            this.Controls.Add(this.bt_Estoque);
+            this.Controls.Add(this.bt_config);
+            this.Controls.Add(this.bt_Clientes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
-            this.Name = "Form2";
+            this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Controlde Vendas";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.Form2_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
-            this.toolStrip1.ResumeLayout(false);
-            this.toolStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
@@ -260,17 +271,17 @@
         private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem tipoDePagamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem historicoDePedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem controleDeEstoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton toolStripButton2;
-        private System.Windows.Forms.ToolStripButton toolStripButton3;
-        private System.Windows.Forms.ToolStripButton toolStripButton4;
-        private System.Windows.Forms.ToolStripButton toolStripButton5;
+        private System.Windows.Forms.Button bt_Clientes;
+        private System.Windows.Forms.Button bt_config;
+        private System.Windows.Forms.Button bt_Estoque;
+        private System.Windows.Forms.Button bt_Vendas;
+        private System.Windows.Forms.Button bt_Produtos;
+        private System.Windows.Forms.Button bt_sair;
     }
 }

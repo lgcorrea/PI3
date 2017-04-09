@@ -17,52 +17,43 @@ namespace PI3
             InitializeComponent();
             
         }
-
-        private void bt2_Click(object sender, EventArgs e)
-        {
-            Close();
-        }
-
-        private void bt1_Click(object sender, EventArgs e)
-        {
-            
-            Menu tlDep = new Menu();
-            tlDep.Show();
-                      
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-            string senha;
-            senha = Console.ReadLine();
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tb1_TextChanged(object sender, EventArgs e)
-        {
-            string login;
-            login = Console.ReadLine();
-           
-        }
-
+        //tela login
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
 
+        // label login
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        //label senha
         private void label2_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void pictureBox1_Click(object sender, EventArgs e)
+        //Campo texto login
+        private void textLogin_TextChanged(object sender, EventArgs e)
         {
+            string login;
+            login = Console.ReadLine();
+        }
 
+        //Campo texto senha
+        private void textSenha_TextChanged(object sender, EventArgs e)
+        {
+            string senha;
+            senha = Console.ReadLine();
+        }
+
+        //botao Entrar
+        private void bt_entrar_Click(object sender, EventArgs e)
+        {
+            Menu Tela_Menu = new Menu();
+            Tela_Menu.Show();
         }
     }
 }

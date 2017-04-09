@@ -90,11 +90,6 @@ namespace PI3
             Close();
         }
 
-        private void toolStripButton2_Click(object sender, EventArgs e)
-        {
-            Cad_Cliente TblCliente = new Cad_Cliente();
-            TblCliente.Show();
-        }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
@@ -109,6 +104,17 @@ namespace PI3
         private void toolStripButton3_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void bt_Clientes_Click(object sender, EventArgs e)
+        {
+            Cad_Cliente TblCliente = new Cad_Cliente();
+            TblCliente.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
