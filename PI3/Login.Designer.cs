@@ -70,7 +70,7 @@
             this.bt_entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_entrar.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_entrar.ForeColor = System.Drawing.Color.White;
-            this.bt_entrar.Location = new System.Drawing.Point(114, 176);
+            this.bt_entrar.Location = new System.Drawing.Point(106, 164);
             this.bt_entrar.Name = "bt_entrar";
             this.bt_entrar.Size = new System.Drawing.Size(95, 48);
             this.bt_entrar.TabIndex = 6;
@@ -83,7 +83,7 @@
             this.textSenha.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textSenha.Location = new System.Drawing.Point(92, 110);
             this.textSenha.Name = "textSenha";
-            this.textSenha.Size = new System.Drawing.Size(117, 23);
+            this.textSenha.Size = new System.Drawing.Size(131, 23);
             this.textSenha.TabIndex = 7;
             this.textSenha.TextChanged += new System.EventHandler(this.textSenha_TextChanged);
             // 
@@ -92,7 +92,7 @@
             this.textLogin.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textLogin.Location = new System.Drawing.Point(92, 56);
             this.textLogin.Name = "textLogin";
-            this.textLogin.Size = new System.Drawing.Size(117, 23);
+            this.textLogin.Size = new System.Drawing.Size(131, 23);
             this.textLogin.TabIndex = 9;
             this.textLogin.TextChanged += new System.EventHandler(this.textLogin_TextChanged);
             // 
@@ -117,6 +117,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Tela_Login_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

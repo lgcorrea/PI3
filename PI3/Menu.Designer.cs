@@ -33,7 +33,6 @@
             this.clientesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.produtosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuáriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.tipoDePagamentosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -68,12 +67,12 @@
             this.clientesToolStripMenuItem1,
             this.produtosToolStripMenuItem,
             this.usuáriosToolStripMenuItem,
-            this.tipoDePagamentosToolStripMenuItem,
             this.toolStripSeparator1,
             this.sairToolStripMenuItem});
             this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
             this.clientesToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.clientesToolStripMenuItem.Text = "Cadastros";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // clientesToolStripMenuItem1
             // 
@@ -96,13 +95,6 @@
             this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
             this.usuáriosToolStripMenuItem.Text = "&Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
-            // 
-            // tipoDePagamentosToolStripMenuItem
-            // 
-            this.tipoDePagamentosToolStripMenuItem.Name = "tipoDePagamentosToolStripMenuItem";
-            this.tipoDePagamentosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
-            this.tipoDePagamentosToolStripMenuItem.Text = "&Tipo de Pagamentos";
-            this.tipoDePagamentosToolStripMenuItem.Click += new System.EventHandler(this.tipoDePagamentosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -269,7 +261,6 @@
         private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem produtosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem usuáriosToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tipoDePagamentosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sairToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem pedidosToolStripMenuItem;

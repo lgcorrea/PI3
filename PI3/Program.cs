@@ -13,8 +13,7 @@ namespace PI3
         /// </summary>
         [STAThread]
         static void Main()
-        {
-            string x;
+        {            
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Tela_Login());

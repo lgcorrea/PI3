@@ -47,6 +47,7 @@ namespace PI3
 
         }
 
+        // Form Tela Login
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -108,11 +109,16 @@ namespace PI3
 
         private void bt_Clientes_Click(object sender, EventArgs e)
         {
-            Cad_Cliente TblCliente = new Cad_Cliente();
-            TblCliente.Show();
+            Cad_Cliente TelaCliente = new Cad_Cliente();
+            TelaCliente.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

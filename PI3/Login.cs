@@ -38,22 +38,38 @@ namespace PI3
         //Campo texto login
         private void textLogin_TextChanged(object sender, EventArgs e)
         {
-            string login;
-            login = Console.ReadLine();
+
+            string login = textLogin.Text;
         }
 
         //Campo texto senha
         private void textSenha_TextChanged(object sender, EventArgs e)
         {
-            string senha;
-            senha = Console.ReadLine();
+            textSenha.PasswordChar = '*';
+            string senha = textSenha.Text;
         }
 
+        //PERMITE LOGAR APERTANDO TECLA ENTER
+        private void Tela_Login_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == 13)
+            {
+
+                bt_entrar_Click(sender, e);
+
+            }
+
+        }
         //botao Entrar
         private void bt_entrar_Click(object sender, EventArgs e)
         {
+            
+
             Menu Tela_Menu = new Menu();
             Tela_Menu.Show();
         }
+
+
+        
     }
 }
