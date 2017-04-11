@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataModel;
 
 namespace PI3
 {
@@ -40,14 +41,14 @@ namespace PI3
         private void textLogin_TextChanged(object sender, EventArgs e)
         {
 
-            string login = textLogin.Text;
+            //string login = textLogin.Text;
         }
 
         //Campo texto senha
         private void textSenha_TextChanged(object sender, EventArgs e)
         {
             textSenha.PasswordChar = '*';
-            string senha = textSenha.Text;
+            //string senha = textSenha.Text;
         }
         
         //PERMITE LOGAR APERTANDO TECLA ENTER
@@ -67,8 +68,24 @@ namespace PI3
         {
             
 
-            Menu Tela_Menu = new Menu();
-            Tela_Menu.Show();
+           
+            ClsUsuario usuarioLogin = ClsUsuario.Logar(textLogin.Text,textSenha.Text);
+
+            if (usuarioLogin == null)
+            {
+                MessageBox.Show("Login inválido");
+
+            }
+
+            else {
+                Menu Tela_Menu = new Menu();
+                Tela_Menu.Show();
+
+            }
+            
+
+            
+            
         }
 
 

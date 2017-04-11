@@ -41,10 +41,10 @@
             this.historicoDePedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.controleDeEstoqueToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bt_Clientes = new System.Windows.Forms.Button();
-            this.bt_config = new System.Windows.Forms.Button();
             this.bt_Estoque = new System.Windows.Forms.Button();
             this.bt_Vendas = new System.Windows.Forms.Button();
             this.bt_Produtos = new System.Windows.Forms.Button();
+            this.bt_Config = new System.Windows.Forms.Button();
             this.bt_sair = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -77,14 +77,14 @@
             // clientesToolStripMenuItem1
             // 
             this.clientesToolStripMenuItem1.Name = "clientesToolStripMenuItem1";
-            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(183, 22);
+            this.clientesToolStripMenuItem1.Size = new System.Drawing.Size(122, 22);
             this.clientesToolStripMenuItem1.Text = "&Clientes";
             this.clientesToolStripMenuItem1.Click += new System.EventHandler(this.clientesToolStripMenuItem1_Click);
             // 
             // produtosToolStripMenuItem
             // 
             this.produtosToolStripMenuItem.Name = "produtosToolStripMenuItem";
-            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.produtosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.produtosToolStripMenuItem.Text = "&Produtos";
             // 
             // usuáriosToolStripMenuItem
@@ -92,19 +92,19 @@
             this.usuáriosToolStripMenuItem.Checked = true;
             this.usuáriosToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.usuáriosToolStripMenuItem.Name = "usuáriosToolStripMenuItem";
-            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.usuáriosToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.usuáriosToolStripMenuItem.Text = "&Usuários";
             this.usuáriosToolStripMenuItem.Click += new System.EventHandler(this.usuáriosToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(180, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(119, 6);
             // 
             // sairToolStripMenuItem
             // 
             this.sairToolStripMenuItem.Name = "sairToolStripMenuItem";
-            this.sairToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.sairToolStripMenuItem.Size = new System.Drawing.Size(122, 22);
             this.sairToolStripMenuItem.Text = "&Sair";
             this.sairToolStripMenuItem.Click += new System.EventHandler(this.sairToolStripMenuItem_Click);
             // 
@@ -158,21 +158,6 @@
             this.bt_Clientes.UseVisualStyleBackColor = false;
             this.bt_Clientes.Click += new System.EventHandler(this.bt_Clientes_Click);
             // 
-            // bt_config
-            // 
-            this.bt_config.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bt_config.FlatAppearance.BorderSize = 2;
-            this.bt_config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_config.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_config.ForeColor = System.Drawing.Color.White;
-            this.bt_config.Location = new System.Drawing.Point(12, 305);
-            this.bt_config.Name = "bt_config";
-            this.bt_config.Size = new System.Drawing.Size(152, 96);
-            this.bt_config.TabIndex = 9;
-            this.bt_config.Text = "Config.";
-            this.bt_config.UseVisualStyleBackColor = false;
-            this.bt_config.Click += new System.EventHandler(this.button2_Click);
-            // 
             // bt_Estoque
             // 
             this.bt_Estoque.BackColor = System.Drawing.Color.DodgerBlue;
@@ -186,6 +171,7 @@
             this.bt_Estoque.TabIndex = 10;
             this.bt_Estoque.Text = "Estoque";
             this.bt_Estoque.UseVisualStyleBackColor = false;
+            this.bt_Estoque.Click += new System.EventHandler(this.bt_Estoque_Click);
             // 
             // bt_Vendas
             // 
@@ -200,6 +186,7 @@
             this.bt_Vendas.TabIndex = 11;
             this.bt_Vendas.Text = "Vendas";
             this.bt_Vendas.UseVisualStyleBackColor = false;
+            this.bt_Vendas.Click += new System.EventHandler(this.bt_Vendas_Click);
             // 
             // bt_Produtos
             // 
@@ -214,6 +201,22 @@
             this.bt_Produtos.TabIndex = 12;
             this.bt_Produtos.Text = "Produtos";
             this.bt_Produtos.UseVisualStyleBackColor = false;
+            this.bt_Produtos.Click += new System.EventHandler(this.bt_Produtos_Click);
+            // 
+            // bt_Config
+            // 
+            this.bt_Config.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Config.FlatAppearance.BorderSize = 2;
+            this.bt_Config.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Config.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Config.ForeColor = System.Drawing.Color.White;
+            this.bt_Config.Location = new System.Drawing.Point(12, 323);
+            this.bt_Config.Name = "bt_Config";
+            this.bt_Config.Size = new System.Drawing.Size(152, 96);
+            this.bt_Config.TabIndex = 13;
+            this.bt_Config.Text = "Config.";
+            this.bt_Config.UseVisualStyleBackColor = false;
+            this.bt_Config.Click += new System.EventHandler(this.bt_Config_Click);
             // 
             // bt_sair
             // 
@@ -222,12 +225,13 @@
             this.bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_sair.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_sair.ForeColor = System.Drawing.Color.White;
-            this.bt_sair.Location = new System.Drawing.Point(671, 305);
+            this.bt_sair.Location = new System.Drawing.Point(658, 323);
             this.bt_sair.Name = "bt_sair";
             this.bt_sair.Size = new System.Drawing.Size(152, 96);
-            this.bt_sair.TabIndex = 13;
-            this.bt_sair.Text = "Config.";
+            this.bt_sair.TabIndex = 14;
+            this.bt_sair.Text = "Sair";
             this.bt_sair.UseVisualStyleBackColor = false;
+            this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
             // 
             // Menu
             // 
@@ -236,10 +240,10 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(842, 431);
             this.Controls.Add(this.bt_sair);
+            this.Controls.Add(this.bt_Config);
             this.Controls.Add(this.bt_Produtos);
             this.Controls.Add(this.bt_Vendas);
             this.Controls.Add(this.bt_Estoque);
-            this.Controls.Add(this.bt_config);
             this.Controls.Add(this.bt_Clientes);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -269,10 +273,10 @@
         private System.Windows.Forms.ToolStripMenuItem controleDeEstoqueToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.Button bt_Clientes;
-        private System.Windows.Forms.Button bt_config;
         private System.Windows.Forms.Button bt_Estoque;
         private System.Windows.Forms.Button bt_Vendas;
         private System.Windows.Forms.Button bt_Produtos;
+        private System.Windows.Forms.Button bt_Config;
         private System.Windows.Forms.Button bt_sair;
     }
 }

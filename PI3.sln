@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PI3", "PI3\PI3.csproj", "{55B859E8-26C8-4F17-BF35-E3548C1DE38F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConexaoODBC", "ConexaoODBC\ConexaoODBC.csproj", "{7610A462-DF83-47C5-9E62-F2EB0B301026}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataModel", "DataModel\DataModel.csproj", "{0392F4DD-B817-40DA-9F69-961A3FF8DC25}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{55B859E8-26C8-4F17-BF35-E3548C1DE38F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{55B859E8-26C8-4F17-BF35-E3548C1DE38F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{55B859E8-26C8-4F17-BF35-E3548C1DE38F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7610A462-DF83-47C5-9E62-F2EB0B301026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7610A462-DF83-47C5-9E62-F2EB0B301026}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7610A462-DF83-47C5-9E62-F2EB0B301026}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{7610A462-DF83-47C5-9E62-F2EB0B301026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0392F4DD-B817-40DA-9F69-961A3FF8DC25}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0392F4DD-B817-40DA-9F69-961A3FF8DC25}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0392F4DD-B817-40DA-9F69-961A3FF8DC25}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0392F4DD-B817-40DA-9F69-961A3FF8DC25}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
