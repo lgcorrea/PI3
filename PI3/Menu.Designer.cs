@@ -46,6 +46,8 @@
             this.bt_Produtos = new System.Windows.Forms.Button();
             this.bt_Config = new System.Windows.Forms.Button();
             this.bt_sair = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label_usuario_logado = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -57,7 +59,7 @@
             this.pedidosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(842, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(856, 24);
             this.menuStrip1.TabIndex = 6;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -233,12 +235,37 @@
             this.bt_sair.UseVisualStyleBackColor = false;
             this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(654, 442);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 20);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Usuário:";
+            this.label1.Click += new System.EventHandler(this.label1_Click);
+            // 
+            // label_usuario_logado
+            // 
+            this.label_usuario_logado.AutoSize = true;
+            this.label_usuario_logado.Font = new System.Drawing.Font("Segoe UI Semibold", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_usuario_logado.Location = new System.Drawing.Point(726, 442);
+            this.label_usuario_logado.Name = "label_usuario_logado";
+            this.label_usuario_logado.Size = new System.Drawing.Size(66, 20);
+            this.label_usuario_logado.TabIndex = 16;
+            this.label_usuario_logado.Text = "Usuário:";
+            this.label_usuario_logado.BindingContextChanged += new System.EventHandler(this.label_usuario_logado_Click);
+            this.label_usuario_logado.TextChanged += new System.EventHandler(this.label_usuario_logado_Click);
+            // 
             // Menu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(842, 431);
+            this.ClientSize = new System.Drawing.Size(856, 471);
+            this.Controls.Add(this.label_usuario_logado);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.bt_sair);
             this.Controls.Add(this.bt_Config);
             this.Controls.Add(this.bt_Produtos);
@@ -246,6 +273,7 @@
             this.Controls.Add(this.bt_Estoque);
             this.Controls.Add(this.bt_Clientes);
             this.Controls.Add(this.menuStrip1);
+            this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -278,5 +306,7 @@
         private System.Windows.Forms.Button bt_Produtos;
         private System.Windows.Forms.Button bt_Config;
         private System.Windows.Forms.Button bt_sair;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_usuario_logado;
     }
 }

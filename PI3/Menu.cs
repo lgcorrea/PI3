@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DataModel;
 
 namespace PI3
 {
@@ -95,10 +96,22 @@ namespace PI3
         {
 
         }
-
+    
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label_usuario_logado_Click(object sender, EventArgs e)
+        {
+            label_usuario_logado.Text = ClsUsuario.GetNomeUsuario();
+
+
         }
     }
 }

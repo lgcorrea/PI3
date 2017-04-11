@@ -23,8 +23,8 @@ namespace DataModel
 
             ClsUsuario u = null;
 
-            string sql = (@"SELECT loginUsuario, nomeUsuario
-                              FROM usuario
+            string sql = (@"SELECT loginUsuario, nomeUsuario, tipoPerfil
+                                  FROM usuario
                               where loginUsuario = @_loginUsuario 
                               and senhaUsuario = @_senhaUsuario 
                               and usuarioAtivo = 1");
@@ -34,15 +34,16 @@ namespace DataModel
 
             cmd.Parameters.Add("@_loginUsuario", SqlDbType.VarChar).Value = _loginUsuario;
             cmd.Parameters.Add("@_senhaUsuario", SqlDbType.VarChar).Value = _senhaUsuario;
-            cmd.Parameters.Add("@_loginUsuario", SqlDbType.VarChar).Value = _loginUsuario;
             SqlDataReader dr = cmd.ExecuteReader();
             u = new ClsUsuario();
             dr.Read();
             u.loginUsuario = dr.GetString(dr.GetOrdinal("loginUsuario"));
-            u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));            
+            u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));
+            u.tipoPerfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
 
             return u;
         }
+       
 
 
 
