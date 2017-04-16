@@ -90,11 +90,14 @@ namespace PI3
         private void bt_Estoque_Click(object sender, EventArgs e)
         {
 
+            
+
         }
 
         private void bt_Config_Click(object sender, EventArgs e)
         {
-
+            Cadastro_Usuario telaUsuario = new Cadastro_Usuario();
+            telaUsuario.ShowDialog();
         }
     
         private void bt_sair_Click(object sender, EventArgs e)
@@ -109,8 +112,11 @@ namespace PI3
 
         private void label_usuario_logado_Click(object sender, EventArgs e)
         {
-            label_usuario_logado.Text = ClsUsuario.GetNomeUsuario();
+            
+            ClsUsuario nameUserLoegado = new ClsUsuario();
 
+
+            label_usuario_logado.Text = nameUserLoegado.nomeUsuario;
 
         }
     }

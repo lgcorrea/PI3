@@ -22,26 +22,44 @@ namespace DataModel
         public static ClsUsuario Logar(string _loginUsuario, string _senhaUsuario) {
 
             ClsUsuario u = null;
-
-            string sql = (@"SELECT loginUsuario, nomeUsuario, tipoPerfil
+            try
+            {
+                string sql = (@"SELECT loginUsuario, nomeUsuario, tipoPerfil
                                   FROM usuario
                               where loginUsuario = @_loginUsuario 
                               and senhaUsuario = @_senhaUsuario 
                               and usuarioAtivo = 1");
-            SqlConnection cn = ClsConexao.Conectar();
-            SqlCommand cmd = cn.CreateCommand();
-            cmd.CommandText = sql;
+                SqlConnection cn = ClsConexao.Conectar();
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = sql;
 
-            cmd.Parameters.Add("@_loginUsuario", SqlDbType.VarChar).Value = _loginUsuario;
-            cmd.Parameters.Add("@_senhaUsuario", SqlDbType.VarChar).Value = _senhaUsuario;
-            SqlDataReader dr = cmd.ExecuteReader();
-            u = new ClsUsuario();
-            dr.Read();
-            u.loginUsuario = dr.GetString(dr.GetOrdinal("loginUsuario"));
-            u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));
-            u.tipoPerfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
 
+                cmd.Parameters.Add("@_loginUsuario", SqlDbType.VarChar).Value = _loginUsuario;
+                cmd.Parameters.Add("@_senhaUsuario", SqlDbType.VarChar).Value = _senhaUsuario;
+                        
+                SqlDataReader dr = cmd.ExecuteReader();
+                u = new ClsUsuario();
+
+                dr.Read();
+                u.loginUsuario = dr.GetString(dr.GetOrdinal("loginUsuario"));
+                u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));
+                u.tipoPerfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
+
+                
+            }
+            catch (Exception e)
+                
+            {
+                Console.WriteLine("Usuário ou senha incorreto");
+                u = null;      
+            }
             return u;
+
+
+        }
+
+
+    
         }
        
 
@@ -49,4 +67,3 @@ namespace DataModel
 
 
     }
-}

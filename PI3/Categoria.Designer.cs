@@ -37,9 +37,11 @@
             // nom_categoria
             // 
             this.nom_categoria.AutoSize = true;
-            this.nom_categoria.Location = new System.Drawing.Point(28, 31);
+            this.nom_categoria.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nom_categoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.nom_categoria.Location = new System.Drawing.Point(15, 28);
             this.nom_categoria.Name = "nom_categoria";
-            this.nom_categoria.Size = new System.Drawing.Size(55, 13);
+            this.nom_categoria.Size = new System.Drawing.Size(69, 17);
             this.nom_categoria.TabIndex = 0;
             this.nom_categoria.Text = "Categoria:";
             // 
@@ -53,9 +55,11 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(28, 67);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(15, 64);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(58, 13);
+            this.label1.Size = new System.Drawing.Size(68, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Descrição:";
             // 
@@ -70,13 +74,15 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(258, 141);
+            this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.ClientSize = new System.Drawing.Size(259, 134);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.nom_categoria);
             this.Name = "Categoria";
-            this.Text = "Form6";
+            this.Tag = "";
+            this.Text = "Categoria de Produtos";
             this.ResumeLayout(false);
             this.PerformLayout();
 

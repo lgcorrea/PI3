@@ -80,11 +80,12 @@ namespace PI3
             else {
                 
                 Menu Tela_Menu = new Menu();                
-                Tela_Menu.ShowDialog();
-                
+                Tela_Menu.ShowDialog();    
                 
 
             }
+
+            
             
 
             
