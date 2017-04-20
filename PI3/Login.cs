@@ -66,26 +66,31 @@ namespace PI3
         //botao Entrar
         private void bt_entrar_Click(object sender, EventArgs e)
         {
-            
-
-           
-            ClsUsuario usuarioLogin = ClsUsuario.Logar(textLogin.Text,textSenha.Text);
-
-            if (usuarioLogin == null)
+            try
             {
-                MessageBox.Show("Login inválido");
+                ClsUsuario usuarioLogin = ClsUsuario.Logar(textLogin.Text, textSenha.Text);
 
+                if (usuarioLogin == null)
+                {
+                    MessageBox.Show("Login inválido");
+
+                }
+
+                else
+                {
+
+                    Menu Tela_Menu = new Menu(usuarioLogin);
+                    
+                    Tela_Menu.Show();                    
+                    this.Hide();                  
+                    
+
+                }
             }
 
-            else {
-                
-                Menu Tela_Menu = new Menu();                
-                Tela_Menu.ShowDialog();    
-                
-
+            catch (Exception ex ) {
+                MessageBox.Show(ex.GetType().ToString());
             }
-
-            
             
 
             

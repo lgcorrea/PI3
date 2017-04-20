@@ -44,21 +44,20 @@ namespace DataModel
                 u.loginUsuario = dr.GetString(dr.GetOrdinal("loginUsuario"));
                 u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));
                 u.tipoPerfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
+               
 
-                
             }
-            catch (Exception e)
+            catch (InvalidOperationException e)
                 
             {
-                Console.WriteLine("Usuário ou senha incorreto");
+                //Console.WriteLine("Usuário ou senha incorreto");
                 u = null;      
             }
-            return u;
 
+            return u;
+            
 
         }
-
-
     
         }
        

@@ -12,10 +12,16 @@ using DataModel;
 namespace PI3
 {
     public partial class Menu : Form
+
+
     {
-        public Menu()
+        private ClsUsuario infoUser;
+
+        public Menu(ClsUsuario infoUser)
         {
             InitializeComponent();
+            this.infoUser = infoUser;           
+            
         }
 
         // Form Tela Login
@@ -111,12 +117,12 @@ namespace PI3
         }
 
         private void label_usuario_logado_Click(object sender, EventArgs e)
-        {
+        {          
             
-            ClsUsuario nameUserLoegado = new ClsUsuario();
+
+            label_usuario_logado.Text = infoUser.nomeUsuario;
 
 
-            label_usuario_logado.Text = nameUserLoegado.nomeUsuario;
 
         }
     }
