@@ -120,7 +120,7 @@ namespace PI3
         {          
             
 
-            label_usuario_logado.Text = infoUser.nomeUsuario;
+            label_usuario_logado.Text = infoUser.nomeUsuario;        
 
 
 

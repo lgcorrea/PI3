@@ -68,7 +68,8 @@ namespace PI3
         {
             try
             {
-                ClsUsuario usuarioLogin = ClsUsuario.Logar(textLogin.Text, textSenha.Text);
+              
+                ClsUsuario usuarioLogin = new ClsUsuario().Logar(textLogin.Text, textSenha.Text);
 
                 if (usuarioLogin == null)
                 {
@@ -88,8 +89,8 @@ namespace PI3
                 }
             }
 
-            catch (Exception ex ) {
-                MessageBox.Show(ex.GetType().ToString());
+            catch (System.Data.SqlClient.SqlException ex ) {
+                MessageBox.Show("Servidor fora do ar, tente novamente mais tarde!");
             }
             
 

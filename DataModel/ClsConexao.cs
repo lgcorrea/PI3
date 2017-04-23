@@ -10,13 +10,13 @@ namespace DataModel
 {
     class ClsConexao
     {
-        public static SqlConnection Conectar()
+        public SqlConnection Conectar()
         {
             SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
-            sb.UserID = "sa";
-            sb.Password = "123";
-            sb.DataSource = @"USER-PC\SQLEXPRESS";
-            sb.InitialCatalog = "Kanino";
+            sb.UserID = "TSI";
+            sb.Password = "SistemasInternet123";
+            sb.DataSource = @"delta-pi.database.windows.net";
+            sb.InitialCatalog = "Delta";
 
             SqlConnection cn = new SqlConnection(sb.ConnectionString);
             cn.Open();

@@ -19,7 +19,9 @@ namespace DataModel
         public string tipoPerfil { get; set; }
         public bool usuarioAtivo { get; set; }
 
-        public static ClsUsuario Logar(string _loginUsuario, string _senhaUsuario) {
+        public ClsUsuario Logar(string _loginUsuario, string _senhaUsuario) {
+
+            ClsConexao ConectaBD = new ClsConexao();
 
             ClsUsuario u = null;
             try
@@ -29,14 +31,14 @@ namespace DataModel
                               where loginUsuario = @_loginUsuario 
                               and senhaUsuario = @_senhaUsuario 
                               and usuarioAtivo = 1");
-                SqlConnection cn = ClsConexao.Conectar();
+                SqlConnection cn = ConectaBD.Conectar();
                 SqlCommand cmd = cn.CreateCommand();
                 cmd.CommandText = sql;
 
 
                 cmd.Parameters.Add("@_loginUsuario", SqlDbType.VarChar).Value = _loginUsuario;
                 cmd.Parameters.Add("@_senhaUsuario", SqlDbType.VarChar).Value = _senhaUsuario;
-                        
+
                 SqlDataReader dr = cmd.ExecuteReader();
                 u = new ClsUsuario();
 
@@ -44,17 +46,17 @@ namespace DataModel
                 u.loginUsuario = dr.GetString(dr.GetOrdinal("loginUsuario"));
                 u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));
                 u.tipoPerfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
-               
+
 
             }
             catch (InvalidOperationException e)
-                
+
             {
                 //Console.WriteLine("Usuário ou senha incorreto");
-                u = null;      
+                u = null;
             }
 
-            return u;
+              return u;
             
 
         }
