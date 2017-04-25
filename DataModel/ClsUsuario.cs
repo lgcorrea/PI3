@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace DataModel
 {
@@ -56,11 +57,52 @@ namespace DataModel
                 u = null;
             }
 
-              return u;
-            
+              return u;           
 
         }
-    
+
+        public void Salvar() {
+
+
+        }
+
+        public static BindingSource NavegaUsuarios() {
+
+            ClsConexao ConectaBD = new ClsConexao();
+            BindingSource navega = null;
+
+            //try {
+                string sql = @"SELECT ROW_NUMBER() over(order by idusuario) id,
+		                       loginUsuario,
+	                           nomeUsuario,    
+		                       CASE WHEN tipoPerfil= 'A' THEN 'Administrador' ELSE 'Estoquista' END as tipoPerfil
+                               FROM usuario";
+                SqlConnection cn = ConectaBD.Conectar();
+                SqlCommand cmd = cn.CreateCommand();
+                cmd.CommandText = sql;
+                navega = new BindingSource();
+
+                DataTable dados = new DataTable();
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                da.Fill(dados);
+                navega.DataSource = dados;
+
+                
+            //}
+
+            //catch
+            //{
+
+            //    navega = null;
+
+            //}
+
+            return navega;
+
+
+
+
+        }
         }
        
 

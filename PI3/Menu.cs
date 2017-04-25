@@ -46,11 +46,6 @@ namespace PI3
         }
 
         // barra chama tela usuario
-        private void usuáriosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            Cadastro_Usuario Telausuario = new Cadastro_Usuario();
-            Telausuario.Show();
-        }
 
         //barra chama tela de pedidos
         private void pedidosToolStripMenuItem1_Click(object sender, EventArgs e)
@@ -102,8 +97,22 @@ namespace PI3
 
         private void bt_Config_Click(object sender, EventArgs e)
         {
-            Cadastro_Usuario telaUsuario = new Cadastro_Usuario();
-            telaUsuario.ShowDialog();
+            BindingSource dadosNavegacao = ClsUsuario.NavegaUsuarios();
+
+            this.Hide();
+            if (infoUser.tipoPerfil == "A") {
+
+                
+                Cadastro_Usuario telaUsuario = new Cadastro_Usuario(dadosNavegacao);
+            
+            telaUsuario.Show();
+            }
+
+            else
+            {
+
+                MessageBox.Show("Acesso restrito somente para Administradores do sistema");
+            }
         }
     
         private void bt_sair_Click(object sender, EventArgs e)
