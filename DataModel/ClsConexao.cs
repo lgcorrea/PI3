@@ -18,17 +18,22 @@ namespace DataModel
             sb.DataSource = @"delta-pi.database.windows.net";
             sb.InitialCatalog = "Delta";*/
 
-            SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
-            sb.UserID = "sa";
-            sb.Password = "123";
-            sb.DataSource = @"USER-PC\SQLEXPRESS";
-            sb.InitialCatalog = "Kanino";
+                        
+                SqlConnectionStringBuilder sb = new SqlConnectionStringBuilder();
+                sb.UserID = "sa";
+                sb.Password = "123";
+                sb.DataSource = @"USER-PC\SQLEXPRESS";
+                sb.InitialCatalog = "Kanino";
 
-            SqlConnection cn = new SqlConnection(sb.ConnectionString);
-            cn.Open();
-
-
+                SqlConnection cn = new SqlConnection(sb.ConnectionString);
+                cn.Open();
+                
+                
+            
             return cn;
+
+
+
         }
 
     }

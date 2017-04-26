@@ -19,7 +19,7 @@ namespace PI3
         private string Rsenha { get; set; }
         private string tipoPerfil { get; set; }
         private bool usuarioInativo { get; set;}
-        private BindingSource navegacao { get; set; }
+        private BindingSource navegacao;
 
         public Cadastro_Usuario(BindingSource navegacao)
         {
@@ -122,14 +122,20 @@ namespace PI3
         private void bt_NavegacaoNext_Click(object sender, EventArgs e)
         {
             bt_NavegacaoNext.Enabled = true;
-            this.navegacao.MoveNext();
+
+            
+                this.navegacao.MoveNext();
+            
          
         }
 
         private void bt_NavegacaoPrevious_Click(object sender, EventArgs e)
         {
             //bt_NavegacaoPrevious.Enabled = true;
-            this.navegacao.MoveLast();
+
+            
+                this.navegacao.MovePrevious();
+            
         }
 
         private void bindingNavigatorPositionItem_Click(object sender, EventArgs e)
