@@ -24,6 +24,13 @@ namespace PI3
             
         }
 
+        public Menu()
+
+        {
+            InitializeComponent();
+            
+        }
+
         // Form Tela Login
         private void Form2_Load(object sender, EventArgs e)
         {
@@ -97,13 +104,13 @@ namespace PI3
 
         private void bt_Config_Click(object sender, EventArgs e)
         {
-            BindingSource dadosNavegacao = infoUser.NavegaUsuarios();
+            //BindingSource dadosNavegacao = infoUser.NavegaUsuarios();
 
             this.Hide();
             if (infoUser.tipoPerfil == "A") {
 
                 
-                Cadastro_Usuario telaUsuario = new Cadastro_Usuario(dadosNavegacao);
+                Cadastro_Usuario telaUsuario = new Cadastro_Usuario(infoUser);
             
             telaUsuario.Show();
             }

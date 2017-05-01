@@ -80,34 +80,36 @@ namespace DataModel
 
         }
 
-        public BindingSource NavegaUsuarios() {
+        //METODO BUSCA DADOS DE USUARIOS PARA NAVEGAÇÃO
+        public DataTable NavegaUsuarios() {
 
             ClsConexao ConectaBD = new ClsConexao();
-            BindingSource navega = null;
+            //BindingSource navega = null;
             SqlConnection cn = ConectaBD.Conectar();
+            DataTable dados = new DataTable();
 
             try {
-                string sql = @"SELECT ROW_NUMBER() over(order by idusuario) id,
-		                       loginUsuario,
-	                           nomeUsuario,    
-		                       CASE WHEN tipoPerfil= 'A' THEN 'Administrador' ELSE 'Estoquista' END as tipoPerfil
-                               FROM usuario";
+                string sql = @"SELECT idUsuario
+                              ,loginUsuario                              
+                              ,nomeUsuario
+                              ,CASE WHEN tipoPerfil= 'A' THEN 'Administrador' ELSE 'Estoquista' END as tipoPerfil
+                              ,usuarioAtivo
+                          FROM Usuario";
                 
                 SqlCommand cmd = cn.CreateCommand();
                 cmd.CommandText = sql;
-                navega = new BindingSource();
+                //navega = new BindingSource();
 
-                DataTable dados = new DataTable();
-                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);                
                 da.Fill(dados);
-                navega.DataSource = dados;
+                
                 
             }
 
             catch
             {
-
-                navega = null;
+                dados = null;
 
             }
 
@@ -117,12 +119,17 @@ namespace DataModel
                 cn.Close();
             }
 
-            return navega;
-
-
+            return dados;
 
 
         }
+
+        //METODO INSERIR
+
+
+
+        
+
         }
        
 

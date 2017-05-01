@@ -19,25 +19,33 @@ namespace PI3
         private string Rsenha { get; set; }
         private string tipoPerfil { get; set; }
         private bool usuarioInativo { get; set;}
-        private BindingSource navegacao;
+        private ClsUsuario infoUser;
 
-        public Cadastro_Usuario(BindingSource navegacao)
+        public Cadastro_Usuario(ClsUsuario infoUser)
         {
 
             InitializeComponent();
-            this.navegacao = navegacao;
+            this.infoUser = new ClsUsuario() ;
+            this.infoUser = infoUser;
             
         }
 
         private void button4_Click(object sender, EventArgs e)
         {
-            Close();
+
+            this.Close();
+                                 
+            
         }
 
 
-        //tela form Login
+        //tela form usuario
         private void Form4_Load(object sender, EventArgs e)
         {
+
+            //navegacao = infoUser.NavegaUsuarios();
+            //dgUsuarios.DataSource = navegacao;
+            ListaGrid();
 
         }
 
@@ -85,13 +93,7 @@ namespace PI3
 
         private void checkBox_UserAtivo_CheckedChanged(object sender, EventArgs e)
         {
-            bool usuarioInativo = false;
-
-            if (checkBox_UserAtivo.Checked) {
-
-                usuarioInativo = true;
-
-            }           
+        
             
         }
 
@@ -103,44 +105,61 @@ namespace PI3
 
         }
 
-        private void barraNavegacao_RefreshItems(object sender, EventArgs e)
+
+        private void bt_Alterar_Click(object sender, EventArgs e)
         {
-            //BindingSource navegacao = new BindingSource();
-            //navegacao = ClsUsuario.NavegaUsuarios(); 
-                        
-            barraNavegacao.BindingSource = navegacao;
-       
-            TxtLogin.DataBindings.Clear();
-            TxtLogin.DataBindings.Add(new Binding("Text", navegacao, "loginUsuario"));
-            txtNome.DataBindings.Clear();
-            txtNome.DataBindings.Add(new Binding("Text", navegacao, "nomeUsuario"));
-            CbxTipodePerfil.DataBindings.Clear();
-            CbxTipodePerfil.DataBindings.Add(new Binding("Text", navegacao, "tipoPerfil"));
 
         }
 
-        private void bt_NavegacaoNext_Click(object sender, EventArgs e)
+        private void bt_cadastrar_Click(object sender, EventArgs e)
         {
-            bt_NavegacaoNext.Enabled = true;
 
-            
-                this.navegacao.MoveNext();
-            
-         
         }
 
-        private void bt_NavegacaoPrevious_Click(object sender, EventArgs e)
+        private void dgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            //bt_NavegacaoPrevious.Enabled = true;
+            //POPULA CAMPOS DA TELA
 
-            
-                this.navegacao.MovePrevious();
-            
+            txtNome.Text = dgUsuarios.CurrentRow.Cells[1].Value.ToString();
+            TxtLogin.Text = dgUsuarios.CurrentRow.Cells[2].Value.ToString();
+            CbxTipodePerfil.Text = dgUsuarios.CurrentRow.Cells[3].Value.ToString();
+            checkBox_UserAtivo.Checked = Convert.ToBoolean(dgUsuarios.CurrentRow.Cells[4].Value);
+
         }
 
-        private void bindingNavigatorPositionItem_Click(object sender, EventArgs e)
+        public void ListaGrid()
         {
+            DataGridView navegacao = new DataGridView();
+            dgUsuarios.DataSource = infoUser.NavegaUsuarios();
+            //COLUNAS GRID
 
+            //dgUsuarios.Columns[1].HeaderText = "Login";
+            dgUsuarios.Columns[2].HeaderText = "Nome Usuário";
+            dgUsuarios.Columns[3].HeaderText = "Tipo de Perfil";
+            dgUsuarios.Columns[4].HeaderText = "Usuário ativo";
+            
+
+            //COLUNA FICA INVISIVEL NO GRID
+            dgUsuarios.Columns["idUsuario"].Visible = false;
+            dgUsuarios.Columns["loginUsuario"].Visible = false;
+
+            //COLUNAS SOMENTE LEITURA
+
+            //dgUsuarios.Columns["loginUsuario"].ReadOnly = true;
+            dgUsuarios.Columns["nomeUsuario"].ReadOnly = true;          
+
+
+
+        }
+
+        private void txtSenhaUser_TextChanged(object sender, EventArgs e)
+        {
+            txtSenhaUser.PasswordChar = '*';
+        }
+
+        private void txtRepeteSenha_TextChanged(object sender, EventArgs e)
+        {
+            txtRepeteSenha.PasswordChar = '*';
         }
     }
 }
