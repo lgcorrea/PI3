@@ -164,24 +164,46 @@ namespace DataModel
               
             else
             {
-                sql = @"UPDATE USUARIO
+                if (senhaUsuario == "")
+                {
+                    sql = @"UPDATE USUARIO
+                        SET loginUsuario = @loginUsuario,                            
+                            nomeUsuario = @nomeUsuario,
+                            tipoPerfil = @tipoPerfil,
+                            usuarioAtivo = @usuarioAtivo
+                        WHERE idUsuario = " + idUsuario;
+
+                    cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;                    
+                    cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar, 50).Value = this.nomeUsuario;
+                    cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 1).Value = this.tipoPerfil;
+                    cmd.Parameters.Add("@usuarioAtivo", SqlDbType.Bit).Value = this.usuarioAtivo;
+
+                    cmd.CommandText = sql;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Usuário Alterado");
+                }
+                else
+                {
+                    sql = @"UPDATE USUARIO
                         SET loginUsuario = @loginUsuario,
                             senhaUsuario = @senhaUsuario,
                             nomeUsuario = @nomeUsuario,
                             tipoPerfil = @tipoPerfil,
                             usuarioAtivo = @usuarioAtivo
-                        WHERE idUsuario = " +idUsuario;
+                        WHERE idUsuario = " + idUsuario;
 
-                cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;
-                cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar, 50).Value = this.senhaUsuario;
-                cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar, 50).Value = this.nomeUsuario;
-                cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 1).Value = this.tipoPerfil;
-                cmd.Parameters.Add("@usuarioAtivo", SqlDbType.Bit).Value = this.usuarioAtivo;
+                    cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;
+                    cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar, 50).Value = this.senhaUsuario;
+                    cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar, 50).Value = this.nomeUsuario;
+                    cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 1).Value = this.tipoPerfil;
+                    cmd.Parameters.Add("@usuarioAtivo", SqlDbType.Bit).Value = this.usuarioAtivo;
 
-                cmd.CommandText = sql;
+                    cmd.CommandText = sql;
 
-                cmd.ExecuteNonQuery();
-                MessageBox.Show("Usuário Alterado");
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Usuário Alterado");
+                }
             }
 
 

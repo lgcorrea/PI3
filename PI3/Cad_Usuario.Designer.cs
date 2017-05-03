@@ -44,7 +44,7 @@
             this.label_Login = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bt_Alterar = new System.Windows.Forms.Button();
-            this.bt_cadastrar = new System.Windows.Forms.Button();
+            this.bt_NovoUsuario = new System.Windows.Forms.Button();
             this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
@@ -96,9 +96,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.groupBox1.Location = new System.Drawing.Point(460, 50);
+            this.groupBox1.Location = new System.Drawing.Point(460, 61);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(399, 302);
+            this.groupBox1.Size = new System.Drawing.Size(399, 282);
             this.groupBox1.TabIndex = 5;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Cadastros de Usuários";
@@ -109,7 +109,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label3.Location = new System.Drawing.Point(9, 169);
+            this.label3.Location = new System.Drawing.Point(8, 156);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(95, 17);
             this.label3.TabIndex = 16;
@@ -117,7 +117,7 @@
             // 
             // txtRepeteSenha
             // 
-            this.txtRepeteSenha.Location = new System.Drawing.Point(106, 166);
+            this.txtRepeteSenha.Location = new System.Drawing.Point(105, 153);
             this.txtRepeteSenha.Name = "txtRepeteSenha";
             this.txtRepeteSenha.Size = new System.Drawing.Size(180, 25);
             this.txtRepeteSenha.TabIndex = 15;
@@ -128,7 +128,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(52, 136);
+            this.label2.Location = new System.Drawing.Point(51, 123);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(48, 17);
             this.label2.TabIndex = 14;
@@ -136,7 +136,7 @@
             // 
             // txtSenhaUser
             // 
-            this.txtSenhaUser.Location = new System.Drawing.Point(106, 133);
+            this.txtSenhaUser.Location = new System.Drawing.Point(105, 120);
             this.txtSenhaUser.Name = "txtSenhaUser";
             this.txtSenhaUser.Size = new System.Drawing.Size(180, 25);
             this.txtSenhaUser.TabIndex = 13;
@@ -145,7 +145,7 @@
             // checkBox_UserAtivo
             // 
             this.checkBox_UserAtivo.AutoSize = true;
-            this.checkBox_UserAtivo.Location = new System.Drawing.Point(348, 207);
+            this.checkBox_UserAtivo.Location = new System.Drawing.Point(347, 194);
             this.checkBox_UserAtivo.Name = "checkBox_UserAtivo";
             this.checkBox_UserAtivo.Size = new System.Drawing.Size(15, 14);
             this.checkBox_UserAtivo.TabIndex = 12;
@@ -155,7 +155,7 @@
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(106, 68);
+            this.txtNome.Location = new System.Drawing.Point(105, 55);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(263, 25);
             this.txtNome.TabIndex = 9;
@@ -166,7 +166,7 @@
             this.label_User_inativo.AutoSize = true;
             this.label_User_inativo.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_User_inativo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_User_inativo.Location = new System.Drawing.Point(240, 204);
+            this.label_User_inativo.Location = new System.Drawing.Point(239, 191);
             this.label_User_inativo.Name = "label_User_inativo";
             this.label_User_inativo.Size = new System.Drawing.Size(93, 17);
             this.label_User_inativo.TabIndex = 7;
@@ -176,9 +176,9 @@
             // 
             this.CbxTipodePerfil.FormattingEnabled = true;
             this.CbxTipodePerfil.Items.AddRange(new object[] {
-            "Estoquista",
-            "Administrador"});
-            this.CbxTipodePerfil.Location = new System.Drawing.Point(106, 201);
+            "Administrador",
+            "Estoquista"});
+            this.CbxTipodePerfil.Location = new System.Drawing.Point(105, 188);
             this.CbxTipodePerfil.Name = "CbxTipodePerfil";
             this.CbxTipodePerfil.Size = new System.Drawing.Size(128, 25);
             this.CbxTipodePerfil.TabIndex = 4;
@@ -189,7 +189,7 @@
             this.label_tipoPerfil.AutoSize = true;
             this.label_tipoPerfil.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tipoPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_tipoPerfil.Location = new System.Drawing.Point(18, 204);
+            this.label_tipoPerfil.Location = new System.Drawing.Point(17, 191);
             this.label_tipoPerfil.Name = "label_tipoPerfil";
             this.label_tipoPerfil.Size = new System.Drawing.Size(90, 17);
             this.label_tipoPerfil.TabIndex = 6;
@@ -198,7 +198,7 @@
             // 
             // TxtLogin
             // 
-            this.TxtLogin.Location = new System.Drawing.Point(106, 102);
+            this.TxtLogin.Location = new System.Drawing.Point(105, 89);
             this.TxtLogin.Name = "TxtLogin";
             this.TxtLogin.Size = new System.Drawing.Size(263, 25);
             this.TxtLogin.TabIndex = 2;
@@ -209,7 +209,7 @@
             this.label_Login.AutoSize = true;
             this.label_Login.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_Login.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_Login.Location = new System.Drawing.Point(64, 105);
+            this.label_Login.Location = new System.Drawing.Point(63, 92);
             this.label_Login.Name = "label_Login";
             this.label_Login.Size = new System.Drawing.Size(44, 17);
             this.label_Login.TabIndex = 1;
@@ -220,7 +220,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(60, 71);
+            this.label1.Location = new System.Drawing.Point(59, 58);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(48, 17);
             this.label1.TabIndex = 0;
@@ -241,20 +241,20 @@
             this.bt_Alterar.UseVisualStyleBackColor = false;
             this.bt_Alterar.Click += new System.EventHandler(this.bt_Alterar_Click);
             // 
-            // bt_cadastrar
+            // bt_NovoUsuario
             // 
-            this.bt_cadastrar.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bt_cadastrar.FlatAppearance.BorderSize = 2;
-            this.bt_cadastrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_cadastrar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_cadastrar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_cadastrar.Location = new System.Drawing.Point(12, 425);
-            this.bt_cadastrar.Name = "bt_cadastrar";
-            this.bt_cadastrar.Size = new System.Drawing.Size(106, 34);
-            this.bt_cadastrar.TabIndex = 13;
-            this.bt_cadastrar.Text = "Novo Usuário";
-            this.bt_cadastrar.UseVisualStyleBackColor = false;
-            this.bt_cadastrar.Click += new System.EventHandler(this.bt_cadastrar_Click);
+            this.bt_NovoUsuario.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_NovoUsuario.FlatAppearance.BorderSize = 2;
+            this.bt_NovoUsuario.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_NovoUsuario.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_NovoUsuario.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.bt_NovoUsuario.Location = new System.Drawing.Point(12, 425);
+            this.bt_NovoUsuario.Name = "bt_NovoUsuario";
+            this.bt_NovoUsuario.Size = new System.Drawing.Size(106, 34);
+            this.bt_NovoUsuario.TabIndex = 13;
+            this.bt_NovoUsuario.Text = "Novo Usuário";
+            this.bt_NovoUsuario.UseVisualStyleBackColor = false;
+            this.bt_NovoUsuario.Click += new System.EventHandler(this.bt_NovoUsuario_Click);
             // 
             // dgUsuarios
             // 
@@ -277,7 +277,7 @@
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(881, 480);
             this.Controls.Add(this.dgUsuarios);
-            this.Controls.Add(this.bt_cadastrar);
+            this.Controls.Add(this.bt_NovoUsuario);
             this.Controls.Add(this.bt_Alterar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bt_sair);
@@ -286,7 +286,6 @@
             this.Name = "Cadastro_Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Cadastro Usuário";
-            this.TopMost = true;
             this.Load += new System.EventHandler(this.Form4_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -308,7 +307,7 @@
         private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.CheckBox checkBox_UserAtivo;
         private System.Windows.Forms.Button bt_Alterar;
-        private System.Windows.Forms.Button bt_cadastrar;
+        private System.Windows.Forms.Button bt_NovoUsuario;
         private System.Windows.Forms.DataGridView dgUsuarios;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSenhaUser;

@@ -31,11 +31,19 @@ namespace PI3
             
         }
 
+        public Cadastro_Usuario()
+        {
+            InitializeComponent();
+
+
+        }
+
         private void button4_Click(object sender, EventArgs e)
         {
 
             this.Close();
-                                 
+            Menu Tela_menu = new Menu();
+            Tela_menu.Show();                                
             
         }
 
@@ -99,15 +107,6 @@ namespace PI3
             
         }
 
-
-        private void bt_mudaSenha_Click(object sender, EventArgs e)
-        {
-            AlteraSenha Tela_AlteraSenha = new AlteraSenha();
-            Tela_AlteraSenha.Show();
-
-        }
-
-
         private void bt_Alterar_Click(object sender, EventArgs e)
         {
             ClsUsuario RegistroUsuario = new ClsUsuario();
@@ -124,17 +123,12 @@ namespace PI3
 
         }
 
-        private void bt_cadastrar_Click(object sender, EventArgs e)
+        private void bt_NovoUsuario_Click(object sender, EventArgs e)
         {
-            txtNome.Text = "";
-            TxtLogin.Text = "";
-            CbxTipodePerfil.Text = "";
-            txtSenhaUser.Text = "";
-            txtRepeteSenha.Text = "";
-            checkBox_UserAtivo.Checked = true;
-            idUsuario = 0;
-            //ListaGrid();
-        }
+            Cadastrar_Usuario Tela_CadastrarUsuario = new Cadastrar_Usuario();
+            Tela_CadastrarUsuario.ShowDialog();
+        }   
+  
 
         private void dgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -184,5 +178,7 @@ namespace PI3
         {
             txtRepeteSenha.PasswordChar = '*';
         }
+
+
     }
 }
