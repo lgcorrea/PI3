@@ -60,8 +60,7 @@ namespace DataModel
                 u.nomeUsuario = dr.GetString(dr.GetOrdinal("nomeUsuario"));
                 u.tipoPerfil = dr.GetString(dr.GetOrdinal("tipoPerfil"));
 
-                cn.Close();
-
+                
 
             }
             catch (InvalidOperationException e)
@@ -84,7 +83,7 @@ namespace DataModel
         public DataTable NavegaUsuarios() {
 
             ClsConexao ConectaBD = new ClsConexao();
-            //BindingSource navega = null;
+            
             SqlConnection cn = ConectaBD.Conectar();
             DataTable dados = new DataTable();
 
@@ -124,7 +123,72 @@ namespace DataModel
 
         }
 
-        //METODO INSERIR
+        //METODO SALVAR
+
+        public void Salvar() {
+
+            ClsConexao ConectaBD = new ClsConexao();
+            SqlConnection cn = ConectaBD.Conectar();   
+
+            if(tipoPerfil == "Administrador")
+            {
+                tipoPerfil = "A";
+            }
+            else
+            {
+
+                tipoPerfil = "E";
+            }
+
+            string sql = "";
+            SqlCommand cmd = new SqlCommand(sql,cn);
+
+            if (idUsuario == 0)
+            {
+        
+                    
+                    sql = @"INSERT INTO USUARIO (loginUsuario,senhaUsuario,nomeUsuario,tipoPerfil,usuarioAtivo)
+                               VALUES(@loginUsuario,@senhaUsuario,@nomeUsuario,@tipoPerfil,@usuarioAtivo)";
+
+                    cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;
+                    cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar, 50).Value = this.senhaUsuario;
+                    cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar, 50).Value = this.nomeUsuario;
+                    cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 1).Value = this. tipoPerfil;
+                    cmd.Parameters.Add("@usuarioAtivo", SqlDbType.Bit).Value = this.usuarioAtivo;
+
+                    cmd.CommandText = sql;
+                    
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Usuário Cadastrado");
+                }
+              
+            else
+            {
+                sql = @"UPDATE USUARIO
+                        SET loginUsuario = @loginUsuario,
+                            senhaUsuario = @senhaUsuario,
+                            nomeUsuario = @nomeUsuario,
+                            tipoPerfil = @tipoPerfil,
+                            usuarioAtivo = @usuarioAtivo
+                        WHERE idUsuario = " +idUsuario;
+
+                cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;
+                cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar, 50).Value = this.senhaUsuario;
+                cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar, 50).Value = this.nomeUsuario;
+                cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 1).Value = this.tipoPerfil;
+                cmd.Parameters.Add("@usuarioAtivo", SqlDbType.Bit).Value = this.usuarioAtivo;
+
+                cmd.CommandText = sql;
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Usuário Alterado");
+            }
+
+
+            }
+
+
+        }
 
 
 
@@ -136,4 +200,4 @@ namespace DataModel
 
 
 
-    }
+    

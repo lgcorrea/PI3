@@ -47,6 +47,7 @@ namespace PI3
             //navegacao = infoUser.NavegaUsuarios();
             //dgUsuarios.DataSource = navegacao;
             ListaGrid();
+            idUsuario = 0;
 
         }
 
@@ -64,7 +65,7 @@ namespace PI3
 
         private void bt_salvar_Click(object sender, EventArgs e)
         {
-            
+
 
         }
 
@@ -109,10 +110,19 @@ namespace PI3
 
         private void bt_Alterar_Click(object sender, EventArgs e)
         {
-            
-            try {
-                
+            ClsUsuario RegistroUsuario = new ClsUsuario();
 
+            RegistroUsuario.nomeUsuario = txtNome.Text;
+            RegistroUsuario.loginUsuario = TxtLogin.Text;
+            RegistroUsuario.senhaUsuario = txtSenhaUser.Text;
+            RegistroUsuario.tipoPerfil = CbxTipodePerfil.Text;
+            RegistroUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;
+            RegistroUsuario.idUsuario = idUsuario;
+
+            RegistroUsuario.Salvar();
+            ListaGrid();
+
+/*
             if (idUsuario == 0 )
             {
                 MessageBox.Show("registro novo");                    
@@ -123,13 +133,7 @@ namespace PI3
 
                 MessageBox.Show("REGISTRO EXISTENTE");
             }
-        }
-
-        catch{
-
-                MessageBox.Show("registro novo, erro");
-            }
-
+            */
         }
 
         private void bt_cadastrar_Click(object sender, EventArgs e)
@@ -137,6 +141,8 @@ namespace PI3
             txtNome.Text = "";
             TxtLogin.Text = "";
             CbxTipodePerfil.Text = "";
+            txtSenhaUser.Text = "";
+            txtRepeteSenha.Text = "";
             checkBox_UserAtivo.Checked = true;
             idUsuario = 0;
             //ListaGrid();
@@ -150,11 +156,13 @@ namespace PI3
             TxtLogin.Text = dgUsuarios.CurrentRow.Cells[2].Value.ToString();
             CbxTipodePerfil.Text = dgUsuarios.CurrentRow.Cells[3].Value.ToString();
             checkBox_UserAtivo.Checked = Convert.ToBoolean(dgUsuarios.CurrentRow.Cells[4].Value);
+
+            //POPULA VARIAVEL COM ID DO REGISTRO SELECIONADO NO GRID
             idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);
 
         }
 
-        public void ListaGrid()
+        private void ListaGrid()
         {
             DataGridView navegacao = new DataGridView();
             dgUsuarios.DataSource = infoUser.NavegaUsuarios();
