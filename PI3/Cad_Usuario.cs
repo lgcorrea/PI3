@@ -13,6 +13,7 @@ namespace PI3
 {
     public partial class Cadastro_Usuario : Form
     {
+        private int idUsuario { get; set; }
         private string nomeUsuario { get; set; }
         private string loginUsuario { get; set; }
         private string senha { get; set; }
@@ -108,12 +109,37 @@ namespace PI3
 
         private void bt_Alterar_Click(object sender, EventArgs e)
         {
+            
+            try {
+                
+
+            if (idUsuario == 0 )
+            {
+                MessageBox.Show("registro novo");                    
+                      
+            }
+            else
+            {
+
+                MessageBox.Show("REGISTRO EXISTENTE");
+            }
+        }
+
+        catch{
+
+                MessageBox.Show("registro novo, erro");
+            }
 
         }
 
         private void bt_cadastrar_Click(object sender, EventArgs e)
         {
-
+            txtNome.Text = "";
+            TxtLogin.Text = "";
+            CbxTipodePerfil.Text = "";
+            checkBox_UserAtivo.Checked = true;
+            idUsuario = 0;
+            //ListaGrid();
         }
 
         private void dgUsuarios_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -124,6 +150,7 @@ namespace PI3
             TxtLogin.Text = dgUsuarios.CurrentRow.Cells[2].Value.ToString();
             CbxTipodePerfil.Text = dgUsuarios.CurrentRow.Cells[3].Value.ToString();
             checkBox_UserAtivo.Checked = Convert.ToBoolean(dgUsuarios.CurrentRow.Cells[4].Value);
+            idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);
 
         }
 
