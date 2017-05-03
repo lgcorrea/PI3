@@ -122,18 +122,6 @@ namespace PI3
             RegistroUsuario.Salvar();
             ListaGrid();
 
-/*
-            if (idUsuario == 0 )
-            {
-                MessageBox.Show("registro novo");                    
-                      
-            }
-            else
-            {
-
-                MessageBox.Show("REGISTRO EXISTENTE");
-            }
-            */
         }
 
         private void bt_cadastrar_Click(object sender, EventArgs e)
