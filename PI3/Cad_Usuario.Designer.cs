@@ -120,7 +120,7 @@
             this.txtRepeteSenha.Location = new System.Drawing.Point(105, 153);
             this.txtRepeteSenha.Name = "txtRepeteSenha";
             this.txtRepeteSenha.Size = new System.Drawing.Size(180, 25);
-            this.txtRepeteSenha.TabIndex = 15;
+            this.txtRepeteSenha.TabIndex = 4;
             this.txtRepeteSenha.TextChanged += new System.EventHandler(this.txtRepeteSenha_TextChanged);
             // 
             // label2
@@ -139,7 +139,7 @@
             this.txtSenhaUser.Location = new System.Drawing.Point(105, 120);
             this.txtSenhaUser.Name = "txtSenhaUser";
             this.txtSenhaUser.Size = new System.Drawing.Size(180, 25);
-            this.txtSenhaUser.TabIndex = 13;
+            this.txtSenhaUser.TabIndex = 3;
             this.txtSenhaUser.TextChanged += new System.EventHandler(this.txtSenhaUser_TextChanged);
             // 
             // checkBox_UserAtivo
@@ -148,7 +148,7 @@
             this.checkBox_UserAtivo.Location = new System.Drawing.Point(347, 194);
             this.checkBox_UserAtivo.Name = "checkBox_UserAtivo";
             this.checkBox_UserAtivo.Size = new System.Drawing.Size(15, 14);
-            this.checkBox_UserAtivo.TabIndex = 12;
+            this.checkBox_UserAtivo.TabIndex = 6;
             this.checkBox_UserAtivo.UseVisualStyleBackColor = true;
             this.checkBox_UserAtivo.CheckedChanged += new System.EventHandler(this.checkBox_UserAtivo_CheckedChanged);
             this.checkBox_UserAtivo.Click += new System.EventHandler(this.checkBox_UserAtivo_CheckedChanged);
@@ -158,7 +158,7 @@
             this.txtNome.Location = new System.Drawing.Point(105, 55);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(263, 25);
-            this.txtNome.TabIndex = 9;
+            this.txtNome.TabIndex = 1;
             this.txtNome.TextChanged += new System.EventHandler(this.txtNome_TextChanged_1);
             // 
             // label_User_inativo
@@ -174,14 +174,12 @@
             // 
             // CbxTipodePerfil
             // 
+            this.CbxTipodePerfil.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CbxTipodePerfil.FormattingEnabled = true;
-            this.CbxTipodePerfil.Items.AddRange(new object[] {
-            "Administrador",
-            "Estoquista"});
             this.CbxTipodePerfil.Location = new System.Drawing.Point(105, 188);
             this.CbxTipodePerfil.Name = "CbxTipodePerfil";
             this.CbxTipodePerfil.Size = new System.Drawing.Size(128, 25);
-            this.CbxTipodePerfil.TabIndex = 4;
+            this.CbxTipodePerfil.TabIndex = 5;
             this.CbxTipodePerfil.SelectedIndexChanged += new System.EventHandler(this.CbxTipodePerfil_SelectedIndexChanged);
             // 
             // label_tipoPerfil

@@ -11,6 +11,7 @@ using DataModel;
 
 namespace PI3
 {
+    
     public partial class Cadastro_Usuario : Form
     {
         private int idUsuario { get; set; }
@@ -31,11 +32,40 @@ namespace PI3
             
         }
 
+        class tipo {
+
+            public string Nome { get; set; }
+            public string Sigla { get; set; }
+            public tipo(string nome, string sigla)
+            {
+
+                this.Nome = nome;
+                this.Sigla = sigla;
+            }
+
+            public override string ToString()
+            {
+                return Nome;
+            }
+
+            public static tipo[] GetTiposDisponiveis() {
+
+                return new tipo[]
+                {
+                    new tipo("Administrador","A"),
+                    new tipo("Estoquista","E")
+
+            };
+
+            }
+
+       }
+        
+
         public Cadastro_Usuario()
         {
             InitializeComponent();
-
-
+            
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -56,6 +86,7 @@ namespace PI3
             //dgUsuarios.DataSource = navegacao;
             ListaGrid();
             idUsuario = 0;
+            CbxTipodePerfil.Items.AddRange(tipo.GetTiposDisponiveis());
 
         }
 

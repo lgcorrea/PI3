@@ -42,6 +42,7 @@ namespace PI3
             txtRepeteSenhaCadastrar.Text = "";
             checkBox_UserAtivoCadastrar.Checked = true;
             idUsuario = 0;
+            
         }
 
         private void bt_limpar_Click(object sender, EventArgs e)

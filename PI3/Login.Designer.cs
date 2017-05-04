@@ -73,7 +73,7 @@
             this.bt_entrar.Location = new System.Drawing.Point(106, 164);
             this.bt_entrar.Name = "bt_entrar";
             this.bt_entrar.Size = new System.Drawing.Size(95, 48);
-            this.bt_entrar.TabIndex = 6;
+            this.bt_entrar.TabIndex = 3;
             this.bt_entrar.Text = "Entrar";
             this.bt_entrar.UseVisualStyleBackColor = false;
             this.bt_entrar.Click += new System.EventHandler(this.bt_entrar_Click);
@@ -84,7 +84,7 @@
             this.textSenha.Location = new System.Drawing.Point(92, 110);
             this.textSenha.Name = "textSenha";
             this.textSenha.Size = new System.Drawing.Size(131, 23);
-            this.textSenha.TabIndex = 7;
+            this.textSenha.TabIndex = 1;
             this.textSenha.TextChanged += new System.EventHandler(this.textSenha_TextChanged);
             // 
             // textLogin
@@ -93,7 +93,7 @@
             this.textLogin.Location = new System.Drawing.Point(92, 56);
             this.textLogin.Name = "textLogin";
             this.textLogin.Size = new System.Drawing.Size(131, 23);
-            this.textLogin.TabIndex = 9;
+            this.textLogin.TabIndex = 0;
             this.textLogin.TextChanged += new System.EventHandler(this.textLogin_TextChanged);
             // 
             // fileSystemWatcher1

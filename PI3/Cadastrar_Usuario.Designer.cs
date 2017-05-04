@@ -137,9 +137,6 @@
             // CbxTipodePerfilCadastrar
             // 
             this.CbxTipodePerfilCadastrar.FormattingEnabled = true;
-            this.CbxTipodePerfilCadastrar.Items.AddRange(new object[] {
-            "Administrador",
-            "Estoquista"});
             this.CbxTipodePerfilCadastrar.Location = new System.Drawing.Point(105, 188);
             this.CbxTipodePerfilCadastrar.Name = "CbxTipodePerfilCadastrar";
             this.CbxTipodePerfilCadastrar.Size = new System.Drawing.Size(154, 25);

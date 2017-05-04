@@ -130,16 +130,6 @@ namespace DataModel
             ClsConexao ConectaBD = new ClsConexao();
             SqlConnection cn = ConectaBD.Conectar();   
 
-            if(tipoPerfil == "Administrador")
-            {
-                tipoPerfil = "A";
-            }
-            else
-            {
-
-                tipoPerfil = "E";
-            }
-
             string sql = "";
             SqlCommand cmd = new SqlCommand(sql,cn);
 
