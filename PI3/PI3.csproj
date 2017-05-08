@@ -69,12 +69,6 @@
     <Compile Include="AlteraSenha.Designer.cs">
       <DependentUpon>AlteraSenha.cs</DependentUpon>
     </Compile>
-    <Compile Include="Cadastrar_Usuario.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Cadastrar_Usuario.Designer.cs">
-      <DependentUpon>Cadastrar_Usuario.cs</DependentUpon>
-    </Compile>
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,9 +115,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="AlteraSenha.resx">
       <DependentUpon>AlteraSenha.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Cadastrar_Usuario.resx">
-      <DependentUpon>Cadastrar_Usuario.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Login.resx">
       <DependentUpon>Login.cs</DependentUpon>

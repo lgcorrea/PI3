@@ -71,9 +71,7 @@ namespace PI3
         private void button4_Click(object sender, EventArgs e)
         {
 
-            this.Close();
-            Menu Tela_menu = new Menu();
-            Tela_menu.Show();                                
+            this.Close();                             
             
         }
 
@@ -140,24 +138,28 @@ namespace PI3
 
         private void bt_Alterar_Click(object sender, EventArgs e)
         {
-            ClsUsuario RegistroUsuario = new ClsUsuario();
+            ClsUsuario SalvarUsuario = new ClsUsuario();
 
-            RegistroUsuario.nomeUsuario = txtNome.Text;
-            RegistroUsuario.loginUsuario = TxtLogin.Text;
-            RegistroUsuario.senhaUsuario = txtSenhaUser.Text;
-            RegistroUsuario.tipoPerfil = CbxTipodePerfil.Text;
-            RegistroUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;
-            RegistroUsuario.idUsuario = idUsuario;
+            SalvarUsuario.nomeUsuario = txtNome.Text;
+            SalvarUsuario.loginUsuario = TxtLogin.Text;
+            SalvarUsuario.senhaUsuario = txtSenhaUser.Text;
+            SalvarUsuario.tipoPerfil = CbxTipodePerfil.Text;
+            SalvarUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;
+            SalvarUsuario.idUsuario = idUsuario;
 
-            RegistroUsuario.Salvar();
+            SalvarUsuario.Salvar();
             ListaGrid();
 
         }
 
         private void bt_NovoUsuario_Click(object sender, EventArgs e)
         {
-            Cadastrar_Usuario Tela_CadastrarUsuario = new Cadastrar_Usuario();
-            Tela_CadastrarUsuario.ShowDialog();
+            idUsuario = 0;
+            txtNome.Text = "";
+            TxtLogin.Text = "";
+            txtSenhaUser.Text = "";
+            checkBox_UserAtivo.Checked = true;
+            
         }   
   
 
@@ -181,7 +183,6 @@ namespace PI3
             dgUsuarios.DataSource = infoUser.NavegaUsuarios();
             //COLUNAS GRID
 
-            //dgUsuarios.Columns[1].HeaderText = "Login";
             dgUsuarios.Columns[2].HeaderText = "Nome Usuário";
             dgUsuarios.Columns[3].HeaderText = "Tipo de Perfil";
             dgUsuarios.Columns[4].HeaderText = "Usuário ativo";
@@ -193,10 +194,7 @@ namespace PI3
 
             //COLUNAS SOMENTE LEITURA
 
-            //dgUsuarios.Columns["loginUsuario"].ReadOnly = true;
-            dgUsuarios.Columns["nomeUsuario"].ReadOnly = true;          
-
-
+            dgUsuarios.Columns["nomeUsuario"].ReadOnly = true;    
 
         }
 
@@ -205,11 +203,9 @@ namespace PI3
             txtSenhaUser.PasswordChar = '*';
         }
 
-        private void txtRepeteSenha_TextChanged(object sender, EventArgs e)
+        private void btn_Pesquisar_Click(object sender, EventArgs e)
         {
-            txtRepeteSenha.PasswordChar = '*';
+
         }
-
-
     }
 }
