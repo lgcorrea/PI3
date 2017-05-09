@@ -128,7 +128,7 @@ namespace PI3
 
         private void bt_sair_Click(object sender, EventArgs e)
         {
-
+            Close();
         }
     }
 }

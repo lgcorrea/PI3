@@ -169,8 +169,9 @@
             this.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Name = "Menu";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Controlde Vendas";
+            this.Text = "Menu";
             this.TopMost = true;
+            this.UseWaitCursor = true;
             this.Load += new System.EventHandler(this.Form2_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

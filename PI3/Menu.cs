@@ -91,7 +91,8 @@ namespace PI3
         private void bt_Produtos_Click(object sender, EventArgs e)
         {
             Produtos TelaProduto = new Produtos();
-            TelaProduto.ShowDialog();
+            this.Hide();
+            TelaProduto.Show();
         }
         
         //
