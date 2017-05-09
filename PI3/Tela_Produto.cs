@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+
+using DataModel;
  
 namespace PI3
 {
@@ -113,7 +115,9 @@ namespace PI3
 
         private void bt_Pesquisar_Click(object sender, EventArgs e)
         {
+            ClsProduto tlProduto = new ClsProduto();
 
+            dgwProduto.DataSource = tlProduto.ConsultaProduto(txtPesquisaProd.Text);
         }
 
         private void bt_Salvar_Click(object sender, EventArgs e)
@@ -129,6 +133,16 @@ namespace PI3
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void dgwProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void txtPesquisaProd_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
