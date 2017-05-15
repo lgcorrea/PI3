@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.bt_excluir = new System.Windows.Forms.Button();
             this.bt_sair = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label2 = new System.Windows.Forms.Label();
@@ -48,21 +47,6 @@
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
             this.SuspendLayout();
-            // 
-            // bt_excluir
-            // 
-            this.bt_excluir.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bt_excluir.FlatAppearance.BorderSize = 2;
-            this.bt_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.bt_excluir.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_excluir.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_excluir.Location = new System.Drawing.Point(703, 329);
-            this.bt_excluir.Name = "bt_excluir";
-            this.bt_excluir.Size = new System.Drawing.Size(75, 34);
-            this.bt_excluir.TabIndex = 1;
-            this.bt_excluir.Text = "Excluir";
-            this.bt_excluir.UseVisualStyleBackColor = false;
-            this.bt_excluir.Click += new System.EventHandler(this.bt_excluir_Click);
             // 
             // bt_sair
             // 
@@ -209,7 +193,7 @@
             this.bt_Alterar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Alterar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bt_Alterar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.bt_Alterar.Location = new System.Drawing.Point(603, 329);
+            this.bt_Alterar.Location = new System.Drawing.Point(689, 329);
             this.bt_Alterar.Name = "bt_Alterar";
             this.bt_Alterar.Size = new System.Drawing.Size(73, 34);
             this.bt_Alterar.TabIndex = 7;
@@ -273,7 +257,6 @@
             this.Controls.Add(this.bt_Alterar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.bt_sair);
-            this.Controls.Add(this.bt_excluir);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Cadastro_Usuario";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -287,7 +270,6 @@
         }
 
         #endregion
-        private System.Windows.Forms.Button bt_excluir;
         private System.Windows.Forms.Button bt_sair;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label_tipoPerfil;

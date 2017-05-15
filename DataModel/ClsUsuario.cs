@@ -12,15 +12,6 @@ namespace DataModel
 
     public class ClsUsuario
     {
-
-        //ATRIBUTOS
-        private int _idUsuario;
-        private string _loginUsuario;
-        private string _senhaUsuario;
-        private string _nomeUsuario;
-        private string _tipoPerfil;
-        private bool _usuarioAtivo;
-
         //PROPRIEDADE DE ATRIBUTO
 
         public int idUsuario { get; set; }
@@ -65,7 +56,6 @@ namespace DataModel
             catch (InvalidOperationException e)
 
             {
-                //Console.WriteLine("Usuário ou senha incorreto");
                 usuario = null;
             }
 
@@ -96,8 +86,6 @@ namespace DataModel
                 
                 SqlCommand cmd = cn.CreateCommand();
                 cmd.CommandText = sql;
-                //navega = new BindingSource();
-
                 
                 SqlDataAdapter da = new SqlDataAdapter(sql, cn);                
                 da.Fill(dados);
@@ -197,7 +185,6 @@ namespace DataModel
 
 
             }
-
 
         }
 

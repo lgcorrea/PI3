@@ -96,20 +96,10 @@ namespace PI3
         private void CbxTipodePerfil_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-        }
-
-    
-
-        private void bt_salvar_Click(object sender, EventArgs e)
-        {
+        }  
 
 
-        }
 
-        private void bt_excluir_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
 
