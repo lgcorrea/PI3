@@ -169,7 +169,6 @@ namespace PI3
 
         private void ListaGrid()
         {
-            DataGridView navegacao = new DataGridView();
             dgUsuarios.DataSource = infoUser.NavegaUsuarios();
             //COLUNAS GRID
 

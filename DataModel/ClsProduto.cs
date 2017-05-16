@@ -24,54 +24,77 @@ namespace DataModel
 
 
 
-        public DataTable ConsultaProduto(string nomeProduto)
+        public DataTable ConsultaProduto(//string nomeProduto
+            )
         {
 
             ClsConexao ConectaBD = new ClsConexao();
             SqlConnection cn = ConectaBD.Conectar();
-
             DataTable consultaProduto = new DataTable();
-            try
-            {
-                string sql = @"Select 
+
+            /*SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn;
+            cmd.CommandText = @"Select top 1
                                idProduto
                               ,nomeProduto
-                              ,descProduto
                               ,precProduto
-                              ,descontoPromocao
-                              ,idCategoria
-                              ,ativoProduto
-                              ,idUsuario
-                              ,qtdMinEstoque
-                              
+                              ,descontoPromocao                    
 
-                        FROM PRODUTO WHERE nomeProduto LIKE '%' + @nomeProduto +'%' ";
+                        FROM PRODUTO";
+
+            SqlDataReader dr = cmd.ExecuteReader();
+
+            List<ClsProduto> listaProduto = new List<ClsProduto>();
+
+            while (dr.Read())
+            {
+                ClsProduto produto = new ClsProduto();
+
+                produto.idProduto = Convert.ToInt32(dr.GetOrdinal("idProduto"));
+                produto.nomeProduto = dr.GetOrdinal("nomeProduto").ToString();
+                produto.precProduto = Convert.ToDouble(dr.GetOrdinal("precProduto"));
+                produto.descontoPromocao = Convert.ToDouble(dr.GetOrdinal("descontoPromocao"));
+
+                listaProduto.Add(produto);
+            }
+            */
+
+
+
+            try
+            {
+                 string sql = @"Select 
+                               idProduto
+                              ,nomeProduto
+                              ,precProduto
+                              ,descontoPromocao                    
+
+                        FROM PRODUTO";
+                         //WHERE nomeProduto LIKE '%' + @nomeProduto +'%' ";
 
                 SqlCommand cmd = cn.CreateCommand();
                 cmd.CommandText = sql;
 
-                cmd.Parameters.Add("@nomeProduto", SqlDbType.VarChar).Value = nomeProduto;
 
-                SqlDataReader dr = cmd.ExecuteReader();
-
-
+                //cmd.Parameters.Add("@nomeProduto", SqlDbType.VarChar).Value = nomeProduto;
 
                 SqlDataAdapter da = new SqlDataAdapter(sql, cn);
                 da.Fill(consultaProduto);
+                
 
-
-
+            
             }
             catch
             {
-                consultaProduto = null;
+                Console.WriteLine("erro");
+                //consultaProduto = null;
             }
             finally
             {
                 cn.Close();
             }
-
             return consultaProduto;
+            //return consultaProduto;
         }
 
     }

@@ -14,15 +14,18 @@ namespace PI3
 {
     public partial class Produtos : Form
     {
-        public Produtos()
+        private ClsUsuario infoUser;
+        public Produtos(ClsUsuario infouser)
         {
+            infoUser = infouser;
             InitializeComponent();
+            
         }
 
         //forma Produtos
         private void Produtos_Load(object sender, EventArgs e)
         {
-
+            ListaGridProdutos();
         }
 
         //label Nome Produto
@@ -115,9 +118,9 @@ namespace PI3
 
         private void bt_Pesquisar_Click(object sender, EventArgs e)
         {
-            ClsProduto tlProduto = new ClsProduto();
+            
 
-            dgwProduto.DataSource = tlProduto.ConsultaProduto(txtPesquisaProd.Text);
+            //dgwProduto.DataSource = tlProduto.ConsultaProduto(txtPesquisaProd.Text);
         }
 
         private void bt_Salvar_Click(object sender, EventArgs e)
@@ -135,12 +138,34 @@ namespace PI3
             Close();
         }
 
-        private void dgwProduto_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
+        private void ListaGridProdutos() {    
+
+            ClsProduto Produto = new ClsProduto();            
+            dgProdutos.DataSource = Produto.ConsultaProduto();
+            
+            //COLUNAS GRID
+
+            //dgProdutos.Columns[1].HeaderText = "idProduto";
+            dgProdutos.Columns[2].HeaderText = "Descrição Produto";
+            dgProdutos.Columns[3].HeaderText = "Preço Produto";
+            dgProdutos.Columns[4].HeaderText = "Desconto promoção";                
+            
+            //COLUNA FICA INVISIVEL NO GRID
+            dgProdutos.Columns["idProduto"].Visible = false;
+            //dgwProduto.Columns["loginUsuario"].Visible = false;
+
+            //COLUNAS SOMENTE LEITURA
+
+            //dgwProduto.Columns["nomeUsuario"].ReadOnly = true;
             
         }
 
         private void txtPesquisaProd_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

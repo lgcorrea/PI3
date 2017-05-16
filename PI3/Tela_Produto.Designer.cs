@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_Nome_produto = new System.Windows.Forms.Label();
             this.label_descricao = new System.Windows.Forms.Label();
             this.label_categoria = new System.Windows.Forms.Label();
@@ -51,12 +53,12 @@
             this.bt_Salvar = new System.Windows.Forms.Button();
             this.bt_excluir = new System.Windows.Forms.Button();
             this.bt_sair = new System.Windows.Forms.Button();
-            this.dgwProduto = new System.Windows.Forms.DataGridView();
             this.lbProduto = new System.Windows.Forms.Label();
             this.txtPesquisaProd = new System.Windows.Forms.TextBox();
+            this.dgProdutos = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwProduto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Nome_produto
@@ -297,15 +299,6 @@
             this.bt_sair.UseVisualStyleBackColor = false;
             this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
             // 
-            // dgwProduto
-            // 
-            this.dgwProduto.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgwProduto.Location = new System.Drawing.Point(12, 50);
-            this.dgwProduto.Name = "dgwProduto";
-            this.dgwProduto.Size = new System.Drawing.Size(794, 233);
-            this.dgwProduto.TabIndex = 0;
-            this.dgwProduto.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwProduto_CellContentClick);
-            // 
             // lbProduto
             // 
             this.lbProduto.AutoSize = true;
@@ -323,6 +316,36 @@
             this.txtPesquisaProd.TabIndex = 1;
             this.txtPesquisaProd.TextChanged += new System.EventHandler(this.txtPesquisaProd_TextChanged);
             // 
+            // dgProdutos
+            // 
+            this.dgProdutos.AllowUserToAddRows = false;
+            this.dgProdutos.AllowUserToDeleteRows = false;
+            this.dgProdutos.AllowUserToOrderColumns = true;
+            this.dgProdutos.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgProdutos.Location = new System.Drawing.Point(12, 45);
+            this.dgProdutos.Name = "dgProdutos";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = "NULO";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgProdutos.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgProdutos.Size = new System.Drawing.Size(791, 229);
+            this.dgProdutos.TabIndex = 23;
+            this.dgProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
+            this.dgProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
+            // 
             // Produtos
             // 
             this.AcceptButton = this.bt_Salvar;
@@ -330,9 +353,9 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(815, 489);
+            this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.txtPesquisaProd);
             this.Controls.Add(this.lbProduto);
-            this.Controls.Add(this.dgwProduto);
             this.Controls.Add(this.bt_sair);
             this.Controls.Add(this.bt_excluir);
             this.Controls.Add(this.bt_Salvar);
@@ -363,7 +386,7 @@
             this.Load += new System.EventHandler(this.Produtos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgwProduto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -393,8 +416,8 @@
         private System.Windows.Forms.Button bt_Salvar;
         private System.Windows.Forms.Button bt_excluir;
         private System.Windows.Forms.Button bt_sair;
-        private System.Windows.Forms.DataGridView dgwProduto;
         private System.Windows.Forms.Label lbProduto;
         private System.Windows.Forms.TextBox txtPesquisaProd;
+        private System.Windows.Forms.DataGridView dgProdutos;
     }
 }

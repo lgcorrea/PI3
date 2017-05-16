@@ -90,7 +90,7 @@ namespace PI3
         //botao chama tela produtos
         private void bt_Produtos_Click(object sender, EventArgs e)
         {
-            Produtos TelaProduto = new Produtos();
+            Produtos TelaProduto = new Produtos(infoUser);
             this.Hide();
             TelaProduto.Show();
         }
