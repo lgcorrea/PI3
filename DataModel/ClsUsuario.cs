@@ -110,6 +110,51 @@ namespace DataModel
 
         }
 
+        //METODO BUSCA USUÁRIO
+
+            public DataTable BuscaUser(string nomeUser)
+        {
+            ClsConexao ConectaBD = new ClsConexao();
+            SqlConnection cn = ConectaBD.Conectar();
+            string parametro = nomeUser;
+
+                DataTable dados = new DataTable();
+
+            //            try
+            //          {
+            string sql = @"SELECT idUsuario
+                              ,loginUsuario                              
+                              ,nomeUsuario
+                              ,CASE WHEN tipoPerfil= 'A' THEN 'Administrador' ELSE 'Estoquista' END as tipoPerfil
+                              ,usuarioAtivo
+                          FROM Usuario
+                          WHERE nomeUsuario = @nomeUser";
+//LIKE '%'+@nomeUsuario+'%'";
+
+                SqlCommand cmd = cn.CreateCommand();
+            //cmd.Parameters.Add("@nomeUsuer", SqlDbType.VarChar, 50).Value = parametro;
+            cmd.Parameters.AddWithValue("@nomeUser", parametro);
+                cmd.CommandText = sql;
+
+                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
+                da.Fill(dados);
+                
+    ///        }
+
+       //     catch
+         //   {
+
+           //     dados = null;
+            //}
+           // finally
+            //{
+             //   cn.Close();
+           // }
+
+            return dados;
+
+        }
+
         //METODO SALVAR
 
         public void Salvar() {

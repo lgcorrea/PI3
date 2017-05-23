@@ -171,12 +171,17 @@ namespace PI3
         private void ListaGrid()
         {
             dgUsuarios.DataSource = infoUser.NavegaUsuarios();
-            //COLUNAS GRID
+            ConfiguraGrid();
+
+        }
+
+        private void ConfiguraGrid()
+        {            //COLUNAS GRID
 
             dgUsuarios.Columns[2].HeaderText = "Nome Usuário";
             dgUsuarios.Columns[3].HeaderText = "Tipo de Perfil";
             dgUsuarios.Columns[4].HeaderText = "Usuário ativo";
-            
+
 
             //COLUNA FICA INVISIVEL NO GRID
             dgUsuarios.Columns["idUsuario"].Visible = false;
@@ -184,9 +189,10 @@ namespace PI3
 
             //COLUNAS SOMENTE LEITURA
 
-            dgUsuarios.Columns["nomeUsuario"].ReadOnly = true;    
-
+            dgUsuarios.Columns["nomeUsuario"].ReadOnly = true;
         }
+
+        
 
         private void txtSenhaUser_TextChanged(object sender, EventArgs e)
         {
@@ -195,7 +201,21 @@ namespace PI3
 
         private void btn_Pesquisar_Click(object sender, EventArgs e)
         {
+            dgUsuarios.DataSource = null;
+            MessageBox.Show(txt_Pesquisar.Text);
+            dgUsuarios.DataSource = infoUser.BuscaUser(txt_Pesquisar.Text);
 
+            dgUsuarios.Select();
+            if (dgUsuarios.DataSource == null) {
+                MessageBox.Show("Erro");
+            }
+            else
+            {
+
+                MessageBox.Show("ok");
+            }
+
+            ConfiguraGrid();
         }
 
         private void txt_Pesquisar_TextChanged(object sender, EventArgs e)
