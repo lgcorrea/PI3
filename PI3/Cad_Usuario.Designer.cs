@@ -44,6 +44,7 @@
             this.bt_NovoUsuario = new System.Windows.Forms.Button();
             this.dgUsuarios = new System.Windows.Forms.DataGridView();
             this.btn_Pesquisar = new System.Windows.Forms.Button();
+            this.txt_Pesquisar = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).BeginInit();
             this.SuspendLayout();
@@ -98,7 +99,7 @@
             // 
             // txtSenhaUser
             // 
-            this.txtSenhaUser.Location = new System.Drawing.Point(105, 120);
+            this.txtSenhaUser.Location = new System.Drawing.Point(105, 125);
             this.txtSenhaUser.Name = "txtSenhaUser";
             this.txtSenhaUser.Size = new System.Drawing.Size(180, 25);
             this.txtSenhaUser.TabIndex = 3;
@@ -197,7 +198,7 @@
             this.bt_Alterar.Name = "bt_Alterar";
             this.bt_Alterar.Size = new System.Drawing.Size(73, 34);
             this.bt_Alterar.TabIndex = 7;
-            this.bt_Alterar.Text = "Alterar ";
+            this.bt_Alterar.Text = "Salvar";
             this.bt_Alterar.UseVisualStyleBackColor = false;
             this.bt_Alterar.Click += new System.EventHandler(this.bt_Alterar_Click);
             // 
@@ -237,13 +238,22 @@
             this.btn_Pesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btn_Pesquisar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_Pesquisar.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.btn_Pesquisar.Location = new System.Drawing.Point(12, 22);
+            this.btn_Pesquisar.Location = new System.Drawing.Point(210, 27);
             this.btn_Pesquisar.Name = "btn_Pesquisar";
-            this.btn_Pesquisar.Size = new System.Drawing.Size(106, 34);
+            this.btn_Pesquisar.Size = new System.Drawing.Size(106, 33);
             this.btn_Pesquisar.TabIndex = 15;
             this.btn_Pesquisar.Text = "Pesquisar";
             this.btn_Pesquisar.UseVisualStyleBackColor = false;
             this.btn_Pesquisar.Click += new System.EventHandler(this.btn_Pesquisar_Click);
+            // 
+            // txt_Pesquisar
+            // 
+            this.txt_Pesquisar.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_Pesquisar.Location = new System.Drawing.Point(12, 32);
+            this.txt_Pesquisar.Name = "txt_Pesquisar";
+            this.txt_Pesquisar.Size = new System.Drawing.Size(180, 25);
+            this.txt_Pesquisar.TabIndex = 15;
+            this.txt_Pesquisar.TextChanged += new System.EventHandler(this.txt_Pesquisar_TextChanged);
             // 
             // Cadastro_Usuario
             // 
@@ -251,6 +261,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(881, 445);
+            this.Controls.Add(this.txt_Pesquisar);
             this.Controls.Add(this.btn_Pesquisar);
             this.Controls.Add(this.dgUsuarios);
             this.Controls.Add(this.bt_NovoUsuario);
@@ -266,6 +277,7 @@
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgUsuarios)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -286,5 +298,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox txtSenhaUser;
         private System.Windows.Forms.Button btn_Pesquisar;
+        private System.Windows.Forms.TextBox txt_Pesquisar;
     }
 }

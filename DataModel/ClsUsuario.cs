@@ -124,8 +124,11 @@ namespace DataModel
             {
         
                     
-                    sql = @"INSERT INTO USUARIO (loginUsuario,senhaUsuario,nomeUsuario,tipoPerfil,usuarioAtivo)
-                               VALUES(@loginUsuario,@senhaUsuario,@nomeUsuario,@tipoPerfil,@usuarioAtivo)";
+                    sql = @"DECLARE @ID_INSERIDO TABLE (ID INT)
+                            INSERT INTO USUARIO (loginUsuario,senhaUsuario,nomeUsuario,tipoPerfil,usuarioAtivo)
+                            OUTPUT inserted.idUsuario into @ID_INSERIDO
+                            VALUES(@loginUsuario,@senhaUsuario,@nomeUsuario,@tipoPerfil,@usuarioAtivo)
+                            SELECT ID FROM @ID_INSERIDO";
 
                     cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;
                     cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar, 50).Value = this.senhaUsuario;
@@ -135,7 +138,8 @@ namespace DataModel
 
                     cmd.CommandText = sql;
                     
-                    cmd.ExecuteNonQuery();
+                    idUsuario = Convert.ToInt32(cmd.ExecuteScalar());
+                                    
                     MessageBox.Show("Usuário Cadastrado");
                 }
               
@@ -163,7 +167,7 @@ namespace DataModel
                 else
                 {
                     sql = @"UPDATE USUARIO
-                        SET loginUsuario = @loginUsuario,
+                            SET loginUsuario = @loginUsuario,
                             senhaUsuario = @senhaUsuario,
                             nomeUsuario = @nomeUsuario,
                             tipoPerfil = @tipoPerfil,

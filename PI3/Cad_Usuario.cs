@@ -139,6 +139,7 @@ namespace PI3
 
             SalvarUsuario.Salvar();
             ListaGrid();
+            idUsuario = SalvarUsuario.idUsuario;
 
         }
 
@@ -163,7 +164,7 @@ namespace PI3
             checkBox_UserAtivo.Checked = Convert.ToBoolean(dgUsuarios.CurrentRow.Cells[4].Value);
 
             //POPULA VARIAVEL COM ID DO REGISTRO SELECIONADO NO GRID
-            idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);
+            idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);            
 
         }
 
@@ -194,6 +195,13 @@ namespace PI3
 
         private void btn_Pesquisar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void txt_Pesquisar_TextChanged(object sender, EventArgs e)
+        {
+            
+
 
         }
     }
