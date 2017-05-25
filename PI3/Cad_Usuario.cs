@@ -178,9 +178,9 @@ namespace PI3
         private void ConfiguraGrid()
         {            //COLUNAS GRID
 
-            dgUsuarios.Columns[2].HeaderText = "Nome Usuário";
-            dgUsuarios.Columns[3].HeaderText = "Tipo de Perfil";
-            dgUsuarios.Columns[4].HeaderText = "Usuário ativo";
+            dgUsuarios.Columns["nomeUsuario"].HeaderText = "Nome Usuário";
+            dgUsuarios.Columns["tipoPerfil"].HeaderText = "Tipo de Perfil";
+            dgUsuarios.Columns["usuarioAtivo"].HeaderText = "Usuário ativo";
 
 
             //COLUNA FICA INVISIVEL NO GRID

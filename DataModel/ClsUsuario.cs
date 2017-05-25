@@ -84,13 +84,11 @@ namespace DataModel
                               ,usuarioAtivo
                           FROM Usuario";
                 
-                SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = sql;
+                //SqlCommand cmd = cn.CreateCommand();
+                //cmd.CommandText = sql;
                 
                 SqlDataAdapter da = new SqlDataAdapter(sql, cn);                
-                da.Fill(dados);
-                
-                
+                da.Fill(dados);    
             }
 
             catch
@@ -116,43 +114,40 @@ namespace DataModel
         {
             ClsConexao ConectaBD = new ClsConexao();
             SqlConnection cn = ConectaBD.Conectar();
-            string parametro = nomeUser;
+            DataTable dados = new DataTable();
 
-                DataTable dados = new DataTable();
-
-            //            try
-            //          {
+            try
+            {
             string sql = @"SELECT idUsuario
                               ,loginUsuario                              
                               ,nomeUsuario
                               ,CASE WHEN tipoPerfil= 'A' THEN 'Administrador' ELSE 'Estoquista' END as tipoPerfil
                               ,usuarioAtivo
                           FROM Usuario
-                          WHERE nomeUsuario = @nomeUser";
-//LIKE '%'+@nomeUsuario+'%'";
+                          WHERE nomeUsuario like @nomeUser";
 
-                SqlCommand cmd = cn.CreateCommand();
-            //cmd.Parameters.Add("@nomeUsuer", SqlDbType.VarChar, 50).Value = parametro;
-            cmd.Parameters.AddWithValue("@nomeUser", parametro);
-                cmd.CommandText = sql;
+            SqlCommand cmd = new SqlCommand(sql, cn);
+            cmd.Parameters.AddWithValue("@nomeUser", "%"+nomeUser+"%");
 
-                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
-                da.Fill(dados);
+            SqlDataAdapter dB = new SqlDataAdapter();
+            dB.SelectCommand = cmd;
+
+            
+            dB.Fill(dados);
                 
-    ///        }
+            }
 
-       //     catch
-         //   {
+            catch
+            {
 
-           //     dados = null;
-            //}
-           // finally
-            //{
-             //   cn.Close();
-           // }
+                dados = null;
+            }
+            finally
+            {
+               cn.Close();
+           }
 
             return dados;
-
         }
 
         //METODO SALVAR
