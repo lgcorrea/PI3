@@ -99,7 +99,7 @@
             // 
             // txtSenhaUser
             // 
-            this.txtSenhaUser.Location = new System.Drawing.Point(105, 125);
+            this.txtSenhaUser.Location = new System.Drawing.Point(105, 120);
             this.txtSenhaUser.Name = "txtSenhaUser";
             this.txtSenhaUser.Size = new System.Drawing.Size(180, 25);
             this.txtSenhaUser.TabIndex = 3;
@@ -139,7 +139,7 @@
             // 
             this.CbxTipodePerfil.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.CbxTipodePerfil.FormattingEnabled = true;
-            this.CbxTipodePerfil.Location = new System.Drawing.Point(105, 156);
+            this.CbxTipodePerfil.Location = new System.Drawing.Point(105, 151);
             this.CbxTipodePerfil.Name = "CbxTipodePerfil";
             this.CbxTipodePerfil.Size = new System.Drawing.Size(128, 25);
             this.CbxTipodePerfil.TabIndex = 5;
@@ -150,7 +150,7 @@
             this.label_tipoPerfil.AutoSize = true;
             this.label_tipoPerfil.Font = new System.Drawing.Font("Segoe UI Semibold", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_tipoPerfil.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_tipoPerfil.Location = new System.Drawing.Point(17, 159);
+            this.label_tipoPerfil.Location = new System.Drawing.Point(17, 154);
             this.label_tipoPerfil.Name = "label_tipoPerfil";
             this.label_tipoPerfil.Size = new System.Drawing.Size(90, 17);
             this.label_tipoPerfil.TabIndex = 6;

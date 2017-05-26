@@ -80,11 +80,10 @@ namespace PI3
         private void Form4_Load(object sender, EventArgs e)
         {
 
-            //navegacao = infoUser.NavegaUsuarios();
-            //dgUsuarios.DataSource = navegacao;
             ListaGrid();
             idUsuario = 0;
             CbxTipodePerfil.Items.AddRange(tipo.GetTiposDisponiveis());
+            checkBox_UserAtivo.Checked = true;
 
         }
 
@@ -97,11 +96,6 @@ namespace PI3
         {
 
         }  
-
-
-
-
-
 
         private void txtNome_TextChanged_1(object sender, EventArgs e)
         {
@@ -128,18 +122,36 @@ namespace PI3
 
         private void bt_Alterar_Click(object sender, EventArgs e)
         {
-            ClsUsuario SalvarUsuario = new ClsUsuario();
 
-            SalvarUsuario.nomeUsuario = txtNome.Text;
-            SalvarUsuario.loginUsuario = TxtLogin.Text;
-            SalvarUsuario.senhaUsuario = txtSenhaUser.Text;
-            SalvarUsuario.tipoPerfil = CbxTipodePerfil.Text;
-            SalvarUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;
-            SalvarUsuario.idUsuario = idUsuario;
+            if (txtNome.Text == "")
+            {
 
-            SalvarUsuario.Salvar();
-            ListaGrid();
-            idUsuario = SalvarUsuario.idUsuario;
+                MessageBox.Show("Informe o nome do usuário");
+            }
+            else if (TxtLogin.Text == "") {
+
+                MessageBox.Show("Informe o Login do usuário");
+            }
+            else if (txtSenhaUser.Text == "") {
+
+                MessageBox.Show("Informa a senha do usuário");
+            }
+            else {
+
+                ClsUsuario SalvarUsuario = new ClsUsuario();
+
+                SalvarUsuario.nomeUsuario = txtNome.Text;
+                SalvarUsuario.loginUsuario = TxtLogin.Text;
+                SalvarUsuario.senhaUsuario = txtSenhaUser.Text;
+                SalvarUsuario.tipoPerfil = CbxTipodePerfil.Text;
+                SalvarUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;
+                SalvarUsuario.idUsuario = idUsuario;
+
+                SalvarUsuario.Salvar();
+                ListaGrid();
+                idUsuario = SalvarUsuario.idUsuario;
+                txtSenhaUser.Text = "";
+            }
 
         }
 
@@ -176,8 +188,8 @@ namespace PI3
         }
 
         private void ConfiguraGrid()
-        {            //COLUNAS GRID
-
+        {   
+            //COLUNAS GRID
             dgUsuarios.Columns["nomeUsuario"].HeaderText = "Nome Usuário";
             dgUsuarios.Columns["tipoPerfil"].HeaderText = "Tipo de Perfil";
             dgUsuarios.Columns["usuarioAtivo"].HeaderText = "Usuário ativo";
@@ -202,20 +214,10 @@ namespace PI3
         private void btn_Pesquisar_Click(object sender, EventArgs e)
         {
             dgUsuarios.DataSource = null;
-            MessageBox.Show(txt_Pesquisar.Text);
             dgUsuarios.DataSource = infoUser.BuscaUser(txt_Pesquisar.Text);
 
-            dgUsuarios.Select();
-            if (dgUsuarios.DataSource == null) {
-                MessageBox.Show("Erro");
-            }
-            else
-            {
-
-                MessageBox.Show("ok");
-            }
-
             ConfiguraGrid();
+                        
         }
 
         private void txt_Pesquisar_TextChanged(object sender, EventArgs e)
