@@ -20,81 +20,99 @@ namespace DataModel
         public bool ativoProduto { get; set; }
         public int idUsuario { get; set; }
         public int qtdMinEstoque { get; set; }
-        public string imagem { get; set; }
+        public byte[] imagem { get; set; }
 
 
-
-        public DataTable ConsultaProduto(//string nomeProduto
-            )
+        //BUSCA PRODUTO A PARTIR DE UMA STRING
+        public DataTable ConsultaProduto(string nomeProduto)
         {
 
             ClsConexao ConectaBD = new ClsConexao();
             SqlConnection cn = ConectaBD.Conectar();
             DataTable consultaProduto = new DataTable();
 
-            /*SqlCommand cmd = new SqlCommand();
-            cmd.Connection = cn;
-            cmd.CommandText = @"Select top 1
-                               idProduto
-                              ,nomeProduto
-                              ,precProduto
-                              ,descontoPromocao                    
-
-                        FROM PRODUTO";
-
-            SqlDataReader dr = cmd.ExecuteReader();
-
-            List<ClsProduto> listaProduto = new List<ClsProduto>();
-
-            while (dr.Read())
-            {
-                ClsProduto produto = new ClsProduto();
-
-                produto.idProduto = Convert.ToInt32(dr.GetOrdinal("idProduto"));
-                produto.nomeProduto = dr.GetOrdinal("nomeProduto").ToString();
-                produto.precProduto = Convert.ToDouble(dr.GetOrdinal("precProduto"));
-                produto.descontoPromocao = Convert.ToDouble(dr.GetOrdinal("descontoPromocao"));
-
-                listaProduto.Add(produto);
-            }
-            */
-
-
-
             try
             {
                  string sql = @"Select 
-                               idProduto
+                               A.idProduto
                               ,nomeProduto
+                              ,descProduto
                               ,precProduto
-                              ,descontoPromocao                    
+                              ,qtdProdutoDisponivel
+                              ,descontoPromocao
+							  ,qtdMinEstoque
+							  ,nomeCategoria
+                              ,ativoProduto = CONVERT(BIT,CASE WHEN ativoProduto NOT IN (0,1) THEN 0 ELSE ativoProduto END)                 
 
-                        FROM PRODUTO";
-                         //WHERE nomeProduto LIKE '%' + @nomeProduto +'%' ";
+                        FROM PRODUTO A
+                        INNER JOIN CATEGORIA B ON A.IDCATEGORIA = B.IDCATEGORIA 
+                        INNER JOIN ESTOQUE C ON C.IDPRODUTO = A.IDPRODUTO
+                        WHERE nomeProduto LIKE @nomeProduto";
 
-                SqlCommand cmd = cn.CreateCommand();
-                cmd.CommandText = sql;
+                SqlCommand cmd = new SqlCommand(sql, cn);
+                cmd.Parameters.AddWithValue("@nomeProduto", "%" + nomeProduto + "%");
 
+                SqlDataAdapter dB = new SqlDataAdapter();
+                dB.SelectCommand = cmd;
 
-                //cmd.Parameters.Add("@nomeProduto", SqlDbType.VarChar).Value = nomeProduto;
-
-                SqlDataAdapter da = new SqlDataAdapter(sql, cn);
-                da.Fill(consultaProduto);
-                
-
+                dB.Fill(consultaProduto);
+                              
             
             }
             catch
             {
-                Console.WriteLine("erro");
-                //consultaProduto = null;
+                consultaProduto = null;
             }
             finally
             {
                 cn.Close();
             }
             return consultaProduto;
-            //return consultaProduto;
+      
+        }
+
+        public DataTable ListaProduto()
+        {
+
+            ClsConexao ConectaBD = new ClsConexao();
+            SqlConnection cn = ConectaBD.Conectar();
+            DataTable consultaProduto = new DataTable();
+
+            try
+            {
+                string sql = @"Select 
+                               A.idProduto
+                              ,nomeProduto
+                              ,descProduto
+                              ,precProduto
+                              ,qtdProdutoDisponivel
+                              ,descontoPromocao
+							  ,qtdMinEstoque
+							  ,nomeCategoria                
+                              ,ativoProduto = CASE WHEN ativoProduto NOT IN (0,1) THEN 0 ELSE ativoProduto END 
+                              ,imagem
+                        FROM PRODUTO A
+                        INNER JOIN CATEGORIA B ON A.IDCATEGORIA = B.IDCATEGORIA 
+                        INNER JOIN ESTOQUE C ON C.IDPRODUTO = A.IDPRODUTO";
+                        
+                SqlCommand cmd = new SqlCommand(sql, cn);
+
+                SqlDataAdapter dB = new SqlDataAdapter();
+                dB.SelectCommand = cmd;
+
+                dB.Fill(consultaProduto);
+
+            }
+            catch
+            {
+                consultaProduto = null;
+            }
+            finally
+            {
+                cn.Close();
+            }
+            return consultaProduto;
+
         }
 
     }

@@ -86,12 +86,9 @@ namespace DataModel
                               ,CASE WHEN tipoPerfil= 'A' THEN 'Administrador' ELSE 'Estoquista' END as tipoPerfil
                               ,usuarioAtivo
                           FROM Usuario";
-
-                //SqlCommand cmd = cn.CreateCommand();
-                //cmd.CommandText = sql;
-
                 SqlDataAdapter da = new SqlDataAdapter(sql, cn);
                 da.Fill(dados);
+
             }
 
             catch
@@ -135,7 +132,6 @@ namespace DataModel
                 SqlDataAdapter dB = new SqlDataAdapter();
                 dB.SelectCommand = cmd;
 
-
                 dB.Fill(dados);
 
             }
@@ -166,8 +162,7 @@ namespace DataModel
 
             // VALIDA SE USUARIO OU LOGIN EXISTE NO BANCO ANTES DE ATUALIZAR OU INSERIR
             sql = @"SELECT 1 FROM USUARIO
-                    WHERE nomeUsuario = @nomeUsuario
-                    OR loginUsuario = @loginUsuario";
+                    WHERE loginUsuario = @loginUsuario";
 
             cmd.Parameters.Add("@nomeUsuario", SqlDbType.VarChar, 50).Value = this.nomeUsuario;
             cmd.Parameters.Add("@loginUsuario", SqlDbType.VarChar, 50).Value = this.loginUsuario;
@@ -241,7 +236,7 @@ namespace DataModel
             else
             {
 
-                MessageBox.Show("Nome de usuário ou Login já cadastro! Favor alterar!");
+                MessageBox.Show("Login já cadastro! Favor alterar!");
             }
 
         }

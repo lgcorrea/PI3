@@ -134,7 +134,11 @@ namespace PI3
             }
             else if (txtSenhaUser.Text == "") {
 
-                MessageBox.Show("Informa a senha do usuário");
+                if (idUsuario == 0)
+                {
+
+                    MessageBox.Show("Informa a senha do usuário");
+                }
             }
             else {
 

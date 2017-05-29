@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_Nome_produto = new System.Windows.Forms.Label();
             this.label_descricao = new System.Windows.Forms.Label();
             this.label_categoria = new System.Windows.Forms.Label();
@@ -56,6 +56,7 @@
             this.lbProduto = new System.Windows.Forms.Label();
             this.txtPesquisaProd = new System.Windows.Forms.TextBox();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
+            this.btnAvancada = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
@@ -113,7 +114,7 @@
             this.label_qtdMinima.AutoSize = true;
             this.label_qtdMinima.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_qtdMinima.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_qtdMinima.Location = new System.Drawing.Point(9, 444);
+            this.label_qtdMinima.Location = new System.Drawing.Point(9, 428);
             this.label_qtdMinima.Name = "label_qtdMinima";
             this.label_qtdMinima.Size = new System.Drawing.Size(71, 15);
             this.label_qtdMinima.TabIndex = 15;
@@ -125,7 +126,7 @@
             this.label_qtdDisponivel.AutoSize = true;
             this.label_qtdDisponivel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_qtdDisponivel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label_qtdDisponivel.Location = new System.Drawing.Point(108, 444);
+            this.label_qtdDisponivel.Location = new System.Drawing.Point(108, 428);
             this.label_qtdDisponivel.Name = "label_qtdDisponivel";
             this.label_qtdDisponivel.Size = new System.Drawing.Size(86, 15);
             this.label_qtdDisponivel.TabIndex = 17;
@@ -136,7 +137,7 @@
             this.label_descontoProd.AutoSize = true;
             this.label_descontoProd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_descontoProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_descontoProd.Location = new System.Drawing.Point(164, 383);
+            this.label_descontoProd.Location = new System.Drawing.Point(108, 383);
             this.label_descontoProd.Name = "label_descontoProd";
             this.label_descontoProd.Size = new System.Drawing.Size(116, 15);
             this.label_descontoProd.TabIndex = 13;
@@ -163,31 +164,31 @@
             // 
             this.txtValorProduto.Location = new System.Drawing.Point(12, 399);
             this.txtValorProduto.Name = "txtValorProduto";
-            this.txtValorProduto.Size = new System.Drawing.Size(100, 20);
+            this.txtValorProduto.Size = new System.Drawing.Size(77, 20);
             this.txtValorProduto.TabIndex = 12;
             this.txtValorProduto.TextChanged += new System.EventHandler(this.txtValorProduto_TextChanged);
             // 
             // txtQtdMinProd
             // 
-            this.txtQtdMinProd.Location = new System.Drawing.Point(12, 460);
+            this.txtQtdMinProd.Location = new System.Drawing.Point(12, 444);
             this.txtQtdMinProd.Name = "txtQtdMinProd";
-            this.txtQtdMinProd.Size = new System.Drawing.Size(52, 20);
+            this.txtQtdMinProd.Size = new System.Drawing.Size(77, 20);
             this.txtQtdMinProd.TabIndex = 16;
             this.txtQtdMinProd.TextChanged += new System.EventHandler(this.txtQtdMinProd_TextChanged);
             // 
             // txtQtdDispProd
             // 
-            this.txtQtdDispProd.Location = new System.Drawing.Point(111, 460);
+            this.txtQtdDispProd.Location = new System.Drawing.Point(111, 444);
             this.txtQtdDispProd.Name = "txtQtdDispProd";
-            this.txtQtdDispProd.Size = new System.Drawing.Size(52, 20);
+            this.txtQtdDispProd.Size = new System.Drawing.Size(70, 20);
             this.txtQtdDispProd.TabIndex = 18;
             this.txtQtdDispProd.TextChanged += new System.EventHandler(this.txtQtdDispProd_TextChanged);
             // 
             // txtDescPromocao
             // 
-            this.txtDescPromocao.Location = new System.Drawing.Point(167, 399);
+            this.txtDescPromocao.Location = new System.Drawing.Point(111, 399);
             this.txtDescPromocao.Name = "txtDescPromocao";
-            this.txtDescPromocao.Size = new System.Drawing.Size(113, 20);
+            this.txtDescPromocao.Size = new System.Drawing.Size(70, 20);
             this.txtDescPromocao.TabIndex = 14;
             this.txtDescPromocao.TextChanged += new System.EventHandler(this.txtDescPromocao_TextChanged);
             // 
@@ -249,7 +250,7 @@
             this.bt_Pesquisar.FlatAppearance.BorderSize = 2;
             this.bt_Pesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Pesquisar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Pesquisar.Location = new System.Drawing.Point(717, 9);
+            this.bt_Pesquisar.Location = new System.Drawing.Point(534, 7);
             this.bt_Pesquisar.Name = "bt_Pesquisar";
             this.bt_Pesquisar.Size = new System.Drawing.Size(91, 35);
             this.bt_Pesquisar.TabIndex = 2;
@@ -302,19 +303,20 @@
             // lbProduto
             // 
             this.lbProduto.AutoSize = true;
+            this.lbProduto.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbProduto.Location = new System.Drawing.Point(9, 22);
             this.lbProduto.Name = "lbProduto";
-            this.lbProduto.Size = new System.Drawing.Size(110, 13);
+            this.lbProduto.Size = new System.Drawing.Size(86, 15);
             this.lbProduto.TabIndex = 0;
-            this.lbProduto.Text = "Codigo/NomeProduto";
+            this.lbProduto.Text = "Nome Produto";
             // 
             // txtPesquisaProd
             // 
-            this.txtPesquisaProd.Location = new System.Drawing.Point(125, 19);
+            this.txtPesquisaProd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPesquisaProd.Location = new System.Drawing.Point(101, 16);
             this.txtPesquisaProd.Name = "txtPesquisaProd";
-            this.txtPesquisaProd.Size = new System.Drawing.Size(582, 20);
+            this.txtPesquisaProd.Size = new System.Drawing.Size(414, 23);
             this.txtPesquisaProd.TabIndex = 1;
-            this.txtPesquisaProd.TextChanged += new System.EventHandler(this.txtPesquisaProd_TextChanged);
             // 
             // dgProdutos
             // 
@@ -325,26 +327,41 @@
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProdutos.Location = new System.Drawing.Point(12, 45);
             this.dgProdutos.Name = "dgProdutos";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = "NULO";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.NullValue = "NULO";
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgProdutos.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle4;
             this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgProdutos.Size = new System.Drawing.Size(791, 229);
             this.dgProdutos.TabIndex = 23;
             this.dgProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
             this.dgProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
+            // 
+            // btnAvancada
+            // 
+            this.btnAvancada.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnAvancada.FlatAppearance.BorderSize = 2;
+            this.btnAvancada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAvancada.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAvancada.Location = new System.Drawing.Point(631, 7);
+            this.btnAvancada.Name = "btnAvancada";
+            this.btnAvancada.Size = new System.Drawing.Size(172, 35);
+            this.btnAvancada.TabIndex = 24;
+            this.btnAvancada.Text = "Pesquisa Avançada";
+            this.btnAvancada.UseVisualStyleBackColor = false;
+            this.btnAvancada.Click += new System.EventHandler(this.btnAvancada_Click);
             // 
             // Produtos
             // 
@@ -353,6 +370,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(815, 489);
+            this.Controls.Add(this.btnAvancada);
             this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.txtPesquisaProd);
             this.Controls.Add(this.lbProduto);
@@ -419,5 +437,6 @@
         private System.Windows.Forms.Label lbProduto;
         private System.Windows.Forms.TextBox txtPesquisaProd;
         private System.Windows.Forms.DataGridView dgProdutos;
+        private System.Windows.Forms.Button btnAvancada;
     }
 }

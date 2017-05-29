@@ -118,9 +118,11 @@ namespace PI3
 
         private void bt_Pesquisar_Click(object sender, EventArgs e)
         {
-            
-
-            //dgwProduto.DataSource = tlProduto.ConsultaProduto(txtPesquisaProd.Text);
+            ClsProduto ProdutoFiltro = new ClsProduto();
+            //dgProdutos.DataSource = null;
+            dgProdutos.DataSource =  ProdutoFiltro.ConsultaProduto(txtPesquisaProd.Text);
+            //ListaGridProdutos();
+            ConfiguraGrid();
         }
 
         private void bt_Salvar_Click(object sender, EventArgs e)
@@ -136,36 +138,63 @@ namespace PI3
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
+            Menu tela_menu = new Menu(infoUser);
         }
 
-        private void ListaGridProdutos() {    
+        private void ListaGridProdutos() {
 
-            ClsProduto Produto = new ClsProduto();            
-            dgProdutos.DataSource = Produto.ConsultaProduto();
-            
-            //COLUNAS GRID
+            ClsProduto Produto = new ClsProduto();
+            dgProdutos.DataSource = Produto.ListaProduto();
+            ConfiguraGrid();
+        }
 
-            //dgProdutos.Columns[1].HeaderText = "idProduto";
-            dgProdutos.Columns[2].HeaderText = "Descrição Produto";
-            dgProdutos.Columns[3].HeaderText = "Preço Produto";
-            dgProdutos.Columns[4].HeaderText = "Desconto promoção";                
-            
+        private void ConfiguraGrid()
+        {             //COLUNAS GRID
+
+            dgProdutos.Columns["nomeProduto"].HeaderText = "Nome produto";
+            dgProdutos.Columns["descProduto"].HeaderText = "Descrição Produto";
+            dgProdutos.Columns["precProduto"].HeaderText = "Preço Produto";
+            dgProdutos.Columns["qtdProdutoDisponivel"].HeaderText = "Estoque disponível";
+            dgProdutos.Columns["descontoPromocao"].HeaderText = "Desconto promoção";
+            dgProdutos.Columns["nomeCategoria"].HeaderText = "Categoria";
+            dgProdutos.Columns["qtdMinEstoque"].HeaderText = "Qtd minina de estoque";
+            dgProdutos.Columns["ativoProduto"].HeaderText = "Produto Ativo";
+
+
             //COLUNA FICA INVISIVEL NO GRID
             dgProdutos.Columns["idProduto"].Visible = false;
-            //dgwProduto.Columns["loginUsuario"].Visible = false;
 
             //COLUNAS SOMENTE LEITURA
-
-            //dgwProduto.Columns["nomeUsuario"].ReadOnly = true;
-            
+            dgProdutos.Columns["nomeProduto"].ReadOnly = true;
+            dgProdutos.Columns["descProduto"].ReadOnly = true;
+            dgProdutos.Columns["precProduto"].ReadOnly = true;
+            dgProdutos.Columns["descontoPromocao"].ReadOnly = true;
+            dgProdutos.Columns["nomeCategoria"].ReadOnly = true;
+            dgProdutos.Columns["qtdMinEstoque"].ReadOnly = true;
+            dgProdutos.Columns["qtdProdutoDisponivel"].ReadOnly = true;
         }
 
-        private void txtPesquisaProd_TextChanged(object sender, EventArgs e)
-        {
 
-        }
 
         private void dgProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            txtNomeProduto.Text = dgProdutos.CurrentRow.Cells["nomeProduto"].Value.ToString();
+            txtDescricaoProduto.Text = dgProdutos.CurrentRow.Cells["descProduto"].Value.ToString();
+            txtValorProduto.Text = dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString();
+            txtDescPromocao.Text = dgProdutos.CurrentRow.Cells["descontoPromocao"].Value.ToString();
+            comboBoxCategProd.Text = dgProdutos.CurrentRow.Cells["nomeCategoria"].Value.ToString();
+            txtQtdDispProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
+            txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
+            Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
+            if(dgProdutos.CurrentRow.Cells["imagem"].Value != DBNull.Value)
+            {
+                //pictureProduto = (byte[])dgProdutos.CurrentRow.Cells["imagem"].Value;
+
+            }
+
+        }
+
+        private void btnAvancada_Click(object sender, EventArgs e)
         {
 
         }
