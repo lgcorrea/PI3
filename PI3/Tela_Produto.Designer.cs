@@ -57,6 +57,7 @@
             this.txtPesquisaProd = new System.Windows.Forms.TextBox();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.btnAvancada = new System.Windows.Forms.Button();
+            this.btnCarregarFoto = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
@@ -199,12 +200,14 @@
             this.comboBoxCategProd.Name = "comboBoxCategProd";
             this.comboBoxCategProd.Size = new System.Drawing.Size(147, 21);
             this.comboBoxCategProd.TabIndex = 7;
+            this.comboBoxCategProd.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategProd_SelectedIndexChanged);
             // 
             // pictureProduto
             // 
-            this.pictureProduto.Location = new System.Drawing.Point(616, 325);
+            this.pictureProduto.Location = new System.Drawing.Point(552, 325);
             this.pictureProduto.Name = "pictureProduto";
             this.pictureProduto.Size = new System.Drawing.Size(175, 113);
+            this.pictureProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProduto.TabIndex = 18;
             this.pictureProduto.TabStop = false;
             this.pictureProduto.Click += new System.EventHandler(this.pictureProduto_Click);
@@ -214,7 +217,7 @@
             this.imgProd.AutoSize = true;
             this.imgProd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imgProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.imgProd.Location = new System.Drawing.Point(613, 296);
+            this.imgProd.Location = new System.Drawing.Point(549, 301);
             this.imgProd.Name = "imgProd";
             this.imgProd.Size = new System.Drawing.Size(114, 15);
             this.imgProd.TabIndex = 19;
@@ -343,7 +346,7 @@
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
             dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
             this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProdutos.Size = new System.Drawing.Size(791, 229);
             this.dgProdutos.TabIndex = 23;
             this.dgProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
@@ -363,13 +366,28 @@
             this.btnAvancada.UseVisualStyleBackColor = false;
             this.btnAvancada.Click += new System.EventHandler(this.btnAvancada_Click);
             // 
+            // btnCarregarFoto
+            // 
+            this.btnCarregarFoto.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btnCarregarFoto.FlatAppearance.BorderSize = 2;
+            this.btnCarregarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCarregarFoto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCarregarFoto.Location = new System.Drawing.Point(733, 403);
+            this.btnCarregarFoto.Name = "btnCarregarFoto";
+            this.btnCarregarFoto.Size = new System.Drawing.Size(73, 35);
+            this.btnCarregarFoto.TabIndex = 25;
+            this.btnCarregarFoto.Text = "Foto";
+            this.btnCarregarFoto.UseVisualStyleBackColor = false;
+            this.btnCarregarFoto.Click += new System.EventHandler(this.btnCarregarFoto_Click_1);
+            // 
             // Produtos
             // 
             this.AcceptButton = this.bt_Salvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(815, 489);
+            this.ClientSize = new System.Drawing.Size(813, 487);
+            this.Controls.Add(this.btnCarregarFoto);
             this.Controls.Add(this.btnAvancada);
             this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.txtPesquisaProd);
@@ -438,5 +456,6 @@
         private System.Windows.Forms.TextBox txtPesquisaProd;
         private System.Windows.Forms.DataGridView dgProdutos;
         private System.Windows.Forms.Button btnAvancada;
+        private System.Windows.Forms.Button btnCarregarFoto;
     }
 }

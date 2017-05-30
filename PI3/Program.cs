@@ -17,7 +17,7 @@ namespace PI3
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Tela_Login());
-            Application.Run(new Menu());
+            //Application.Run(new Menu());
              
         }
     }

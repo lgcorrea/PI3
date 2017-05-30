@@ -91,8 +91,7 @@ namespace PI3
 
             catch (System.Data.SqlClient.SqlException ex ) {
                 MessageBox.Show("Servidor fora do ar, tente novamente mais tarde!");
-            }
-            
+            }     
 
             
             

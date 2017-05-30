@@ -43,9 +43,16 @@ namespace PI3
                 this.Sigla = sigla;
             }
 
-            public override string ToString()
+            public string ToString(int opcao)
             {
-                return Nome;
+                if (opcao == 0)
+                {
+                    return Nome;
+                }
+                else
+                {
+                    return Sigla;
+                }
             }
 
             public static tipo[] GetTiposDisponiveis() {
@@ -82,7 +89,7 @@ namespace PI3
 
             ListaGrid();
             idUsuario = 0;
-            CbxTipodePerfil.Items.AddRange(tipo.GetTiposDisponiveis());
+            CbxTipodePerfil.Items.AddRange(tipo.GetTiposDisponiveis());            
             checkBox_UserAtivo.Checked = true;
 
         }
@@ -147,6 +154,8 @@ namespace PI3
                 SalvarUsuario.nomeUsuario = txtNome.Text;
                 SalvarUsuario.loginUsuario = TxtLogin.Text;
                 SalvarUsuario.senhaUsuario = txtSenhaUser.Text;
+                MessageBox.Show(tipo.GetTiposDisponiveis().ToString());
+                //MessageBox.Show(tipo.GetTiposDisponiveis().);
                 SalvarUsuario.tipoPerfil = CbxTipodePerfil.Text;
                 SalvarUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;
                 SalvarUsuario.idUsuario = idUsuario;

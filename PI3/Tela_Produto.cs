@@ -9,17 +9,19 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 using DataModel;
- 
+using System.IO;
+
 namespace PI3
 {
     public partial class Produtos : Form
     {
         private ClsUsuario infoUser;
+        byte[] imagem;
         public Produtos(ClsUsuario infouser)
         {
             infoUser = infouser;
             InitializeComponent();
-            
+
         }
 
         //forma Produtos
@@ -39,7 +41,7 @@ namespace PI3
 
         }
 
-        
+
         private void label_vlr_produto_Click(object sender, EventArgs e)
         {
 
@@ -119,9 +121,7 @@ namespace PI3
         private void bt_Pesquisar_Click(object sender, EventArgs e)
         {
             ClsProduto ProdutoFiltro = new ClsProduto();
-            //dgProdutos.DataSource = null;
-            dgProdutos.DataSource =  ProdutoFiltro.ConsultaProduto(txtPesquisaProd.Text);
-            //ListaGridProdutos();
+            dgProdutos.DataSource = ProdutoFiltro.ConsultaProduto(txtPesquisaProd.Text);
             ConfiguraGrid();
         }
 
@@ -141,7 +141,8 @@ namespace PI3
             Menu tela_menu = new Menu(infoUser);
         }
 
-        private void ListaGridProdutos() {
+        private void ListaGridProdutos()
+        {
 
             ClsProduto Produto = new ClsProduto();
             dgProdutos.DataSource = Produto.ListaProduto();
@@ -163,6 +164,7 @@ namespace PI3
 
             //COLUNA FICA INVISIVEL NO GRID
             dgProdutos.Columns["idProduto"].Visible = false;
+            dgProdutos.Columns["Imagem"].Visible = false;
 
             //COLUNAS SOMENTE LEITURA
             dgProdutos.Columns["nomeProduto"].ReadOnly = true;
@@ -174,10 +176,9 @@ namespace PI3
             dgProdutos.Columns["qtdProdutoDisponivel"].ReadOnly = true;
         }
 
-
-
         private void dgProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             txtNomeProduto.Text = dgProdutos.CurrentRow.Cells["nomeProduto"].Value.ToString();
             txtDescricaoProduto.Text = dgProdutos.CurrentRow.Cells["descProduto"].Value.ToString();
             txtValorProduto.Text = dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString();
@@ -186,17 +187,78 @@ namespace PI3
             txtQtdDispProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
-            if(dgProdutos.CurrentRow.Cells["imagem"].Value != DBNull.Value)
+            
+            if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0)
             {
-                //pictureProduto = (byte[])dgProdutos.CurrentRow.Cells["imagem"].Value;
+                MemoryStream imagem = new MemoryStream((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value);
+                pictureProduto.Image = Image.FromStream(imagem);
+            }
+            else
+            {
+                pictureProduto.Image = null;
 
             }
-
         }
+
+
 
         private void btnAvancada_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void btnCarregarFoto_Click_1(object sender, EventArgs e)
+        {
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.Filter = "Arquivos de imagem (*.jpg)|*.jpg";
+            if (ofd.ShowDialog() == DialogResult.OK)
+            {
+                if (ofd.CheckFileExists)
+                {
+                    imagem = File.ReadAllBytes(ofd.FileName);
+                    mostraFoto(imagem);
+                }
+                else
+                {
+                    imagem = new byte[0];
+                    MessageBox.Show("Arquivo Inválido! Tente novamente...");
+                }
+            }
+
+        }
+
+        private void mostraFoto(Byte[] dados)
+        {
+            if (dados.Length > 0)
+            {
+                MemoryStream mem = new MemoryStream(dados);
+                pictureProduto.Image = Image.FromStream(mem);
+            }
+            else
+            {
+                pictureProduto.Image = null;
+            }
+        }
+
+        private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ClsProduto ProdCategoria = new ClsProduto();
+
+            comboBoxCategProd.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxCategProd.DataSource = ProdCategoria.GetCategoria();
+            comboBoxCategProd.ValueMember = "idCategoria";
+            comboBoxCategProd.DisplayMember = "nomeCategoria";
+            comboBoxCategProd.Update();
+        }
+
+        public class Categoria
+        {
+
+            public int idCategoria { get; set; }
+            public string nomeCategoria { get; set; }
+
+        }
+
     }
+
 }
