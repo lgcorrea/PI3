@@ -106,13 +106,14 @@ namespace PI3
         private void bt_Config_Click(object sender, EventArgs e)
         {
            
-            this.Hide();
+            
             if (infoUser.tipoPerfil == "A") {
 
                 
                 Cadastro_Usuario telaUsuario = new Cadastro_Usuario(infoUser);
             
             telaUsuario.Show();
+                this.Close();
             }
 
             else

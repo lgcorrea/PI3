@@ -25,7 +25,8 @@ namespace DataModel
             try
             {
                 string sql = @"SELECT idCategoria,
-                                      nomeCategoria                                     
+                                      nomeCategoria,
+                                      descCategoria                                     
                                       FROM CATEGORIA";
                 SqlCommand cmd = new SqlCommand(sql, cn);
 

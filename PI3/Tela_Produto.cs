@@ -195,17 +195,13 @@ namespace PI3
 
             txtNomeProduto.Text = dgProdutos.CurrentRow.Cells["nomeProduto"].Value.ToString();
             txtDescricaoProduto.Text = dgProdutos.CurrentRow.Cells["descProduto"].Value.ToString();
-            txtValorProduto.Text = dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString();
+            txtValorProduto.Text = string.Format("{0:N}",dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString());
             txtDescPromocao.Text = dgProdutos.CurrentRow.Cells["descontoPromocao"].Value.ToString();
             comboBoxCategProd.Text = dgProdutos.CurrentRow.Cells["nomeCategoria"].Value.ToString();
             txtQtdDispProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
              idCategoria = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
-            
-            
-
-            MessageBox.Show(idCategoria.ToString());
 
 
             if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0)

@@ -78,8 +78,11 @@ namespace PI3
         private void button4_Click(object sender, EventArgs e)
         {
 
-            this.Close();                             
-            
+            this.Close();
+            Menu Tela_Menu = new Menu(infoUser);
+            Tela_Menu.Show();
+
+
         }
 
 
