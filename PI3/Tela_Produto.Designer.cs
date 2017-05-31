@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_Nome_produto = new System.Windows.Forms.Label();
             this.label_descricao = new System.Windows.Forms.Label();
             this.label_categoria = new System.Windows.Forms.Label();
@@ -80,7 +80,7 @@
             this.label_descricao.AutoSize = true;
             this.label_descricao.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_descricao.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_descricao.Location = new System.Drawing.Point(9, 334);
+            this.label_descricao.Location = new System.Drawing.Point(9, 423);
             this.label_descricao.Name = "label_descricao";
             this.label_descricao.Size = new System.Drawing.Size(59, 15);
             this.label_descricao.TabIndex = 8;
@@ -103,7 +103,7 @@
             this.label_vlr_produto.AutoSize = true;
             this.label_vlr_produto.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_vlr_produto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_vlr_produto.Location = new System.Drawing.Point(9, 383);
+            this.label_vlr_produto.Location = new System.Drawing.Point(9, 334);
             this.label_vlr_produto.Name = "label_vlr_produto";
             this.label_vlr_produto.Size = new System.Drawing.Size(80, 15);
             this.label_vlr_produto.TabIndex = 11;
@@ -115,7 +115,7 @@
             this.label_qtdMinima.AutoSize = true;
             this.label_qtdMinima.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_qtdMinima.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_qtdMinima.Location = new System.Drawing.Point(9, 428);
+            this.label_qtdMinima.Location = new System.Drawing.Point(9, 379);
             this.label_qtdMinima.Name = "label_qtdMinima";
             this.label_qtdMinima.Size = new System.Drawing.Size(71, 15);
             this.label_qtdMinima.TabIndex = 15;
@@ -127,7 +127,7 @@
             this.label_qtdDisponivel.AutoSize = true;
             this.label_qtdDisponivel.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_qtdDisponivel.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label_qtdDisponivel.Location = new System.Drawing.Point(108, 428);
+            this.label_qtdDisponivel.Location = new System.Drawing.Point(108, 379);
             this.label_qtdDisponivel.Name = "label_qtdDisponivel";
             this.label_qtdDisponivel.Size = new System.Drawing.Size(86, 15);
             this.label_qtdDisponivel.TabIndex = 17;
@@ -138,7 +138,7 @@
             this.label_descontoProd.AutoSize = true;
             this.label_descontoProd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_descontoProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_descontoProd.Location = new System.Drawing.Point(108, 383);
+            this.label_descontoProd.Location = new System.Drawing.Point(108, 334);
             this.label_descontoProd.Name = "label_descontoProd";
             this.label_descontoProd.Size = new System.Drawing.Size(116, 15);
             this.label_descontoProd.TabIndex = 13;
@@ -149,21 +149,23 @@
             // 
             this.txtNomeProduto.Location = new System.Drawing.Point(12, 302);
             this.txtNomeProduto.Name = "txtNomeProduto";
+            this.txtNomeProduto.ReadOnly = true;
             this.txtNomeProduto.Size = new System.Drawing.Size(268, 20);
             this.txtNomeProduto.TabIndex = 5;
             this.txtNomeProduto.TextChanged += new System.EventHandler(this.txtNomeProduto_TextChanged);
             // 
             // txtDescricaoProduto
             // 
-            this.txtDescricaoProduto.Location = new System.Drawing.Point(12, 350);
+            this.txtDescricaoProduto.Location = new System.Drawing.Point(12, 441);
+            this.txtDescricaoProduto.Multiline = true;
             this.txtDescricaoProduto.Name = "txtDescricaoProduto";
-            this.txtDescricaoProduto.Size = new System.Drawing.Size(268, 20);
+            this.txtDescricaoProduto.Size = new System.Drawing.Size(268, 101);
             this.txtDescricaoProduto.TabIndex = 9;
             this.txtDescricaoProduto.TextChanged += new System.EventHandler(this.txtDescricaoProduto_TextChanged);
             // 
             // txtValorProduto
             // 
-            this.txtValorProduto.Location = new System.Drawing.Point(12, 399);
+            this.txtValorProduto.Location = new System.Drawing.Point(12, 350);
             this.txtValorProduto.Name = "txtValorProduto";
             this.txtValorProduto.Size = new System.Drawing.Size(77, 20);
             this.txtValorProduto.TabIndex = 12;
@@ -171,7 +173,7 @@
             // 
             // txtQtdMinProd
             // 
-            this.txtQtdMinProd.Location = new System.Drawing.Point(12, 444);
+            this.txtQtdMinProd.Location = new System.Drawing.Point(12, 395);
             this.txtQtdMinProd.Name = "txtQtdMinProd";
             this.txtQtdMinProd.Size = new System.Drawing.Size(77, 20);
             this.txtQtdMinProd.TabIndex = 16;
@@ -179,7 +181,7 @@
             // 
             // txtQtdDispProd
             // 
-            this.txtQtdDispProd.Location = new System.Drawing.Point(111, 444);
+            this.txtQtdDispProd.Location = new System.Drawing.Point(111, 395);
             this.txtQtdDispProd.Name = "txtQtdDispProd";
             this.txtQtdDispProd.Size = new System.Drawing.Size(70, 20);
             this.txtQtdDispProd.TabIndex = 18;
@@ -187,7 +189,7 @@
             // 
             // txtDescPromocao
             // 
-            this.txtDescPromocao.Location = new System.Drawing.Point(111, 399);
+            this.txtDescPromocao.Location = new System.Drawing.Point(111, 350);
             this.txtDescPromocao.Name = "txtDescPromocao";
             this.txtDescPromocao.Size = new System.Drawing.Size(70, 20);
             this.txtDescPromocao.TabIndex = 14;
@@ -201,12 +203,14 @@
             this.comboBoxCategProd.Size = new System.Drawing.Size(147, 21);
             this.comboBoxCategProd.TabIndex = 7;
             this.comboBoxCategProd.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategProd_SelectedIndexChanged);
+            this.comboBoxCategProd.Click += new System.EventHandler(this.comboBoxCategProd_Click);
             // 
             // pictureProduto
             // 
+            this.pictureProduto.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.pictureProduto.Location = new System.Drawing.Point(552, 325);
             this.pictureProduto.Name = "pictureProduto";
-            this.pictureProduto.Size = new System.Drawing.Size(175, 113);
+            this.pictureProduto.Size = new System.Drawing.Size(175, 161);
             this.pictureProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProduto.TabIndex = 18;
             this.pictureProduto.TabStop = false;
@@ -267,7 +271,7 @@
             this.bt_Salvar.FlatAppearance.BorderSize = 2;
             this.bt_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Salvar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Salvar.Location = new System.Drawing.Point(517, 444);
+            this.bt_Salvar.Location = new System.Drawing.Point(514, 507);
             this.bt_Salvar.Name = "bt_Salvar";
             this.bt_Salvar.Size = new System.Drawing.Size(91, 35);
             this.bt_Salvar.TabIndex = 20;
@@ -281,7 +285,7 @@
             this.bt_excluir.FlatAppearance.BorderSize = 2;
             this.bt_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_excluir.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_excluir.Location = new System.Drawing.Point(616, 444);
+            this.bt_excluir.Location = new System.Drawing.Point(613, 507);
             this.bt_excluir.Name = "bt_excluir";
             this.bt_excluir.Size = new System.Drawing.Size(91, 35);
             this.bt_excluir.TabIndex = 21;
@@ -295,7 +299,7 @@
             this.bt_sair.FlatAppearance.BorderSize = 2;
             this.bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_sair.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_sair.Location = new System.Drawing.Point(715, 444);
+            this.bt_sair.Location = new System.Drawing.Point(712, 507);
             this.bt_sair.Name = "bt_sair";
             this.bt_sair.Size = new System.Drawing.Size(91, 35);
             this.bt_sair.TabIndex = 22;
@@ -330,22 +334,22 @@
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProdutos.Location = new System.Drawing.Point(12, 45);
             this.dgProdutos.Name = "dgProdutos";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.NullValue = "NULO";
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle13.NullValue = "NULO";
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle13;
             this.dgProdutos.RowHeadersVisible = false;
             this.dgProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle14;
             this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProdutos.Size = new System.Drawing.Size(791, 229);
             this.dgProdutos.TabIndex = 23;
@@ -372,7 +376,7 @@
             this.btnCarregarFoto.FlatAppearance.BorderSize = 2;
             this.btnCarregarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarFoto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarregarFoto.Location = new System.Drawing.Point(733, 403);
+            this.btnCarregarFoto.Location = new System.Drawing.Point(733, 451);
             this.btnCarregarFoto.Name = "btnCarregarFoto";
             this.btnCarregarFoto.Size = new System.Drawing.Size(73, 35);
             this.btnCarregarFoto.TabIndex = 25;
@@ -386,7 +390,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(813, 487);
+            this.ClientSize = new System.Drawing.Size(813, 554);
             this.Controls.Add(this.btnCarregarFoto);
             this.Controls.Add(this.btnAvancada);
             this.Controls.Add(this.dgProdutos);

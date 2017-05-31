@@ -105,8 +105,7 @@ namespace PI3
 
         private void bt_Config_Click(object sender, EventArgs e)
         {
-            //BindingSource dadosNavegacao = infoUser.NavegaUsuarios();
-
+           
             this.Hide();
             if (infoUser.tipoPerfil == "A") {
 

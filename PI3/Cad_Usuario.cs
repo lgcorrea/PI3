@@ -154,7 +154,7 @@ namespace PI3
                 SalvarUsuario.nomeUsuario = txtNome.Text;
                 SalvarUsuario.loginUsuario = TxtLogin.Text;
                 SalvarUsuario.senhaUsuario = txtSenhaUser.Text;
-                MessageBox.Show(tipo.GetTiposDisponiveis().ToString());
+                //MessageBox.Show(tipo.GetTiposDisponiveis().ToString());
                 //MessageBox.Show(tipo.GetTiposDisponiveis().);
                 SalvarUsuario.tipoPerfil = CbxTipodePerfil.Text;
                 SalvarUsuario.usuarioAtivo = checkBox_UserAtivo.Checked;

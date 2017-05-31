@@ -17,6 +17,7 @@ namespace PI3
     {
         private ClsUsuario infoUser;
         byte[] imagem;
+        int idCategoria;
         public Produtos(ClsUsuario infouser)
         {
             infoUser = infouser;
@@ -28,6 +29,19 @@ namespace PI3
         private void Produtos_Load(object sender, EventArgs e)
         {
             ListaGridProdutos();
+           // comboBoxCategProd.Items.AddRange((object[])atualizaCmbCategoria());
+        }
+
+        public void atualizaCmbCategoria()
+        {
+
+            ClsCategoria Categoria = new ClsCategoria();
+
+            comboBoxCategProd.DataSource = Categoria.GetCategoria();
+            comboBoxCategProd.ValueMember = "idCategoria";
+            comboBoxCategProd.DisplayMember = "nomeCategoria";
+            
+            //atualizaCmbCategoria();
         }
 
         //label Nome Produto
@@ -127,7 +141,7 @@ namespace PI3
 
         private void bt_Salvar_Click(object sender, EventArgs e)
         {
-
+            MessageBox.Show(comboBoxCategProd.SelectedValue.ToString());
         }
 
         private void bt_excluir_Click(object sender, EventArgs e)
@@ -187,7 +201,13 @@ namespace PI3
             txtQtdDispProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
+             idCategoria = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
             
+            
+
+            MessageBox.Show(idCategoria.ToString());
+
+
             if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0)
             {
                 MemoryStream imagem = new MemoryStream((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value);
@@ -240,25 +260,17 @@ namespace PI3
             }
         }
 
+
+        private void comboBoxCategProd_Click(object sender, EventArgs e)
+        {
+            atualizaCmbCategoria();
+  
+        }
+
         private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ClsProduto ProdCategoria = new ClsProduto();
-
-            comboBoxCategProd.DropDownStyle = ComboBoxStyle.DropDownList;
-            comboBoxCategProd.DataSource = ProdCategoria.GetCategoria();
-            comboBoxCategProd.ValueMember = "idCategoria";
-            comboBoxCategProd.DisplayMember = "nomeCategoria";
-            comboBoxCategProd.Update();
+           
         }
-
-        public class Categoria
-        {
-
-            public int idCategoria { get; set; }
-            public string nomeCategoria { get; set; }
-
-        }
-
     }
 
 }

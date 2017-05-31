@@ -41,6 +41,7 @@ namespace DataModel
                               ,qtdProdutoDisponivel
                               ,descontoPromocao
 							  ,qtdMinEstoque
+                              ,a.idCategoria
 							  ,nomeCategoria
                               ,ativoProduto = CONVERT(BIT,CASE WHEN ativoProduto NOT IN (0,1) THEN 0 ELSE ativoProduto END)                 
                               ,imagem
@@ -89,7 +90,8 @@ namespace DataModel
                               ,qtdProdutoDisponivel
                               ,descontoPromocao
 							  ,qtdMinEstoque
-							  ,nomeCategoria                
+							  ,nomeCategoria   
+                              ,a.idCategoria             
                               ,ativoProduto = CASE WHEN ativoProduto NOT IN (0,1) THEN 0 ELSE ativoProduto END 
                               ,imagem
                         FROM PRODUTO A
@@ -116,37 +118,7 @@ namespace DataModel
 
         }
 
-        public DataTable GetCategoria()
-        {
-            ClsConexao ConectaBD = new ClsConexao();
-            SqlConnection cn = ConectaBD.Conectar();
-            DataTable categoria = new DataTable();
 
-            try {
-                string sql = @"SELECT IDCATEGORIA,
-                                      NOMECATEGORIA,
-                                      DESCCATEGORIA
-                                      FROM CATEGORIA";
-                SqlCommand cmd = new SqlCommand(sql, cn);
-
-                SqlDataAdapter da = new SqlDataAdapter();
-                da.SelectCommand = cmd;
-
-                da.Fill(categoria);
-
-            }
-
-            catch {
-                categoria = null;
-            }
-
-            finally {
-
-                cn.Close();
-            }
-
-            return categoria;
-        }
 
     }
 }

@@ -62,7 +62,6 @@ namespace DataModel
 
             finally
             {
-
                 cn.Close();
             }
             return usuario;
