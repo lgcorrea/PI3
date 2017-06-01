@@ -41,7 +41,7 @@
             // bt_Clientes
             // 
             this.bt_Clientes.BackColor = System.Drawing.Color.DodgerBlue;
-            this.bt_Clientes.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.bt_Clientes.Cursor = System.Windows.Forms.Cursors.WaitCursor;
             this.bt_Clientes.FlatAppearance.BorderSize = 2;
             this.bt_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -52,6 +52,7 @@
             this.bt_Clientes.TabIndex = 8;
             this.bt_Clientes.Text = "Clientes";
             this.bt_Clientes.UseVisualStyleBackColor = false;
+            this.bt_Clientes.UseWaitCursor = true;
             this.bt_Clientes.Click += new System.EventHandler(this.bt_Clientes_Click);
             // 
             // bt_Estoque
@@ -67,6 +68,7 @@
             this.bt_Estoque.TabIndex = 10;
             this.bt_Estoque.Text = "Estoque";
             this.bt_Estoque.UseVisualStyleBackColor = false;
+            this.bt_Estoque.UseWaitCursor = true;
             this.bt_Estoque.Click += new System.EventHandler(this.bt_Estoque_Click);
             // 
             // bt_Vendas
@@ -82,6 +84,7 @@
             this.bt_Vendas.TabIndex = 11;
             this.bt_Vendas.Text = "Vendas";
             this.bt_Vendas.UseVisualStyleBackColor = false;
+            this.bt_Vendas.UseWaitCursor = true;
             this.bt_Vendas.Click += new System.EventHandler(this.bt_Vendas_Click);
             // 
             // bt_Produtos
@@ -97,6 +100,7 @@
             this.bt_Produtos.TabIndex = 12;
             this.bt_Produtos.Text = "Produtos";
             this.bt_Produtos.UseVisualStyleBackColor = false;
+            this.bt_Produtos.UseWaitCursor = true;
             this.bt_Produtos.Click += new System.EventHandler(this.bt_Produtos_Click);
             // 
             // bt_Config
@@ -112,6 +116,7 @@
             this.bt_Config.TabIndex = 13;
             this.bt_Config.Text = "Config.";
             this.bt_Config.UseVisualStyleBackColor = false;
+            this.bt_Config.UseWaitCursor = true;
             this.bt_Config.Click += new System.EventHandler(this.bt_Config_Click);
             // 
             // bt_sair
@@ -127,6 +132,7 @@
             this.bt_sair.TabIndex = 14;
             this.bt_sair.Text = "Sair";
             this.bt_sair.UseVisualStyleBackColor = false;
+            this.bt_sair.UseWaitCursor = true;
             this.bt_sair.Click += new System.EventHandler(this.bt_sair_Click);
             // 
             // label1
@@ -138,6 +144,7 @@
             this.label1.Size = new System.Drawing.Size(66, 20);
             this.label1.TabIndex = 15;
             this.label1.Text = "Usuário:";
+            this.label1.UseWaitCursor = true;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // label_usuario_logado
@@ -149,8 +156,10 @@
             this.label_usuario_logado.Size = new System.Drawing.Size(66, 20);
             this.label_usuario_logado.TabIndex = 16;
             this.label_usuario_logado.Text = "Usuário:";
+            this.label_usuario_logado.UseWaitCursor = true;
             this.label_usuario_logado.BindingContextChanged += new System.EventHandler(this.label_usuario_logado_Click);
             this.label_usuario_logado.TextChanged += new System.EventHandler(this.label_usuario_logado_Click);
+            this.label_usuario_logado.Click += new System.EventHandler(this.label_usuario_logado_Click_1);
             // 
             // Menu
             // 

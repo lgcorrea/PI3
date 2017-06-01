@@ -18,6 +18,8 @@ namespace PI3
         private ClsUsuario infoUser;
         byte[] imagem;
         int idCategoria;
+        int idProduto;
+        bool FotoCarregada;
         public Produtos(ClsUsuario infouser)
         {
             infoUser = infouser;
@@ -29,7 +31,7 @@ namespace PI3
         private void Produtos_Load(object sender, EventArgs e)
         {
             ListaGridProdutos();
-           // comboBoxCategProd.Items.AddRange((object[])atualizaCmbCategoria());
+            idProduto = 0;
         }
 
         public void atualizaCmbCategoria()
@@ -142,6 +144,25 @@ namespace PI3
         private void bt_Salvar_Click(object sender, EventArgs e)
         {
             MessageBox.Show(comboBoxCategProd.SelectedValue.ToString());
+            ClsProduto novoProduto = new ClsProduto();
+
+            novoProduto.idProduto = idProduto;
+            novoProduto.nomeProduto = txtNomeProduto.Text;
+            novoProduto.descProduto = txtDescricaoProduto.Text;
+            novoProduto.precProduto = Convert.ToDouble(txtValorProduto.Text);
+            novoProduto.descontoPromocao = Convert.ToDouble(txtDescPromocao.Text);
+            novoProduto.idCategoria = (int)comboBoxCategProd.SelectedValue;
+            novoProduto.ativoProduto = Convert.ToBoolean(Checkbox_prodInativo.Checked);
+            novoProduto.idUsuario = infoUser.idUsuario;
+            novoProduto.qtdMinEstoque = Convert.ToInt32(txtQtdMinProd.Text);
+            novoProduto.qtdProdutoDisponivel = Convert.ToInt32(txtQtdDispProd.Text);
+            novoProduto.imagem = imagem;
+
+            novoProduto.Salvar();
+            idProduto = novoProduto.idProduto;
+            ListaGridProdutos();
+
+
         }
 
         private void bt_excluir_Click(object sender, EventArgs e)
@@ -199,10 +220,9 @@ namespace PI3
             txtDescPromocao.Text = dgProdutos.CurrentRow.Cells["descontoPromocao"].Value.ToString();
             comboBoxCategProd.Text = dgProdutos.CurrentRow.Cells["nomeCategoria"].Value.ToString();
             txtQtdDispProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
-            txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
+            txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdMinEstoque"].Value.ToString();
             Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
-             idCategoria = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
-
+            idCategoria = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
 
             if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0)
             {
@@ -216,8 +236,6 @@ namespace PI3
             }
         }
 
-
-
         private void btnAvancada_Click(object sender, EventArgs e)
         {
 
@@ -225,6 +243,7 @@ namespace PI3
 
         private void btnCarregarFoto_Click_1(object sender, EventArgs e)
         {
+            FotoCarregada = true;
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Filter = "Arquivos de imagem (*.jpg)|*.jpg";
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -243,11 +262,11 @@ namespace PI3
 
         }
 
-        private void mostraFoto(Byte[] dados)
+        private void mostraFoto(Byte[] imagem)
         {
-            if (dados.Length > 0)
+            if (imagem.Length > 0)
             {
-                MemoryStream mem = new MemoryStream(dados);
+                MemoryStream mem = new MemoryStream(imagem);
                 pictureProduto.Image = Image.FromStream(mem);
             }
             else
@@ -265,7 +284,7 @@ namespace PI3
 
         private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+           // MessageBox.Show(comboBoxCategProd.SelectedValue.ToString());
         }
     }
 
