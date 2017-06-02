@@ -58,6 +58,7 @@
             this.dgProdutos = new System.Windows.Forms.DataGridView();
             this.btnAvancada = new System.Windows.Forms.Button();
             this.btnCarregarFoto = new System.Windows.Forms.Button();
+            this.bt_Novo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
@@ -105,7 +106,7 @@
             this.label_vlr_produto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_vlr_produto.Location = new System.Drawing.Point(9, 334);
             this.label_vlr_produto.Name = "label_vlr_produto";
-            this.label_vlr_produto.Size = new System.Drawing.Size(80, 15);
+            this.label_vlr_produto.Size = new System.Drawing.Size(79, 15);
             this.label_vlr_produto.TabIndex = 11;
             this.label_vlr_produto.Text = "Valor Unitário";
             this.label_vlr_produto.Click += new System.EventHandler(this.label_vlr_produto_Click);
@@ -222,7 +223,7 @@
             this.imgProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.imgProd.Location = new System.Drawing.Point(549, 301);
             this.imgProd.Name = "imgProd";
-            this.imgProd.Size = new System.Drawing.Size(114, 15);
+            this.imgProd.Size = new System.Drawing.Size(115, 15);
             this.imgProd.TabIndex = 19;
             this.imgProd.Text = "Imagem do Produto";
             this.imgProd.Click += new System.EventHandler(this.imgProd_Click);
@@ -234,7 +235,7 @@
             this.Checkbox_prodInativo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Checkbox_prodInativo.Location = new System.Drawing.Point(353, 334);
             this.Checkbox_prodInativo.Name = "Checkbox_prodInativo";
-            this.Checkbox_prodInativo.Size = new System.Drawing.Size(108, 19);
+            this.Checkbox_prodInativo.Size = new System.Drawing.Size(109, 19);
             this.Checkbox_prodInativo.TabIndex = 10;
             this.Checkbox_prodInativo.Text = "Produto Inativo";
             this.Checkbox_prodInativo.UseVisualStyleBackColor = true;
@@ -383,6 +384,20 @@
             this.btnCarregarFoto.UseVisualStyleBackColor = false;
             this.btnCarregarFoto.Click += new System.EventHandler(this.btnCarregarFoto_Click_1);
             // 
+            // bt_Novo
+            // 
+            this.bt_Novo.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Novo.FlatAppearance.BorderSize = 2;
+            this.bt_Novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.bt_Novo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bt_Novo.Location = new System.Drawing.Point(286, 507);
+            this.bt_Novo.Name = "bt_Novo";
+            this.bt_Novo.Size = new System.Drawing.Size(91, 35);
+            this.bt_Novo.TabIndex = 26;
+            this.bt_Novo.Text = "Novo";
+            this.bt_Novo.UseVisualStyleBackColor = false;
+            this.bt_Novo.Click += new System.EventHandler(this.bt_Novo_Click);
+            // 
             // Produtos
             // 
             this.AcceptButton = this.bt_Salvar;
@@ -390,6 +405,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.ClientSize = new System.Drawing.Size(813, 554);
+            this.Controls.Add(this.bt_Novo);
             this.Controls.Add(this.btnCarregarFoto);
             this.Controls.Add(this.btnAvancada);
             this.Controls.Add(this.dgProdutos);
@@ -460,5 +476,6 @@
         private System.Windows.Forms.DataGridView dgProdutos;
         private System.Windows.Forms.Button btnAvancada;
         private System.Windows.Forms.Button btnCarregarFoto;
+        private System.Windows.Forms.Button bt_Novo;
     }
 }

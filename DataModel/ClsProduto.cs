@@ -94,7 +94,7 @@ namespace DataModel
 							  ,nomeCategoria   
                               ,a.idCategoria             
                               ,ativoProduto = CASE WHEN ativoProduto NOT IN (0,1) THEN 0 ELSE ativoProduto END 
-                              ,imagem
+                              ,IMAGEM
                         FROM PRODUTO A
                         INNER JOIN CATEGORIA B ON A.IDCATEGORIA = B.IDCATEGORIA 
                         INNER JOIN ESTOQUE C ON C.IDPRODUTO = A.IDPRODUTO";
@@ -142,9 +142,9 @@ namespace DataModel
                 if (idProduto == 0)
                 {
                     sql = @"DECLARE @ID_INSERIDO TABLE (ID INT)
-                            INSERT INTO PRODUTO (nomeProduto,descProduto,precProduto,descontoPromocao,qtdMinEstoque,ativoProduto,idCategoria)
+                            INSERT INTO PRODUTO (nomeProduto,descProduto,precProduto,descontoPromocao,qtdMinEstoque,ativoProduto,idCategoria,imagem)
                             OUTPUT inserted.idProduto into @ID_INSERIDO
-                            VALUES(@nomeProduto,@descProduto,@precProduto,@descontoPromocao,@qtdMinEstoque,@ativoProduto,@idCategoria)
+                            VALUES(@nomeProduto,@descProduto,@precProduto,@descontoPromocao,@qtdMinEstoque,@ativoProduto,@idCategoria,@imagem)
                             SELECT ID FROM @ID_INSERIDO";
                    
                     cmd.Parameters.Add("@descProduto", SqlDbType.VarChar, 60).Value = this.descProduto;
@@ -153,8 +153,17 @@ namespace DataModel
                     //cmd.Parameters.Add("@qtdProdutoDisponivel", SqlDbType.VarChar, 60).Value = this.qtdProdutoDisponivel;
                     cmd.Parameters.Add("@qtdMinEstoque", SqlDbType.Int).Value = this.qtdMinEstoque;
                     cmd.Parameters.Add("@ativoProduto", SqlDbType.Bit).Value = this.ativoProduto;
-                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = this.idCategoria;
-                    cmd.Parameters.Add("@imagem", SqlDbType.Image).Value = this.imagem;
+                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = this.idCategoria; 
+                    if(imagem == null)
+                    {
+                        imagem = new byte[0];
+                        cmd.Parameters.Add("@imagem", SqlDbType.Image).Value = this.imagem;
+
+                    }
+                    else
+                    { cmd.Parameters.Add("@imagem", SqlDbType.Image).Value = this.imagem;
+                    }
+                    
 
 
                     cmd.CommandText = sql;

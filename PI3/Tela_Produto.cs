@@ -224,10 +224,12 @@ namespace PI3
             Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
             idCategoria = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
 
-            if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0)
+            //MessageBox.Show(Convert.ToString((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length));
+
+            if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0 || ((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value) != null)
             {
-                MemoryStream imagem = new MemoryStream((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value);
-                pictureProduto.Image = Image.FromStream(imagem);
+                //imagem = new byte[0];
+                mostraFoto(imagem);      
             }
             else
             {
@@ -262,10 +264,12 @@ namespace PI3
 
         }
 
-        private void mostraFoto(Byte[] imagem)
+        private void mostraFoto(byte[] imagem)
         {
+           
             if (imagem.Length > 0)
             {
+                pictureProduto.Image = null;
                 MemoryStream mem = new MemoryStream(imagem);
                 pictureProduto.Image = Image.FromStream(mem);
             }
@@ -285,6 +289,22 @@ namespace PI3
         private void comboBoxCategProd_SelectedIndexChanged(object sender, EventArgs e)
         {
            // MessageBox.Show(comboBoxCategProd.SelectedValue.ToString());
+        }
+
+        private void bt_Novo_Click(object sender, EventArgs e)
+        {
+
+            txtNomeProduto.Text = "";
+            txtDescricaoProduto.Text = "";
+            txtValorProduto.Text = "";
+            txtDescPromocao.Text = "";
+            comboBoxCategProd.Text = "";
+            txtQtdDispProd.Text = "";
+            txtQtdMinProd.Text = "";
+            Checkbox_prodInativo.Checked = true;           
+            pictureProduto.Image = null;
+            idProduto = 0;    
+
         }
     }
 
