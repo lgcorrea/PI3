@@ -106,7 +106,7 @@
             this.label_vlr_produto.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label_vlr_produto.Location = new System.Drawing.Point(9, 334);
             this.label_vlr_produto.Name = "label_vlr_produto";
-            this.label_vlr_produto.Size = new System.Drawing.Size(79, 15);
+            this.label_vlr_produto.Size = new System.Drawing.Size(80, 15);
             this.label_vlr_produto.TabIndex = 11;
             this.label_vlr_produto.Text = "Valor Unitário";
             this.label_vlr_produto.Click += new System.EventHandler(this.label_vlr_produto_Click);
@@ -203,6 +203,7 @@
             this.comboBoxCategProd.Size = new System.Drawing.Size(147, 21);
             this.comboBoxCategProd.TabIndex = 7;
             this.comboBoxCategProd.SelectedIndexChanged += new System.EventHandler(this.comboBoxCategProd_SelectedIndexChanged);
+            this.comboBoxCategProd.BindingContextChanged += new System.EventHandler(this.comboBoxCategProd_SelectedIndexChanged);
             this.comboBoxCategProd.Click += new System.EventHandler(this.comboBoxCategProd_Click);
             // 
             // pictureProduto
@@ -223,7 +224,7 @@
             this.imgProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.imgProd.Location = new System.Drawing.Point(549, 301);
             this.imgProd.Name = "imgProd";
-            this.imgProd.Size = new System.Drawing.Size(115, 15);
+            this.imgProd.Size = new System.Drawing.Size(114, 15);
             this.imgProd.TabIndex = 19;
             this.imgProd.Text = "Imagem do Produto";
             this.imgProd.Click += new System.EventHandler(this.imgProd_Click);
@@ -235,7 +236,7 @@
             this.Checkbox_prodInativo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.Checkbox_prodInativo.Location = new System.Drawing.Point(353, 334);
             this.Checkbox_prodInativo.Name = "Checkbox_prodInativo";
-            this.Checkbox_prodInativo.Size = new System.Drawing.Size(109, 19);
+            this.Checkbox_prodInativo.Size = new System.Drawing.Size(108, 19);
             this.Checkbox_prodInativo.TabIndex = 10;
             this.Checkbox_prodInativo.Text = "Produto Inativo";
             this.Checkbox_prodInativo.UseVisualStyleBackColor = true;

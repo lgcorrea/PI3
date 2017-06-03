@@ -143,7 +143,7 @@ namespace PI3
 
         private void bt_Salvar_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(comboBoxCategProd.SelectedValue.ToString());
+            //MessageBox.Show(comboBoxCategProd.SelectedValue.ToString());
             ClsProduto novoProduto = new ClsProduto();
 
             novoProduto.idProduto = idProduto;
@@ -151,12 +151,12 @@ namespace PI3
             novoProduto.descProduto = txtDescricaoProduto.Text;
             novoProduto.precProduto = Convert.ToDouble(txtValorProduto.Text);
             novoProduto.descontoPromocao = Convert.ToDouble(txtDescPromocao.Text);
-            novoProduto.idCategoria = (int)comboBoxCategProd.SelectedValue;
+            novoProduto.idCategoria = idCategoria;
             novoProduto.ativoProduto = Convert.ToBoolean(Checkbox_prodInativo.Checked);
             novoProduto.idUsuario = infoUser.idUsuario;
             novoProduto.qtdMinEstoque = Convert.ToInt32(txtQtdMinProd.Text);
             novoProduto.qtdProdutoDisponivel = Convert.ToInt32(txtQtdDispProd.Text);
-            novoProduto.imagem = imagem;
+            novoProduto.imagem = imagem == null?new byte[0]:imagem;           
 
             novoProduto.Salvar();
             idProduto = novoProduto.idProduto;
@@ -216,20 +216,20 @@ namespace PI3
 
             txtNomeProduto.Text = dgProdutos.CurrentRow.Cells["nomeProduto"].Value.ToString();
             txtDescricaoProduto.Text = dgProdutos.CurrentRow.Cells["descProduto"].Value.ToString();
-            txtValorProduto.Text = string.Format("{0:N}",dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString());
+            txtValorProduto.Text = string.Format("{0:C}",dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString());
             txtDescPromocao.Text = dgProdutos.CurrentRow.Cells["descontoPromocao"].Value.ToString();
             comboBoxCategProd.Text = dgProdutos.CurrentRow.Cells["nomeCategoria"].Value.ToString();
+            comboBoxCategProd.SelectedValue = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
             txtQtdDispProd.Text = dgProdutos.CurrentRow.Cells["qtdProdutoDisponivel"].Value.ToString();
             txtQtdMinProd.Text = dgProdutos.CurrentRow.Cells["qtdMinEstoque"].Value.ToString();
             Checkbox_prodInativo.Checked = Convert.ToBoolean(dgProdutos.CurrentRow.Cells["ativoProduto"].Value);
             idCategoria = (int)dgProdutos.CurrentRow.Cells["idCategoria"].Value;
-
-            //MessageBox.Show(Convert.ToString((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length));
-
-            if (((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value).Length != 0 || ((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value) != null)
+            idProduto = (int)dgProdutos.CurrentRow.Cells["idProduto"].Value;
+            
+            if ( (dgProdutos.SelectedRows[0].Cells["imagem"].Value) != null )//|| ((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value) != null)
             {
                 //imagem = new byte[0];
-                mostraFoto(imagem);      
+                mostraFoto((byte[])dgProdutos.CurrentRow.Cells["imagem"].Value);      
             }
             else
             {
