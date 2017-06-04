@@ -14,11 +14,14 @@ namespace PI3
     public partial class Estoque : Form
     {
         public int idProduto { get; set; }
+        public ClsUsuario infoUser;
+        public static bool atualizaProd;
 
-        public Estoque(int idProduto)
+        public Estoque(int idProduto, ClsUsuario infoUser)
         {
             InitializeComponent();
             this.idProduto = idProduto;
+            this.infoUser = infoUser;
         }
 
         private void Estoque_Load(object sender, EventArgs e)
@@ -29,10 +32,9 @@ namespace PI3
         }
 
         private void txt_personalizado_Click(object sender, EventArgs e)
-        {
-            
+        {            
 
-            txt_personalizado.Text = string.Format("Informe a quantidade de {0}",cbox_entrada.Checked==true ? "entrada" : "saida");
+            txt_personalizado.Text = "Informe a quantidade de entrada ou sáida";
         }
 
 
@@ -87,6 +89,50 @@ namespace PI3
 
                 cbox_entrada.Checked = true;
                 cbox_Saida.Checked = false;
+            }
+        }
+
+
+
+        private void bt_sair_Click(object sender, EventArgs e)
+        {
+            atualizaProd = true;
+            Close();
+            Produtos.ActiveForm.Refresh();
+            
+        }
+
+        private void bt_Salvar_Click(object sender, EventArgs e)
+        {
+            ClsEstoque Estoque = new ClsEstoque();
+            if (cbox_entrada.Checked)
+            {
+            
+                Estoque.idProduto = idProduto;
+                Estoque.qtd = Convert.ToInt32(txtQtdInserida.Text);
+                Estoque.atualizaEstoqueEntrada();              
+            }
+            else
+            {
+                
+                Estoque.idProduto = idProduto;
+                Estoque.qtd = Convert.ToInt32(txtQtdInserida.Text);
+                Estoque.atualizaEstoqueSaida();
+
+            }
+
+            atualizaProd = true;            
+
+            PopulaCampos();
+        }
+
+        private void txtQtdInserida_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+
+                e.Handled = true;
+
             }
         }
     }

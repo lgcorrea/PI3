@@ -59,6 +59,7 @@
             // bt_Estoque
             // 
             this.bt_Estoque.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Estoque.Enabled = false;
             this.bt_Estoque.FlatAppearance.BorderSize = 2;
             this.bt_Estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Estoque.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -161,7 +162,6 @@
             this.label_usuario_logado.UseWaitCursor = true;
             this.label_usuario_logado.BindingContextChanged += new System.EventHandler(this.label_usuario_logado_Click);
             this.label_usuario_logado.TextChanged += new System.EventHandler(this.label_usuario_logado_Click);
-
             // 
             // Menu
             // 

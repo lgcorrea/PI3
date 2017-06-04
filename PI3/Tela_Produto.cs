@@ -20,18 +20,27 @@ namespace PI3
         int idCategoria;
         int idProduto;
         bool CategoriaAlterada;
+
+
         public Produtos(ClsUsuario infouser)
         {
             infoUser = infouser;
             InitializeComponent();
-
         }
 
         //forma Produtos
         private void Produtos_Load(object sender, EventArgs e)
         {
+            
+
             ListaGridProdutos();
             idProduto = 0;
+            if(idProduto == 0)
+            {
+                btn_Estoque.Enabled = false;
+            }
+              
+            
             if (infoUser.tipoPerfil != "A") {
 
                 txtNomeProduto.Enabled = false;
@@ -51,12 +60,14 @@ namespace PI3
                 btn_removerFoto.Enabled = false;                
                 btnCarregarFoto.Enabled = false;
 
+                
+
             }
         }
 
         public void atualizaCmbCategoria()
         {
-
+            
             ClsCategoria Categoria = new ClsCategoria();
 
             comboBoxCategProd.DataSource = Categoria.GetCategoria();
@@ -66,87 +77,7 @@ namespace PI3
             //atualizaCmbCategoria();
         }
 
-        //label Nome Produto
-        private void label1_Click(object sender, EventArgs e)
-        {
 
-        }
-        //Label desconto promocao
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
-        private void label_vlr_produto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_qtdMinima_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtNomeProduto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescricaoProduto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtValorProduto_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtQtdMinProd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtQtdDispProd_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtDescPromocao_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Checkbox_prodInativo_CheckedChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureProduto_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void imgProd_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label_descricao_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void pictureBox1_Click_1(object sender, EventArgs e)
-        {
-
-        }
 
         private void bt_categoria_Click(object sender, EventArgs e)
         {
@@ -203,7 +134,7 @@ namespace PI3
             tela_menu.Show();
         }
 
-        private void ListaGridProdutos()
+        public void ListaGridProdutos()
         {
             ClsProduto Produto = new ClsProduto();
             dgProdutos.DataSource = Produto.ListaProduto();
@@ -242,6 +173,7 @@ namespace PI3
         private void dgProdutos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+            btn_Estoque.Enabled = true;
             txtNomeProduto.Text = dgProdutos.CurrentRow.Cells["nomeProduto"].Value.ToString();
             txtDescricaoProduto.Text = dgProdutos.CurrentRow.Cells["descProduto"].Value.ToString();
             txtValorProduto.Text = string.Format("{0:C}",dgProdutos.CurrentRow.Cells["precProduto"].Value.ToString());
@@ -346,9 +278,42 @@ namespace PI3
 
         private void btn_Estoque_Click(object sender, EventArgs e)
         {
-            Estoque tela_estoque = new Estoque(idProduto);
+            Estoque tela_estoque = new Estoque(idProduto, infoUser);
 
-            tela_estoque.Show();
+            tela_estoque.ShowDialog();
+
+            if (Estoque.atualizaProd)
+            {
+                ListaGridProdutos();              
+            }
+        }
+
+        private void txtValorProduto_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                MessageBox.Show("este campo aceita somente numero e virgula");
+            }
+        }
+
+        private void txtDescPromocao_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != ','))
+            {
+                e.Handled = true;
+                MessageBox.Show("este campo aceita somente numero e virgula");
+            }
+        }
+
+        private void txtQtdMinProd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsDigit(e.KeyChar))
+            {
+
+                e.Handled = true;
+
+            }
         }
     }
 

@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
             this.label_Nome_produto = new System.Windows.Forms.Label();
             this.label_descricao = new System.Windows.Forms.Label();
@@ -76,7 +76,6 @@
             this.label_Nome_produto.Size = new System.Drawing.Size(103, 15);
             this.label_Nome_produto.TabIndex = 4;
             this.label_Nome_produto.Text = "Nome do Produto";
-            this.label_Nome_produto.Click += new System.EventHandler(this.label1_Click);
             // 
             // label_descricao
             // 
@@ -88,7 +87,6 @@
             this.label_descricao.Size = new System.Drawing.Size(59, 15);
             this.label_descricao.TabIndex = 8;
             this.label_descricao.Text = "Descrição";
-            this.label_descricao.Click += new System.EventHandler(this.label_descricao_Click);
             // 
             // label_categoria
             // 
@@ -111,7 +109,6 @@
             this.label_vlr_produto.Size = new System.Drawing.Size(80, 15);
             this.label_vlr_produto.TabIndex = 11;
             this.label_vlr_produto.Text = "Valor Unitário";
-            this.label_vlr_produto.Click += new System.EventHandler(this.label_vlr_produto_Click);
             // 
             // label_qtdMinima
             // 
@@ -123,7 +120,6 @@
             this.label_qtdMinima.Size = new System.Drawing.Size(71, 15);
             this.label_qtdMinima.TabIndex = 15;
             this.label_qtdMinima.Text = "Qtd Mínima";
-            this.label_qtdMinima.Click += new System.EventHandler(this.label_qtdMinima_Click);
             // 
             // label_qtdDisponivel
             // 
@@ -146,7 +142,6 @@
             this.label_descontoProd.Size = new System.Drawing.Size(116, 15);
             this.label_descontoProd.TabIndex = 13;
             this.label_descontoProd.Text = "Desconto Promoção";
-            this.label_descontoProd.Click += new System.EventHandler(this.label7_Click);
             // 
             // txtNomeProduto
             // 
@@ -154,7 +149,6 @@
             this.txtNomeProduto.Name = "txtNomeProduto";
             this.txtNomeProduto.Size = new System.Drawing.Size(268, 20);
             this.txtNomeProduto.TabIndex = 5;
-            this.txtNomeProduto.TextChanged += new System.EventHandler(this.txtNomeProduto_TextChanged);
             // 
             // txtDescricaoProduto
             // 
@@ -163,7 +157,6 @@
             this.txtDescricaoProduto.Name = "txtDescricaoProduto";
             this.txtDescricaoProduto.Size = new System.Drawing.Size(268, 101);
             this.txtDescricaoProduto.TabIndex = 9;
-            this.txtDescricaoProduto.TextChanged += new System.EventHandler(this.txtDescricaoProduto_TextChanged);
             // 
             // txtValorProduto
             // 
@@ -171,7 +164,7 @@
             this.txtValorProduto.Name = "txtValorProduto";
             this.txtValorProduto.Size = new System.Drawing.Size(77, 20);
             this.txtValorProduto.TabIndex = 12;
-            this.txtValorProduto.TextChanged += new System.EventHandler(this.txtValorProduto_TextChanged);
+            this.txtValorProduto.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtValorProduto_KeyPress);
             // 
             // txtQtdMinProd
             // 
@@ -179,7 +172,7 @@
             this.txtQtdMinProd.Name = "txtQtdMinProd";
             this.txtQtdMinProd.Size = new System.Drawing.Size(77, 20);
             this.txtQtdMinProd.TabIndex = 16;
-            this.txtQtdMinProd.TextChanged += new System.EventHandler(this.txtQtdMinProd_TextChanged);
+            this.txtQtdMinProd.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtQtdMinProd_KeyPress);
             // 
             // txtQtdDispProd
             // 
@@ -188,7 +181,6 @@
             this.txtQtdDispProd.ReadOnly = true;
             this.txtQtdDispProd.Size = new System.Drawing.Size(70, 20);
             this.txtQtdDispProd.TabIndex = 18;
-            this.txtQtdDispProd.TextChanged += new System.EventHandler(this.txtQtdDispProd_TextChanged);
             // 
             // txtDescPromocao
             // 
@@ -196,7 +188,7 @@
             this.txtDescPromocao.Name = "txtDescPromocao";
             this.txtDescPromocao.Size = new System.Drawing.Size(70, 20);
             this.txtDescPromocao.TabIndex = 14;
-            this.txtDescPromocao.TextChanged += new System.EventHandler(this.txtDescPromocao_TextChanged);
+            this.txtDescPromocao.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescPromocao_KeyPress);
             // 
             // comboBoxCategProd
             // 
@@ -219,7 +211,6 @@
             this.imgProd.Size = new System.Drawing.Size(114, 15);
             this.imgProd.TabIndex = 19;
             this.imgProd.Text = "Imagem do Produto";
-            this.imgProd.Click += new System.EventHandler(this.imgProd_Click);
             // 
             // Checkbox_prodInativo
             // 
@@ -232,7 +223,6 @@
             this.Checkbox_prodInativo.TabIndex = 10;
             this.Checkbox_prodInativo.Text = "Produto ativo";
             this.Checkbox_prodInativo.UseVisualStyleBackColor = true;
-            this.Checkbox_prodInativo.CheckedChanged += new System.EventHandler(this.Checkbox_prodInativo_CheckedChanged);
             // 
             // bt_Pesquisar
             // 
@@ -317,22 +307,22 @@
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProdutos.Location = new System.Drawing.Point(12, 45);
             this.dgProdutos.Name = "dgProdutos";
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.NullValue = "NULO";
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.NullValue = "NULO";
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgProdutos.RowHeadersVisible = false;
             this.dgProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProdutos.Size = new System.Drawing.Size(791, 229);
             this.dgProdutos.TabIndex = 23;
@@ -414,7 +404,6 @@
             this.pictureProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureProduto.TabIndex = 18;
             this.pictureProduto.TabStop = false;
-            this.pictureProduto.Click += new System.EventHandler(this.pictureProduto_Click);
             // 
             // btn_Estoque
             // 
