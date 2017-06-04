@@ -42,6 +42,7 @@
             // 
             this.bt_Clientes.BackColor = System.Drawing.Color.DodgerBlue;
             this.bt_Clientes.Cursor = System.Windows.Forms.Cursors.WaitCursor;
+            this.bt_Clientes.Enabled = false;
             this.bt_Clientes.FlatAppearance.BorderSize = 2;
             this.bt_Clientes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Clientes.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -74,6 +75,7 @@
             // bt_Vendas
             // 
             this.bt_Vendas.BackColor = System.Drawing.Color.DodgerBlue;
+            this.bt_Vendas.Enabled = false;
             this.bt_Vendas.FlatAppearance.BorderSize = 2;
             this.bt_Vendas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Vendas.Font = new System.Drawing.Font("Segoe UI Semibold", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -159,7 +161,7 @@
             this.label_usuario_logado.UseWaitCursor = true;
             this.label_usuario_logado.BindingContextChanged += new System.EventHandler(this.label_usuario_logado_Click);
             this.label_usuario_logado.TextChanged += new System.EventHandler(this.label_usuario_logado_Click);
-            this.label_usuario_logado.Click += new System.EventHandler(this.label_usuario_logado_Click_1);
+
             // 
             // Menu
             // 

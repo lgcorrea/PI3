@@ -43,16 +43,11 @@ namespace PI3
                 this.Sigla = sigla;
             }
 
-            public string ToString(int opcao)
+            public override string ToString()
             {
-                if (opcao == 0)
-                {
+   
                     return Nome;
-                }
-                else
-                {
-                    return Sigla;
-                }
+ 
             }
 
             public static tipo[] GetTiposDisponiveis() {
@@ -133,25 +128,8 @@ namespace PI3
         private void bt_Alterar_Click(object sender, EventArgs e)
         {
 
-            if (txtNome.Text == "")
+            if (ValidaCamposTela())
             {
-
-                MessageBox.Show("Informe o nome do usuário");
-            }
-            else if (TxtLogin.Text == "") {
-
-                MessageBox.Show("Informe o Login do usuário");
-            }
-            else if (txtSenhaUser.Text == "") {
-
-                if (idUsuario == 0)
-                {
-
-                    MessageBox.Show("Informa a senha do usuário");
-                }
-            }
-            else {
-
                 ClsUsuario SalvarUsuario = new ClsUsuario();
 
                 SalvarUsuario.nomeUsuario = txtNome.Text;
@@ -168,6 +146,7 @@ namespace PI3
                 idUsuario = SalvarUsuario.idUsuario;
                 txtSenhaUser.Text = "";
             }
+            
 
         }
 
@@ -192,7 +171,8 @@ namespace PI3
             checkBox_UserAtivo.Checked = Convert.ToBoolean(dgUsuarios.CurrentRow.Cells[4].Value);
 
             //POPULA VARIAVEL COM ID DO REGISTRO SELECIONADO NO GRID
-            idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);            
+            idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);
+            MessageBox.Show(idUsuario.ToString());
 
         }
 
@@ -242,5 +222,36 @@ namespace PI3
 
 
         }
+
+        private bool ValidaCamposTela()
+        {
+            bool CamposOk;
+            if (txtNome.Text == "")
+            {
+                MessageBox.Show("Informe o nome do usuário");
+                CamposOk = false;
+            }
+            else if (TxtLogin.Text == "")
+            {
+
+                MessageBox.Show("Informe o Login do usuário");
+                CamposOk = false;
+            }
+            else if (txtSenhaUser.Text == "" && idUsuario == 0)
+            {
+
+                MessageBox.Show("Informa a senha do usuário");
+                CamposOk = false;
+            }
+
+            else
+            {
+
+                CamposOk = true;
+            }
+
+            return CamposOk;
+        }
+            
     }
 }

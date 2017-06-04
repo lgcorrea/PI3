@@ -28,9 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.label_Nome_produto = new System.Windows.Forms.Label();
             this.label_descricao = new System.Windows.Forms.Label();
             this.label_categoria = new System.Windows.Forms.Label();
@@ -45,10 +45,8 @@
             this.txtQtdDispProd = new System.Windows.Forms.TextBox();
             this.txtDescPromocao = new System.Windows.Forms.TextBox();
             this.comboBoxCategProd = new System.Windows.Forms.ComboBox();
-            this.pictureProduto = new System.Windows.Forms.PictureBox();
             this.imgProd = new System.Windows.Forms.Label();
             this.Checkbox_prodInativo = new System.Windows.Forms.CheckBox();
-            this.bt_categoria = new System.Windows.Forms.PictureBox();
             this.bt_Pesquisar = new System.Windows.Forms.Button();
             this.bt_Salvar = new System.Windows.Forms.Button();
             this.bt_excluir = new System.Windows.Forms.Button();
@@ -59,9 +57,13 @@
             this.btnAvancada = new System.Windows.Forms.Button();
             this.btnCarregarFoto = new System.Windows.Forms.Button();
             this.bt_Novo = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).BeginInit();
+            this.btn_removerFoto = new System.Windows.Forms.Button();
+            this.bt_categoria = new System.Windows.Forms.PictureBox();
+            this.pictureProduto = new System.Windows.Forms.PictureBox();
+            this.btn_Estoque = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).BeginInit();
             this.SuspendLayout();
             // 
             // label_Nome_produto
@@ -93,7 +95,7 @@
             this.label_categoria.AutoSize = true;
             this.label_categoria.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label_categoria.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label_categoria.Location = new System.Drawing.Point(350, 286);
+            this.label_categoria.Location = new System.Drawing.Point(335, 286);
             this.label_categoria.Name = "label_categoria";
             this.label_categoria.Size = new System.Drawing.Size(57, 15);
             this.label_categoria.TabIndex = 6;
@@ -183,6 +185,7 @@
             // 
             this.txtQtdDispProd.Location = new System.Drawing.Point(111, 395);
             this.txtQtdDispProd.Name = "txtQtdDispProd";
+            this.txtQtdDispProd.ReadOnly = true;
             this.txtQtdDispProd.Size = new System.Drawing.Size(70, 20);
             this.txtQtdDispProd.TabIndex = 18;
             this.txtQtdDispProd.TextChanged += new System.EventHandler(this.txtQtdDispProd_TextChanged);
@@ -198,7 +201,7 @@
             // comboBoxCategProd
             // 
             this.comboBoxCategProd.FormattingEnabled = true;
-            this.comboBoxCategProd.Location = new System.Drawing.Point(353, 301);
+            this.comboBoxCategProd.Location = new System.Drawing.Point(338, 301);
             this.comboBoxCategProd.Name = "comboBoxCategProd";
             this.comboBoxCategProd.Size = new System.Drawing.Size(147, 21);
             this.comboBoxCategProd.TabIndex = 7;
@@ -206,23 +209,12 @@
             this.comboBoxCategProd.BindingContextChanged += new System.EventHandler(this.comboBoxCategProd_SelectedIndexChanged);
             this.comboBoxCategProd.Click += new System.EventHandler(this.comboBoxCategProd_Click);
             // 
-            // pictureProduto
-            // 
-            this.pictureProduto.BackColor = System.Drawing.SystemColors.ButtonFace;
-            this.pictureProduto.Location = new System.Drawing.Point(552, 325);
-            this.pictureProduto.Name = "pictureProduto";
-            this.pictureProduto.Size = new System.Drawing.Size(175, 161);
-            this.pictureProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureProduto.TabIndex = 18;
-            this.pictureProduto.TabStop = false;
-            this.pictureProduto.Click += new System.EventHandler(this.pictureProduto_Click);
-            // 
             // imgProd
             // 
             this.imgProd.AutoSize = true;
             this.imgProd.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.imgProd.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.imgProd.Location = new System.Drawing.Point(549, 301);
+            this.imgProd.Location = new System.Drawing.Point(628, 304);
             this.imgProd.Name = "imgProd";
             this.imgProd.Size = new System.Drawing.Size(114, 15);
             this.imgProd.TabIndex = 19;
@@ -234,23 +226,13 @@
             this.Checkbox_prodInativo.AutoSize = true;
             this.Checkbox_prodInativo.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Checkbox_prodInativo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.Checkbox_prodInativo.Location = new System.Drawing.Point(353, 334);
+            this.Checkbox_prodInativo.Location = new System.Drawing.Point(338, 334);
             this.Checkbox_prodInativo.Name = "Checkbox_prodInativo";
-            this.Checkbox_prodInativo.Size = new System.Drawing.Size(108, 19);
+            this.Checkbox_prodInativo.Size = new System.Drawing.Size(98, 19);
             this.Checkbox_prodInativo.TabIndex = 10;
-            this.Checkbox_prodInativo.Text = "Produto Inativo";
+            this.Checkbox_prodInativo.Text = "Produto ativo";
             this.Checkbox_prodInativo.UseVisualStyleBackColor = true;
             this.Checkbox_prodInativo.CheckedChanged += new System.EventHandler(this.Checkbox_prodInativo_CheckedChanged);
-            // 
-            // bt_categoria
-            // 
-            this.bt_categoria.Image = ((System.Drawing.Image)(resources.GetObject("bt_categoria.Image")));
-            this.bt_categoria.Location = new System.Drawing.Point(507, 301);
-            this.bt_categoria.Name = "bt_categoria";
-            this.bt_categoria.Size = new System.Drawing.Size(36, 21);
-            this.bt_categoria.TabIndex = 21;
-            this.bt_categoria.TabStop = false;
-            this.bt_categoria.Click += new System.EventHandler(this.bt_categoria_Click);
             // 
             // bt_Pesquisar
             // 
@@ -272,7 +254,7 @@
             this.bt_Salvar.FlatAppearance.BorderSize = 2;
             this.bt_Salvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Salvar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Salvar.Location = new System.Drawing.Point(514, 507);
+            this.bt_Salvar.Location = new System.Drawing.Point(514, 566);
             this.bt_Salvar.Name = "bt_Salvar";
             this.bt_Salvar.Size = new System.Drawing.Size(91, 35);
             this.bt_Salvar.TabIndex = 20;
@@ -286,7 +268,7 @@
             this.bt_excluir.FlatAppearance.BorderSize = 2;
             this.bt_excluir.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_excluir.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_excluir.Location = new System.Drawing.Point(613, 507);
+            this.bt_excluir.Location = new System.Drawing.Point(613, 566);
             this.bt_excluir.Name = "bt_excluir";
             this.bt_excluir.Size = new System.Drawing.Size(91, 35);
             this.bt_excluir.TabIndex = 21;
@@ -300,7 +282,7 @@
             this.bt_sair.FlatAppearance.BorderSize = 2;
             this.bt_sair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_sair.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_sair.Location = new System.Drawing.Point(712, 507);
+            this.bt_sair.Location = new System.Drawing.Point(712, 566);
             this.bt_sair.Name = "bt_sair";
             this.bt_sair.Size = new System.Drawing.Size(91, 35);
             this.bt_sair.TabIndex = 22;
@@ -335,22 +317,22 @@
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProdutos.Location = new System.Drawing.Point(12, 45);
             this.dgProdutos.Name = "dgProdutos";
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.NullValue = "NULO";
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.NullValue = "NULO";
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgProdutos.RowHeadersVisible = false;
             this.dgProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProdutos.Size = new System.Drawing.Size(791, 229);
             this.dgProdutos.TabIndex = 23;
@@ -377,11 +359,11 @@
             this.btnCarregarFoto.FlatAppearance.BorderSize = 2;
             this.btnCarregarFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCarregarFoto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCarregarFoto.Location = new System.Drawing.Point(733, 451);
+            this.btnCarregarFoto.Location = new System.Drawing.Point(552, 495);
             this.btnCarregarFoto.Name = "btnCarregarFoto";
-            this.btnCarregarFoto.Size = new System.Drawing.Size(73, 35);
+            this.btnCarregarFoto.Size = new System.Drawing.Size(125, 35);
             this.btnCarregarFoto.TabIndex = 25;
-            this.btnCarregarFoto.Text = "Foto";
+            this.btnCarregarFoto.Text = "Carregar Foto";
             this.btnCarregarFoto.UseVisualStyleBackColor = false;
             this.btnCarregarFoto.Click += new System.EventHandler(this.btnCarregarFoto_Click_1);
             // 
@@ -391,7 +373,7 @@
             this.bt_Novo.FlatAppearance.BorderSize = 2;
             this.bt_Novo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Novo.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Novo.Location = new System.Drawing.Point(286, 507);
+            this.bt_Novo.Location = new System.Drawing.Point(12, 566);
             this.bt_Novo.Name = "bt_Novo";
             this.bt_Novo.Size = new System.Drawing.Size(91, 35);
             this.bt_Novo.TabIndex = 26;
@@ -399,13 +381,64 @@
             this.bt_Novo.UseVisualStyleBackColor = false;
             this.bt_Novo.Click += new System.EventHandler(this.bt_Novo_Click);
             // 
+            // btn_removerFoto
+            // 
+            this.btn_removerFoto.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_removerFoto.FlatAppearance.BorderSize = 2;
+            this.btn_removerFoto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_removerFoto.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_removerFoto.Location = new System.Drawing.Point(694, 495);
+            this.btn_removerFoto.Name = "btn_removerFoto";
+            this.btn_removerFoto.Size = new System.Drawing.Size(105, 35);
+            this.btn_removerFoto.TabIndex = 27;
+            this.btn_removerFoto.Text = "Remover";
+            this.btn_removerFoto.UseVisualStyleBackColor = false;
+            this.btn_removerFoto.Click += new System.EventHandler(this.btn_removerFoto_Click);
+            // 
+            // bt_categoria
+            // 
+            this.bt_categoria.Image = ((System.Drawing.Image)(resources.GetObject("bt_categoria.Image")));
+            this.bt_categoria.Location = new System.Drawing.Point(492, 301);
+            this.bt_categoria.Name = "bt_categoria";
+            this.bt_categoria.Size = new System.Drawing.Size(36, 21);
+            this.bt_categoria.TabIndex = 21;
+            this.bt_categoria.TabStop = false;
+            this.bt_categoria.Click += new System.EventHandler(this.bt_categoria_Click);
+            // 
+            // pictureProduto
+            // 
+            this.pictureProduto.BackColor = System.Drawing.SystemColors.ButtonFace;
+            this.pictureProduto.Location = new System.Drawing.Point(552, 325);
+            this.pictureProduto.Name = "pictureProduto";
+            this.pictureProduto.Size = new System.Drawing.Size(247, 164);
+            this.pictureProduto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureProduto.TabIndex = 18;
+            this.pictureProduto.TabStop = false;
+            this.pictureProduto.Click += new System.EventHandler(this.pictureProduto_Click);
+            // 
+            // btn_Estoque
+            // 
+            this.btn_Estoque.BackColor = System.Drawing.Color.DodgerBlue;
+            this.btn_Estoque.FlatAppearance.BorderSize = 2;
+            this.btn_Estoque.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btn_Estoque.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_Estoque.Location = new System.Drawing.Point(338, 371);
+            this.btn_Estoque.Name = "btn_Estoque";
+            this.btn_Estoque.Size = new System.Drawing.Size(190, 31);
+            this.btn_Estoque.TabIndex = 28;
+            this.btn_Estoque.Text = "Movimentação";
+            this.btn_Estoque.UseVisualStyleBackColor = false;
+            this.btn_Estoque.Click += new System.EventHandler(this.btn_Estoque_Click);
+            // 
             // Produtos
             // 
             this.AcceptButton = this.bt_Salvar;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.ClientSize = new System.Drawing.Size(813, 554);
+            this.ClientSize = new System.Drawing.Size(811, 613);
+            this.Controls.Add(this.btn_Estoque);
+            this.Controls.Add(this.btn_removerFoto);
             this.Controls.Add(this.bt_Novo);
             this.Controls.Add(this.btnCarregarFoto);
             this.Controls.Add(this.btnAvancada);
@@ -440,9 +473,9 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Produtos";
             this.Load += new System.EventHandler(this.Produtos_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgProdutos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bt_categoria)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureProduto)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -478,5 +511,7 @@
         private System.Windows.Forms.Button btnAvancada;
         private System.Windows.Forms.Button btnCarregarFoto;
         private System.Windows.Forms.Button bt_Novo;
+        private System.Windows.Forms.Button btn_removerFoto;
+        private System.Windows.Forms.Button btn_Estoque;
     }
 }

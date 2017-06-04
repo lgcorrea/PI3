@@ -138,9 +138,5 @@ namespace PI3
             label_usuario_logado.Text = infoUser.nomeUsuario; 
         }
 
-        private void label_usuario_logado_Click_1(object sender, EventArgs e)
-        {
-
-        }
     }
 }

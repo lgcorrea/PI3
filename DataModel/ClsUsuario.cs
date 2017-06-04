@@ -169,7 +169,7 @@ namespace DataModel
             cmd.CommandText = sql;
             Boolean ExisteUsuario = Convert.ToBoolean(cmd.ExecuteScalar());
 
-            if (!ExisteUsuario)
+            if (!ExisteUsuario || idUsuario !=0)
             {
 
                 if (idUsuario == 0)
@@ -181,7 +181,7 @@ namespace DataModel
                             SELECT ID FROM @ID_INSERIDO";
                     
                     cmd.Parameters.Add("@senhaUsuario", SqlDbType.VarChar, 50).Value = this.senhaUsuario;                    
-                    cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 60).Value = this.tipoPerfil;
+                    cmd.Parameters.Add("@tipoPerfil", SqlDbType.VarChar, 1).Value = this.tipoPerfil;
                     cmd.Parameters.Add("@usuarioAtivo", SqlDbType.Bit).Value = this.usuarioAtivo;
 
                     cmd.CommandText = sql;
