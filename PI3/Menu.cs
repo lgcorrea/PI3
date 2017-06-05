@@ -31,7 +31,7 @@ namespace PI3
             
         }
 
-        // Form Tela Login
+        // Form Tela Menu
         private void Form2_Load(object sender, EventArgs e)
         {
 
@@ -126,6 +126,7 @@ namespace PI3
         private void bt_sair_Click(object sender, EventArgs e)
         {
             Close();
+            Application.Exit();
         }
 
         private void label1_Click(object sender, EventArgs e)

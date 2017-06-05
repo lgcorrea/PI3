@@ -172,7 +172,6 @@ namespace PI3
 
             //POPULA VARIAVEL COM ID DO REGISTRO SELECIONADO NO GRID
             idUsuario = Convert.ToInt32(dgUsuarios.CurrentRow.Cells[0].Value);
-            MessageBox.Show(idUsuario.ToString());
 
         }
 
