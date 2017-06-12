@@ -31,8 +31,8 @@ namespace PI3
         //forma Produtos
         private void Produtos_Load(object sender, EventArgs e)
         {
-            
 
+            atualizaCmbCategoria();
             ListaGridProdutos();
             idProduto = 0;
             if(idProduto == 0)
@@ -124,7 +124,18 @@ namespace PI3
 
         private void bt_excluir_Click(object sender, EventArgs e)
         {
+            ClsProduto ExcluiItem = new ClsProduto();
+            if(idProduto == 0)
+            {
+                MessageBox.Show("Selecione um produto para excluir");
 
+            }
+            else
+            {
+
+                ExcluiItem.Excluir(idProduto);
+                ListaGridProdutos();
+            }
         }
 
         private void bt_sair_Click(object sender, EventArgs e)

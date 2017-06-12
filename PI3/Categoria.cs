@@ -85,5 +85,13 @@ namespace PI3
         {
             Close();
         }
+
+        private void bt_excluir_Click(object sender, EventArgs e)
+        {
+            ClsCategoria ExcluiCategoria = new ClsCategoria();
+
+            ExcluiCategoria.Excluir(idCategoria);
+            ListaGridCategoria();
+        }
     }
 }

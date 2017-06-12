@@ -28,8 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Produtos));
             this.label_Nome_produto = new System.Windows.Forms.Label();
             this.label_descricao = new System.Windows.Forms.Label();
@@ -54,7 +54,6 @@
             this.lbProduto = new System.Windows.Forms.Label();
             this.txtPesquisaProd = new System.Windows.Forms.TextBox();
             this.dgProdutos = new System.Windows.Forms.DataGridView();
-            this.btnAvancada = new System.Windows.Forms.Button();
             this.btnCarregarFoto = new System.Windows.Forms.Button();
             this.bt_Novo = new System.Windows.Forms.Button();
             this.btn_removerFoto = new System.Windows.Forms.Button();
@@ -230,7 +229,7 @@
             this.bt_Pesquisar.FlatAppearance.BorderSize = 2;
             this.bt_Pesquisar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.bt_Pesquisar.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bt_Pesquisar.Location = new System.Drawing.Point(534, 7);
+            this.bt_Pesquisar.Location = new System.Drawing.Point(712, 7);
             this.bt_Pesquisar.Name = "bt_Pesquisar";
             this.bt_Pesquisar.Size = new System.Drawing.Size(91, 35);
             this.bt_Pesquisar.TabIndex = 2;
@@ -307,41 +306,27 @@
             this.dgProdutos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgProdutos.Location = new System.Drawing.Point(12, 45);
             this.dgProdutos.Name = "dgProdutos";
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle5.NullValue = "NULO";
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.NullValue = "NULO";
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.ControlLightLight;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgProdutos.RowHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgProdutos.RowHeadersVisible = false;
             this.dgProdutos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DodgerBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
-            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Black;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DodgerBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            this.dgProdutos.RowsDefaultCellStyle = dataGridViewCellStyle2;
             this.dgProdutos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgProdutos.Size = new System.Drawing.Size(791, 229);
             this.dgProdutos.TabIndex = 23;
             this.dgProdutos.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
             this.dgProdutos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgProdutos_CellContentClick);
-            // 
-            // btnAvancada
-            // 
-            this.btnAvancada.BackColor = System.Drawing.Color.DodgerBlue;
-            this.btnAvancada.FlatAppearance.BorderSize = 2;
-            this.btnAvancada.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAvancada.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAvancada.Location = new System.Drawing.Point(631, 7);
-            this.btnAvancada.Name = "btnAvancada";
-            this.btnAvancada.Size = new System.Drawing.Size(172, 35);
-            this.btnAvancada.TabIndex = 24;
-            this.btnAvancada.Text = "Pesquisa Avançada";
-            this.btnAvancada.UseVisualStyleBackColor = false;
-            this.btnAvancada.Click += new System.EventHandler(this.btnAvancada_Click);
             // 
             // btnCarregarFoto
             // 
@@ -430,7 +415,6 @@
             this.Controls.Add(this.btn_removerFoto);
             this.Controls.Add(this.bt_Novo);
             this.Controls.Add(this.btnCarregarFoto);
-            this.Controls.Add(this.btnAvancada);
             this.Controls.Add(this.dgProdutos);
             this.Controls.Add(this.txtPesquisaProd);
             this.Controls.Add(this.lbProduto);
@@ -497,7 +481,6 @@
         private System.Windows.Forms.Label lbProduto;
         private System.Windows.Forms.TextBox txtPesquisaProd;
         private System.Windows.Forms.DataGridView dgProdutos;
-        private System.Windows.Forms.Button btnAvancada;
         private System.Windows.Forms.Button btnCarregarFoto;
         private System.Windows.Forms.Button bt_Novo;
         private System.Windows.Forms.Button btn_removerFoto;

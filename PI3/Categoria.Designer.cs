@@ -106,6 +106,7 @@
             this.bt_excluir.TabIndex = 22;
             this.bt_excluir.Text = "Excluir";
             this.bt_excluir.UseVisualStyleBackColor = false;
+            this.bt_excluir.Click += new System.EventHandler(this.bt_excluir_Click);
             // 
             // btn_Sair
             // 

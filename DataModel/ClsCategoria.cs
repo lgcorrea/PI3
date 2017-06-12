@@ -96,25 +96,59 @@ namespace DataModel
                         SET nomeCategoria = @nomeCategoria,                            
                             descCategoria = @descCategoria                           
                         WHERE idCategoria = " + idCategoria;
-                        
-                        cmd.Parameters.Add("@descCategoria", SqlDbType.VarChar,200).Value = this.descCategoria;
 
-                        cmd.CommandText = sql;
+                    cmd.Parameters.Add("@descCategoria", SqlDbType.VarChar, 200).Value = this.descCategoria;
 
-                        cmd.ExecuteNonQuery();
-                        MessageBox.Show("Categoria Alterada");
-                    }
-                    
+                    cmd.CommandText = sql;
+
+                    cmd.ExecuteNonQuery();
+                    MessageBox.Show("Categoria Alterada");
                 }
-            else {
+
+            }
+            else
+            {
 
                 MessageBox.Show("Nome de categoria já existente");
 
             }
-            
-            }
 
         }
 
+
+        public void Excluir(int idCategoria)
+        {
+            ClsConexao ConectaBD = new ClsConexao();
+            SqlConnection cn = ConectaBD.Conectar();
+
+            string sql = "";
+            SqlCommand cmd = new SqlCommand(sql, cn);
+
+
+
+            try
+            {
+                sql = @"DELETE FROM CATEGORIA
+                        WHERE idCategoria = @idCategoria";
+                cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = idCategoria;
+                cmd.CommandText = sql;
+
+                cmd.ExecuteNonQuery();
+                MessageBox.Show("Categoria excluída com sucesso.");
+            }
+
+          catch(SqlException ex)
+           {
+
+                MessageBox.Show(" Categoria já atribuída a produto.Operação inválida");
+
+           }
+
+
+        }
+
+
+
     }
 
+}

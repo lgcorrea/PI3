@@ -51,7 +51,12 @@ namespace DataModel
                         FROM PRODUTO A
                         INNER JOIN CATEGORIA B ON A.IDCATEGORIA = B.IDCATEGORIA 
                         INNER JOIN ESTOQUE C ON C.IDPRODUTO = A.IDPRODUTO
-                        WHERE nomeProduto LIKE @nomeProduto";
+                        WHERE nomeProduto LIKE @nomeProduto
+                        OR precProduto LIKE @nomeProduto
+                        or qtdProdutoDisponivel like @nomeProduto
+                        or qtdMinEstoque like  @nomeProduto
+                        or nomeCategoria like @nomeProduto
+                        OR descontoPromocao LIKE @nomeProduto";
 
                 SqlCommand cmd = new SqlCommand(sql, cn);
                 cmd.Parameters.AddWithValue("@nomeProduto", "%" + nomeProduto + "%");
@@ -136,43 +141,52 @@ namespace DataModel
 
             cmd.CommandText = sql;
             Boolean ExisteProduto = Convert.ToBoolean(cmd.ExecuteScalar());
-
-            if (!ExisteProduto || idProduto !=0)
+            try
             {
-                if (idProduto == 0)
+
+                if (!ExisteProduto || idProduto != 0)
                 {
-                    sql = @"DECLARE @ID_INSERIDO TABLE (ID INT)
+                    if (idProduto == 0)
+                    {
+                        sql = @"DECLARE @ID_INSERIDO TABLE (ID INT)
                             INSERT INTO PRODUTO (nomeProduto,descProduto,precProduto,descontoPromocao,qtdMinEstoque,ativoProduto,idCategoria,imagem,idUsuario)
                             OUTPUT inserted.idProduto into @ID_INSERIDO
                             VALUES(@nomeProduto,@descProduto,@precProduto,@descontoPromocao,@qtdMinEstoque,@ativoProduto,@idCategoria,@imagem,@idUsuario)
                             SELECT ID FROM @ID_INSERIDO";
 
-                    cmd.Parameters.Add("@descProduto", SqlDbType.VarChar, 60).Value = this.descProduto;
-                    cmd.Parameters.Add("@precProduto", SqlDbType.Money).Value = this.precProduto;
-                    cmd.Parameters.Add("@descontoPromocao", SqlDbType.Money).Value = this.descontoPromocao;
-                    cmd.Parameters.Add("@qtdMinEstoque", SqlDbType.Int).Value = this.qtdMinEstoque;
-                    cmd.Parameters.Add("@ativoProduto", SqlDbType.Bit).Value = this.ativoProduto;
-                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = this.idCategoria;
-                    cmd.Parameters.Add("@idUsuario", SqlDbType.Int).Value = this.idUsuario;
-                    if (imagem == null)
-                    {
-                        imagem = new byte[0];
-                        cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
+                        cmd.Parameters.Add("@descProduto", SqlDbType.VarChar, 60).Value = this.descProduto;
+                        cmd.Parameters.Add("@precProduto", SqlDbType.Money).Value = this.precProduto;
+                        cmd.Parameters.Add("@descontoPromocao", SqlDbType.Money).Value = this.descontoPromocao;
+                        cmd.Parameters.Add("@qtdMinEstoque", SqlDbType.Int).Value = this.qtdMinEstoque;
+                        cmd.Parameters.Add("@ativoProduto", SqlDbType.Bit).Value = this.ativoProduto;
+                        cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = this.idCategoria;
+                        cmd.Parameters.Add("@idUsuario", SqlDbType.Int).Value = this.idUsuario;
+                        try
+                        {
+                            if (imagem == null)
+                            {
+                                imagem = new byte[0];
+                                cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
+                            }
+                            else
+                            {
+                                cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
+                            }
+                            cmd.CommandText = sql;
+
+                            idProduto = Convert.ToInt32(cmd.ExecuteScalar());
+
+                            MessageBox.Show("Produto Cadastrado");
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("Imagem de tamanho inválido. Máximo 300kb");
+
+                        }
                     }
                     else
                     {
-                        cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
-                    }
-                    cmd.CommandText = sql;
-
-                    idProduto = Convert.ToInt32(cmd.ExecuteScalar());
-
-                    MessageBox.Show("Produto Cadastrado");
-
-                }
-                else
-                {
-                    sql = @"UPDATE PRODUTO
+                        sql = @"UPDATE PRODUTO
                         SET nomeProduto = @nomeProduto,                            
                             descProduto = @descProduto,
                             precProduto = @precProduto,
@@ -184,36 +198,81 @@ namespace DataModel
                             imagem = @imagem                      
                         WHERE idProduto = " + idProduto;
 
-                    cmd.Parameters.Add("@descProduto", SqlDbType.VarChar, 60).Value = this.descProduto;
-                    cmd.Parameters.Add("@precProduto", SqlDbType.Money).Value = this.precProduto;
-                    cmd.Parameters.Add("@descontoPromocao", SqlDbType.Money).Value = this.descontoPromocao;
-                    cmd.Parameters.Add("@qtdMinEstoque", SqlDbType.Int).Value = this.qtdMinEstoque;
-                    cmd.Parameters.Add("@ativoProduto", SqlDbType.Bit).Value = this.ativoProduto;
-                    cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = this.idCategoria;
-                    cmd.Parameters.Add("@idUsuario", SqlDbType.Int).Value = this.idUsuario;
-                    if (imagem == null)
-                    {
-                        imagem = new byte[0];
-                        cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
-                    }
-                    else
-                    {
-                        cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
+                        cmd.Parameters.Add("@descProduto", SqlDbType.VarChar, 60).Value = this.descProduto;
+                        cmd.Parameters.Add("@precProduto", SqlDbType.Money).Value = this.precProduto;
+                        cmd.Parameters.Add("@descontoPromocao", SqlDbType.Money).Value = this.descontoPromocao;
+                        cmd.Parameters.Add("@qtdMinEstoque", SqlDbType.Int).Value = this.qtdMinEstoque;
+                        cmd.Parameters.Add("@ativoProduto", SqlDbType.Bit).Value = this.ativoProduto;
+                        cmd.Parameters.Add("@idCategoria", SqlDbType.Int).Value = this.idCategoria;
+                        cmd.Parameters.Add("@idUsuario", SqlDbType.Int).Value = this.idUsuario;
+                        try
+                        {
+                            if (imagem == null)
+                            {
+                                imagem = new byte[0];
+                                cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
+                            }
+                            else
+                            {
+                                cmd.Parameters.Add("@imagem", SqlDbType.Image, imagem.Length).Value = this.imagem;
+
+                            }
+
+                            cmd.CommandText = sql;
+
+                            cmd.ExecuteNonQuery();
+                            MessageBox.Show("Produto Alterado");
+                        }
+                        catch (SqlException ex)
+                        {
+                            MessageBox.Show("Imagem de tamanho inválido. Máximo 300kb");
+
+                        }
                     }
 
-                    cmd.CommandText = sql;
 
-                    cmd.ExecuteNonQuery();
-                    MessageBox.Show("Produto Alterado");
                 }
-                                        
-             }
-            else
+                else
+                {
+                    MessageBox.Show("Produto já existe, cadastre outro nome");
+
+                }
+            }
+            catch
             {
-                MessageBox.Show("Produto já existe, cadastre outro nome");
+
+                MessageBox.Show("Erro salvar informações");
+            }
+
+        }
+        public void Excluir(int idProduto)
+        {
+            ClsConexao ConectaBD = new ClsConexao();
+            SqlConnection cn = ConectaBD.Conectar();
+
+            string sql = "";
+            SqlCommand cmd = new SqlCommand(sql, cn);
+
+            
+
+            try
+            {
+                sql = @"DELETE FROM PRODUTO
+                        WHERE IDPRODUTO = @idProduto";
+                cmd.Parameters.Add("@idProduto", SqlDbType.Int).Value = idProduto;
+            cmd.CommandText = sql;
+
+            cmd.ExecuteNonQuery();
 
             }
 
+            catch
+            {
+
+                MessageBox.Show("Erro ao excluir item");               
+
+          }
+            
         }
 
 
